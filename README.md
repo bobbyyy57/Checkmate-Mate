@@ -22,7 +22,7 @@
 ## Project Description
  > ## Phase I
  > Importance/Interesting:
- >   * All watching The Queen’s Gambit, out of the list of ideas in the project description, the Chess Game easily caught all of our attention. How complex and yet-so simple chess is, the possibilities of what we can do as a team drove us to choose this project. Even though each of us have had experience playing chess, the game itself and the world that possess it is so foreign. As a team, we saw an opportunity to dive deep into chess and understand its complexities all while applying technical skills we have obtained in class. 
+ >   * All watching The Queen’s Gambit, out of the list of ideas in the project description, the Chess Game easily caught all of our attention. How complex and yet-so simple chess is, the possibilities of what we can do as a team drove us to choose this project. Even though each of us have had experience playing chess, the game itself and the world that possess it is so foreign. As a team, we saw an opportunity to dive deep into chess and understand its complexities all while applying technical skills we have obtained in class. /n
  >   Languages/Tools:
  >   * C++ 
  >   * VSCode: source-code editor made by Microsoft for Linux, Windows, and macOS.
