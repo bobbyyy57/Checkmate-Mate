@@ -21,22 +21,22 @@
 
 ## Project Description
  > ## Phase I
- > Importance/Interesting:
+ > **Importance/Interesting**:
  >   * All watching The Queen’s Gambit, out of the list of ideas in the project description, the Chess Game easily caught all of our attention. How complex and yet-so simple chess is, the possibilities of what we can do as a team drove us to choose this project. Even though each of us have had experience playing chess, the game itself and the world that possess it is so foreign. As a team, we saw an opportunity to dive deep into chess and understand its complexities all while applying technical skills we have obtained in class. 
 
- > Languages/Tools:
+ > **Languages/Tool**s:
  >   * C++ 
- >   * VSCode: source-code editor made by Microsoft for Linux, Windows, and macOS.
- >   * Repl.It: online IDE that stands for “read--evaluate--print loop”.
+ >   * *VSCode*: source-code editor made by Microsoft for Linux, Windows, and macOS.
+ >   * *Repl.It*: online IDE that stands for “read--evaluate--print loop”.
  
- > Input/Output:
- >   * C++ 
- >   * Input: user’s moves on the chessboard or the computer’s input (depending if the user may want to play against the computer).
- >   * Output: the pieces moving from one spot (node) to another by either a user of the computer.
+ > **Input/Output**:
+ >   * *C++* 
+ >   * *Input*: user’s moves on the chessboard or the computer’s input (depending if the user may want to play against the computer).
+ >   * *Output*: the pieces moving from one spot (node) to another by either a user of the computer.
  
- > Design Patterns:
- >   * Decorator design pattern: This design pattern is used for implementing additional functionality to a particular object as opposed to to a class of subjects. This makes it easier to add individual functionality to an object without affecting the behavior of other objects from the same class. Meaning that we can add functionality to how our individual chess pieces without messing the established logic and behaviour for each chess piece.  Ex. first focusing on a pawns mobility and then about it eating other chess pieces. Thus making the process of chucking functions and class much easier.
- >   * Composite design pattern: This design pattern is a partitioning design pattern that describes a group of objects which are treated the same way as a single instance of the same type of object. It’s meant to compose objects into tree structures to represent part-whole hierarchies. This design pattern would allow us to separate our chess pieces in an orderly way. For example, pawns of each team are of the same object and are all controlled in the same way. Our program in particular could have the pawns represent one object in the tree structure that would also include objects of each chess piece. This pattern would allow us a structured and easier to manage organization of the many chess pieces our program contains.
+ > **Design Patterns**:
+ >   * *Decorator design pattern*: This design pattern is used for implementing additional functionality to a particular object as opposed to to a class of subjects. This makes it easier to add individual functionality to an object without affecting the behavior of other objects from the same class. Meaning that we can add functionality to how our individual chess pieces without messing the established logic and behaviour for each chess piece.  Ex. first focusing on a pawns mobility and then about it eating other chess pieces. Thus making the process of chucking functions and class much easier.
+ >   * *Composite design pattern*: This design pattern is a partitioning design pattern that describes a group of objects which are treated the same way as a single instance of the same type of object. It’s meant to compose objects into tree structures to represent part-whole hierarchies. This design pattern would allow us to separate our chess pieces in an orderly way. For example, pawns of each team are of the same object and are all controlled in the same way. Our program in particular could have the pawns represent one object in the tree structure that would also include objects of each chess piece. This pattern would allow us a structured and easier to manage organization of the many chess pieces our program contains.
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
  > * Set up your GitHub project board as a Kanban board for the project. It should have columns that map roughly to 
