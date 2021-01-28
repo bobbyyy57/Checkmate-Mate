@@ -30,7 +30,6 @@
  >   * *Repl.It*: online IDE that stands for “read--evaluate--print loop”.
  
  > **Input/Output**:
- >   * *C++* 
  >   * *Input*: user’s moves on the chessboard or the computer’s input (depending if the user may want to play against the computer).
  >   * *Output*: the pieces moving from one spot (node) to another by either a user of the computer.
  
