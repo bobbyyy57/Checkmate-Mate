@@ -1,7 +1,7 @@
  > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# Checkmate, Bitch!
+# 01000011 01101000 01100101 01100011 01101011 01101101 01100001 01110100 01100101 00100000 01100010 01101001 01110100 01100011 01101000
  > Your author list below should include links to all members GitHub (remove existing author).
  
  > Authors: [Ashley Bautista](https://github.com/ashley-bautista),
@@ -22,7 +22,7 @@
 ## Project Description
  > ## Phase I
  > **Importance/Interesting**:
- >   * All watching The Queen’s Gambit, out of the list of ideas in the project description, the Chess Game easily caught all of our attention. How complex and yet-so simple chess is, the possibilities of what we can do as a team drove us to choose this project. Even though each of us have had experience playing chess, the game itself and the world that possess it is so foreign. As a team, we saw an opportunity to dive deep into chess and understand its complexities all while applying technical skills we have obtained in class. 
+ >   * All watching The Queen’s Gambit, out of the list of ideas in the project description, the Chess Game easily caught all of our attention. How complex and yet-so simple chess is, the possibilities of what we can do as a team drove us to choose this project. Even though each of us have had experience playing chess, the game itself and the world that possess it is so foreign. We saw an opportunity to dive deep into chess and understand its complexities all while applying technical skills we have obtained in class. 
 
  > **Languages/Tool**s:
  >   * *C++*
@@ -30,8 +30,18 @@
  >   * *Repl.It*: online IDE that stands for “read--evaluate--print loop”.
  
  > **Input/Output**:
- >   * *Input*: user’s moves on the chessboard or the computer’s input (depending if the user may want to play against the computer).
- >   * *Output*: the pieces moving from one spot (node) to another by either a user of the computer.
+ >   * *Input*:
+ >     * the amount of players (1 or 2) which decides if the player will be playing against a computer or not
+ >     * user's moves
+ >     * 'q' = 'quit'
+ >     * 'r' = 'redo'
+ >     * 's' = 'save'
+ >   * *Output*:
+ >     * depending on amount of players, game will start with either two-players or against computer 
+ >     * the pieces moving from one spot (node) to another by either a user of the computer.
+ >     * quit's the game
+ >     * redos player's move
+ >     * save's game and will allow player(s) to return to game
  
  > **Design Patterns**:
  >   * *Decorator Design Pattern*: This design pattern is used for implementing additional functionality to a particular object as opposed to to a class of subjects. This makes it easier to add individual functionality to an object without affecting the behavior of other objects from the same class. Meaning that we can add functionality to how our individual chess pieces without messing the established logic and behaviour for each chess piece.  Ex. first focusing on a pawns mobility and then about it eating other chess pieces. Thus making the process of chucking functions and class much easier.
