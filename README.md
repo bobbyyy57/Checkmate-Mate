@@ -31,7 +31,7 @@
  
  > **Input/Output**:
  >   * *Input*:
- >     * the amount of players (1 or 2) which decides if the player will be playing against a computer or not
+ >     * the amount of players (one or two) which decides if the player will be playing against a computer or not
  >     * user's moves
  >     * 'q' = 'quit'
  >     * 'r' = 'redo'
@@ -39,9 +39,9 @@
  >   * *Output*:
  >     * depending on amount of players, game will start with either two-players or against computer 
  >     * the pieces moving from one spot (node) to another by either a user of the computer.
- >     * quit's the game
+ >     * quits the game
  >     * redos player's move
- >     * save's game and will allow player(s) to return to game
+ >     * saves game and will allow player(s) to return to game
  
  > **Design Patterns**:
  >   * *Decorator Design Pattern*: This design pattern is used for implementing additional functionality to a particular object as opposed to to a class of subjects. This makes it easier to add individual functionality to an object without affecting the behavior of other objects from the same class. Meaning that we can add functionality to how our individual chess pieces without messing the established logic and behaviour for each chess piece.  Ex. first focusing on a pawns mobility and then about it eating other chess pieces. Thus making the process of chucking functions and class much easier.
