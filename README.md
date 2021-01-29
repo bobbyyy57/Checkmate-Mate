@@ -1,7 +1,7 @@
  > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# 01000011 01101000 01100101 01100011 01101011 01101101 01100001 01110100 01100101 00100000 01100010 01101001 01110100 01100011 01101000
+# Checkmate, Mate!
  > Your author list below should include links to all members GitHub (remove existing author).
  
  > Authors: [Ashley Bautista](https://github.com/ashley-bautista),
