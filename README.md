@@ -32,9 +32,9 @@
  > **Design Patterns**:
  >   * *Command Design Pattern*: This design pattern is one where an object is used to contain the information needed to perform an action at a later time. We found this pattern to be useful to apply to the menu for our chess application. We will be encapsulating the information needed in a class representing the sender, which will be responsible for displaying the options on our menu such as save, load, and start a new game. Each of these options will have their own class, derived from a command class that contains their own special variables and functions specific to their command. These classes will then call functions in the receiver class which’ll perform the actual operations needed behind the scenes.
  >   * *Strategy Design Pattern*: This design pattern is a useful pattern in which we can change class behavior or algorithm at run time. In this pattern, we are meant to create an object whose behavior is dependent on the strategy it is applied to. There are several different objects representing these strategies. In our project in particular, we have six different strategies, each representing the different types of pieces on the chessboard. This design allows us to organize our pieces according to the type and color, which dictates how and where each piece moves on the board. 
- 
- > ## Phase II
+
 ## Class Diagram
+ > ## Phase II
 > *Command Design Pattern*: The functionality of the command design pattern allows us to turn requests into a stand-alone object that contains all information about the request. This allows to parameterize methods with different requests without having the GUI code to become overly dependent on the menu's logic.
 ![](images/OMT%20Command%20Pattern.jpg)
 > *Strategy Design Pattern*: The functionality of the strategy design pattern shines by allowing us to define a family of algorithms, putting each of them into a separate class while make their objects interchangeable at run time. This is very beneficial as we are able to use pure virtual functions to define algorithms but we allow each indivdual chess piece implement their algorithm. 
