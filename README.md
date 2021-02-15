@@ -34,17 +34,8 @@
  >   * *Strategy Design Pattern*: This design pattern is a useful pattern in which we can change class behavior or algorithm at run time. In this pattern, we are meant to create an object whose behavior is dependent on the strategy it is applied to. There are several different objects representing these strategies. In our project in particular, we have six different strategies, each representing the different types of pieces on the chessboard. This design allows us to organize our pieces according to the type and color, which dictates how and where each piece moves on the board. 
  
  > ## Phase II
- > In addition to completing the "Class Diagram" section below, you will need to 
- > * Set up your GitHub project board as a Kanban board for the project. It should have columns that map roughly to 
- >   * Backlog, TODO, In progress, In testing, Done
- >   * You can change these or add more if you'd like, but we should be able to identify at least these.
- > * There is no requirement for automation in the project board but feel free to explore those options.
- > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
- > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
- >   * Create smaller development tasks as issues and assign them to team members. Place these in the `Backlog` column.
- >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
-> Command Design Pattern: The functionality of the command design pattern allows us to turn requests into a stand-alone object that contains all information about the request. This allows to parameterize methods with different requests without having the GUI code to become overly dependent on the menu's logic.
+> *Command Design Pattern*: The functionality of the command design pattern allows us to turn requests into a stand-alone object that contains all information about the request. This allows to parameterize methods with different requests without having the GUI code to become overly dependent on the menu's logic.
 ![](images/OMT%20Command%20Pattern%20(1).jpg)
->Strategy Design Pattern:
+> *Strategy Design Pattern*: The functionality of the strategy design pattern allows us to create several objects that are dependent on the applied strategy. Dependent on the desired prompt type, the algorithm will select from six different strategies and  will select which algorithm to run.
 ![](images/OMT%20Strategy%20Pattern.jpg)
