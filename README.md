@@ -45,6 +45,6 @@
  >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
 > Command Design Pattern: The functionality of the command design pattern allows us to turn requests into a stand-alone object that contains all information about the request. This allows to parameterize methods with different requests without having the GUI code to become overly dependent on the menu's logic.
-![](images/OMT%20Command%20Pattern.jpg)
+
 >Strategy Design Pattern:
 ![](images/OMT%20Strategy%20Pattern.jpg)
