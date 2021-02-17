@@ -1,5 +1,4 @@
  # Checkmate, Mate!
- > Your author list below should include links to all members GitHub (remove existing author).
  
  > Authors: [Ashley Bautista](https://github.com/ashley-bautista),
  > [Rodrigo Lamas](https://github.com/lb-rodrigo),
