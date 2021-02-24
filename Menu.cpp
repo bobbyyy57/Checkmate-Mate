@@ -16,4 +16,28 @@ void printLogo(){
     cout << "                                   /__/  /__/  /__//__/  /__/    /__/   /_________/ /__/\n";
 
 }
-
+void surrender(){
+	//called from main when user chooses S or s
+	char choice;
+	cout << "Are you sure you would like to surrender? (Y)ES/(N)O: " << endl;
+	cin >> choice;
+	if(toupper(choice) == 'Y'){
+		cout << "You chose to surrender" << endl;
+		if(currentTurn == 1){
+			cout << "Player 2 wins!!" << endl;
+       		}
+       		else{cout << "Player 1 wins!!" << endl;}
+		printGameMenu();
+	}
+	else{
+		//printBoard(); (still need to implement)
+		printGameMenu();
+	}
+}
+    
+void move(){
+	//called from main when user chooses M or m
+	//movePiece(); (still need to implement)
+	//printBoard(); (still need to implement)
+	printGameMenu();
+}
