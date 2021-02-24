@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Board.cpp"
 
 using namespace std;
 
@@ -27,17 +28,24 @@ void surrender(){
 			cout << "Player 2 wins!!" << endl;
        		}
        		else{cout << "Player 1 wins!!" << endl;}
-		printGameMenu();
+		quit();
 	}
 	else{
-		//printBoard(); (still need to implement)
+		printBoard(); (still need to implement)
 		printGameMenu();
 	}
 }
     
 void move(){
 	//called from main when user chooses M or m
-	//movePiece(); (still need to implement)
+	string pos1;
+	string pos2;
+	cout << "Which piece would you like to move?: ";
+	cin >> pos1;
+	cout << "Where would you like to move it?: "
+	cin >> pos2;
+	
+	//movePiece(pos1, pos2, castling(), enpassant(), promotion()); (still need to implement)
 	//printBoard(); (still need to implement)
 	printGameMenu();
 }
