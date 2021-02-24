@@ -23,7 +23,7 @@ void surrender(){
 	cin >> choice;
 	if(toupper(choice) == 'Y'){
 		cout << "You chose to surrender" << endl;
-		if(currentTurn == 1){ //currentTurn is a variable in board 
+		if(currentTurn == 1){
 			cout << "Player 2 wins!!" << endl;
        		}
        		else{cout << "Player 1 wins!!" << endl;}
