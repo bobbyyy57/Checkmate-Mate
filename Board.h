@@ -1,3 +1,4 @@
+
 #ifndef BOARD_H
 #define BOARD_H
 
@@ -14,14 +15,16 @@ class Board {
 struct Position {
 
 	private: 
-		string row; 
-		string column;
-		string color;
 		Piece type;
+    char row;
+    int column;
+    string color;
 	public: 
-		string SetRow(string x) { row = x; }
+		char SetRow(string x) { row = x; }
 		Piece GetPiece() { return type; };
 		string GetColor() { return color; };
+    void SetColumn(int col){ column = col; } 
+    char GetRow(){return row;}
 
 	
 
