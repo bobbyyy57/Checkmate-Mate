@@ -1,5 +1,5 @@
-#ifndef BUTTON_HPP
-#define BUTTON_HPP
+#ifndef OPERATIONS_HPP
+#define OPERATIONS_HPP
 
 using namespace std;
 
@@ -9,7 +9,17 @@ class Operations {
         public:
 		
 	//Quit Operations
+	void quit(string status) {
+		  if (status == "beginning") {
+                           printMessage();
+                           exit;
+                  }
+                  else {
+                           beginningMenu();
+                 }
+	}
 	
+	//Play Operations
 	
 };
 
