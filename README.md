@@ -16,17 +16,17 @@
  
 **Input/Output**:
  * *Input*:
-  * the amount of players (one or two) which decides if the player will be playing against a computer or not
-  * user's moves
-  * 'q' = 'quit'
-  * 'r' = 'redo'
-  * 's' = 'save'
+   * the amount of players (one or two) which decides if the player will be playing against a computer or not
+   * user's moves
+   * 'q' = 'quit'
+   * 'r' = 'redo'
+   * 's' = 'save'
  * *Output*:
-  * depending on amount of players, game will start with either two-players or against computer 
-  * the pieces moving from one spot (node) to another by either a user of the computer.
-  * quits the game
-  * redos player's move
-  * saves game and will allow player(s) to return to game
+   * depending on amount of players, game will start with either two-players or against computer 
+   * the pieces moving from one spot (node) to another by either a user of the computer.
+   * quits the game
+   * redos player's move
+   * saves game and will allow player(s) to return to game
  
 **Design Patterns**:
  * *Command Design Pattern*: This design pattern is one where an object is used to contain the information needed to perform an action at a later time. We found this pattern to be useful to apply to the menu for our chess application. We will be encapsulating the information needed in a class representing the sender, which will be responsible for displaying the options on our menu such as save, load, and start a new game. Each of these options will have their own class, derived from a command class that contains their own special variables and functions specific to their command. These classes will then call functions in the receiver class which’ll perform the actual operations needed behind the scenes.
