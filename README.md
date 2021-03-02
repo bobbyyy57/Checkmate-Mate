@@ -1,8 +1,8 @@
  # Checkmate, Mate!
  
- > Authors: [Ashley Bautista](https://github.com/ashley-bautista),
- > [Rodrigo Lamas](https://github.com/lb-rodrigo),
- > [Bobby Lerias](https://github.com/bobbyyy57)
+  Authors: [Ashley Bautista](https://github.com/ashley-bautista),
+  [Rodrigo Lamas](https://github.com/lb-rodrigo),
+  [Bobby Lerias](https://github.com/bobbyyy57)
  
 ## Project Description
  > ## Phase I
