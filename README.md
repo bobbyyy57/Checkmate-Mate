@@ -35,6 +35,6 @@
 ## Class Diagram
   ## Phase II
  *Abstract Factory*: The functionality of the abstract factory pattern can be portrayed by its avility to encapsulate a group of individual factories that have a common theme without specifying their concrete classes. This allows us to explicitly declare interfaces for each distinct product of the button family without having them to speciffically be dependent on the buiness logic of the interface.
-![](images/OMT%20Command%20Pattern.jpg)
+![](images/OMT%20Abstract%20Factory.jpg)
  *Strategy Design Pattern*: The functionality of the strategy design pattern shines by allowing us to define a family of algorithms, putting each of them into a separate class while make their objects interchangeable at run time. This is very beneficial as we are able to use pure virtual functions to define algorithms but we allow each indivdual chess piece implement their algorithm. 
 ![](images/OMT%20Strategy%20Pattern.jpg)
