@@ -10,6 +10,9 @@ struct Positions{
         int column;
         string color;
     public:
+	char SetRow(string x) { row = x; }
+	Piece GetPiece() { return type; };
+	`string GetColor() { return color; };
         void SetColumn(int col){ column = col; } 
         char GetRow(){return row;}
 }
