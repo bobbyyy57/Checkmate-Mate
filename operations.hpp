@@ -1,4 +1,3 @@
-
 #ifndef OPERATIONS_HPP
 #define OPERATIONS_HPP
 
@@ -20,4 +19,5 @@ class Operations {
 	}
 	//Play Operations
 };
+
 #endif
