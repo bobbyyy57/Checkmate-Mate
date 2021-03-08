@@ -88,6 +88,71 @@ void beginningMenu() {
   	}*/
 }
 
+void printGreeting() {
+ 
+ 	cout << "      -----------------------------------------------------------------------------------------------------------------" << endl;	
+  	cout << "      |                                                                                                               |" << endl; 
+  	cout << "      |                                                  Hey! Hey! Hey!                                               |" << endl;
+  	cout << "      |            Welcome to Checkmate, Mate! A two-player game that calls upon the most clever to defend,           |" << endl;
+  	cout << "      |         attack, and strategize to secure a win. Brought to you by Ashley Bautista, Rodrigo Lamas, and         |" << endl;
+  	cout << "      |              Bobby Lerias. We thank you for playing, but we have one question for you. You ready?             |" << endl;
+  	cout << "      |                                                     GAME ON!                                                  |" << endl;
+  	cout << "      |                                                                                                               |" << endl;
+  	cout << "      -----------------------------------------------------------------------------------------------------------------" << endl;
+  	cout << "                                                                                            press 'ENTER' to proceed..." << endl;
+
+	cin.get();
+}
+
+void printBeginningMenu() {
+	cout << "                                                                                                                       "       << endl;
+	cout << "                                                -----------------------                      				"       << endl;
+	cout << "                                                      P - Play                              				" 	<< endl;
+	cout << "    '-.-'                                             L - Load Game                                            '-.-'"          << endl;
+	cout << "   __.'.__      ()                                    Q - Quit                                        ()      __.'.__"         << endl;
+	cout << "  |_______|  .-:--:-.                           -----------------------                            .-:--:-.  |_______|"        << endl;
+	cout << "   \\=====/    \\____/      ()                                                                ()      \\____/    \\=====/"     << endl;
+	cout << "    )___(     {====}      /\\                                                                /\\      {====}     )___("        << endl;
+	cout << "   /_____\\     )__(      //\\\\     (\\=,                                            (\\=,     //\\\\      )__(     /_____\\" << endl;
+	cout << "    |   |     /____\\    (    )   //  .\\   |'-'-'|    __          __    |'-'-'|  //  .\\    (    )    /____\\     |   |"      << endl;
+	cout << "    |   |      |  |      )__(   (( \\_  \\  |_____|   /  \\        /  \\   |_____| (( \\_  \\    )__(      |  |      |   |"    << endl;
+	cout << "    |   |      |  |     /____\\   ))  `\\_)  |===|    \\__/        \\__/    |===|   ))  `\\_)  /____\\     |  |      |   |"    << endl;
+	cout << "    |   |      |  |      |  |   (/     \\   |   |   /____\\      /____\\   |   |  (/     \\    |  |      |  |      |   |"      << endl;
+	cout << "    |   |      |  |      |  |    | _.-'|   |   |    |  |        |  |    |   |   | _.-'|    |  |      |  |      |   |"          << endl;
+	cout << "   /_____\\    /____\\    /____\\    )___(    )___(    |__|        |__|    )___(    )___(    /____\\    /____\\    /_____\\"   << endl;
+	cout << "  (=======)  (======)  (======)  (=====)  (=====)  (====)      (====)  (=====)  (=====)  (======)  (======)  (=======)"        << endl;
+	cout << "  }======={  }======{  }======{  }====={  }====={  }===={      }===={  }====={  }====={  }======{  }======{  }======={"        << endl;
+	cout << " (_________)(________)(________)(_______)(_______)(______)    (______)(_______)(_______)(________)(________)(_________)"       << endl;
+	cout << endl;
+	cout << endl;
+}
+
+void beginningMenu() {
+	printLogo();
+	printBeginningMenu();
+  
+	string input;
+  	cout << "Choose Option: ";
+  	cin >> input;
+
+  	if (input == "P" || input == "p") { 
+		Button* play = new Play();
+		clearScreen();
+		play->operation();
+  	}
+	/*  	else if (input == "L" || input == "l") { 
+    	       		Button* load = new Load();
+    	       		       		load->operation();
+    	       		       		  	}*/	
+	else if(input == "Q" || input == "q") { 
+       		Button* quit = new Quit("beginning");
+   	    	quit->operation();
+  	}
+	/*	else {
+	    		cout << "Invalid Option";
+	    		  	}*/
+}
+
 
 void printGameMenu() {
   cout << endl;
@@ -106,8 +171,10 @@ void gameMenu() {
 	string input;
  	cout << "Choose Option: ";
   	cin >> input;
- /* 
- 	while(input != "Q" || input == "q") {
+
+/*
+	while(input != "Q" || input == "q") {
+
 	
  		if (input == "M" || input == "m") { 
 			Button* move = new Move();
@@ -129,6 +196,7 @@ void gameMenu() {
 	    	cout << "Invalid Option. Please Try Again.";
    	  	}
  	}
+
 */	
 	Button* quit = new Quit("game");
         quit->operation();

@@ -20,10 +20,10 @@ class Quit : public Button {
 			cout << endl;
 			cout << endl;
 		}
-	
 		virtual void operation() {
 			clearScreen();
-		//	opearions::quit();
+			//	opearions::quit();			
+
 			if (status == "beginning") {
 				printMessage();
 				exit;

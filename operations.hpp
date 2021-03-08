@@ -7,7 +7,6 @@ using namespace std;
 
 class Operations {
         public:
-		
 	//Quit Operations
 	void quit(string status) {
 		  if (status == "beginning") {
@@ -18,9 +17,7 @@ class Operations {
                            beginningMenu();
                  }
 	}
-	
 	//Play Operations
-	
 };
 
 #endif
