@@ -1,6 +1,9 @@
 #ifndef __SAVE_HPP__
 #define __SAVE_HPP__
 #include <iostream>
+#include <fstream>
+#include <string>
+
 using namespace std;
 
 class Save: public Button{
