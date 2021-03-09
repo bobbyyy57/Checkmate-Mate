@@ -1,14 +1,24 @@
-#ifndef __MENU_HPP__
-#define __MENU_HPP__
+#ifndef __MENU_H__
+#define __MENU_H__
 
 using namespace std;
 
-void printLogo();
-void printBeginningMenu();
-void printGameMenu();
-void printGreeting();
-void gameMenu();
-void beginningMenu();
-void clearScreen() { system("clear"); }
+#include "Operation.h"
+#include <stdlib.h>
 
-#endif
+class Menu {
+
+	private: 
+		Operation* click;
+
+	public: 	
+		void printLogo();
+		void printBeginningMenu();
+		void printGameMenu();
+		void printGreeting();
+		void gameMenu();
+		void beginningMenu();
+		void clearScreen() { system("clear"); }
+
+};
+#endif // __MENU_H__

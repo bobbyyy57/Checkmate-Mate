@@ -7,7 +7,8 @@
 
 using namespace std;
 
-void printLogo(){
+void Menu::printLogo(){
+
 	cout << "                                                                                                            " << endl;
 	cout << "                                                                                                            " << endl;
     	cout << "           __________ ____   ____ __________ _________ ___  ___  _______ _______ _________ __________ __________\n";
@@ -22,7 +23,9 @@ void printLogo(){
     	cout << "                                   /__/  /__/  /__//__/  /__/    /__/   /_________/ /__/\n";
 }
 
-void printGreeting() {
+
+void Menu::printGreeting() {
+
  
  	cout << "      -----------------------------------------------------------------------------------------------------------------" << endl;	
   	cout << "      |                                                                                                               |" << endl; 
@@ -38,7 +41,9 @@ void printGreeting() {
 	cin.get();
 }
 
-void printBeginningMenu() {
+
+void Menu::printBeginningMenu() {
+
 	cout << "                                                                                                                       "       << endl;
 	cout << "                                                -----------------------                      				"       << endl;
 	cout << "                                                      P - Play                              				" 	<< endl;
@@ -61,7 +66,8 @@ void printBeginningMenu() {
 	cout << endl;
 }
 
-void beginningMenu() {
+
+void Menu::beginningMenu() {
 	printLogo();
 	printBeginningMenu();
   
@@ -70,25 +76,28 @@ void beginningMenu() {
   	cin >> input;
 
   	if (input == "P" || input == "p") { 
-		Button* play = new Play();
+		click = new Play();
 		clearScreen();
-		play->operation();
+		click->operation();
+		delete click;
+	}
+//  	else if (input == "L" || input == "l") { 
+//       		click = new Load();
+//       		click->operation();
+//  	}
+	else if (input == "Q" || input == "q") {
+		click = new Quit("beginning");
+     		click->operation();
+	}
+  	else {	
+		clearScreen();
+   		cout << "ERROR: Invalid Option. Please Try Again." << endl;
+		beginningMenu();
   	}
-/*  	else if (input == "L" || input == "l") { 
- *   	       		Button* load = new Load();
- *   	       		       		load->operation();
- *   	       		       		  	}*/	
-  	else if(input == "Q" || input == "q") { 
-       		Button* quit = new Quit("beginning");
-   	    	quit->operation();
-  	}
-  /*	else {
- *	    		cout << "Invalid Option";
- *	    		  	}*/
 }
 
 
-void printGameMenu() {
+void Menu::printGameMenu() {
   cout << endl;
   cout << "                                                     M - Move" << endl;
   cout << "                                                     U - Undo" << endl;
@@ -98,31 +107,40 @@ void printGameMenu() {
 
 }
 
-void gameMenu() {
-  
-	printGameMenu();
+void Menu::gameMenu() {
+  	printGameMenu();
 
 	string input;
  	cout << "Choose Option: ";
-  	cin >> input;					 	 		  				      
-	while(input != 'Q' || input != 'q'){
-	if (input == "M" || input == "m") { 
-			Button* move = new Move();
-			move->operation();
+
+  	cin >> input;
+
+/*
+ 	while(input != "Q" || input == "q") {
+	
+ 		if (input == "M" || input == "m") { 
+			click = new Move();
+			click->operation();
  	 	}
 	  	else if (input == "U" || input == "u") { 
-			Button* undo = new Undo();
-      			undo->operation();
+			click = new Undo();
+      			click->operation();
  	 	}
  	 	else if (input == "X" || input == "x") { 
-			Button* surrender = new Surrender();
-    			surrender->operation();
+			click = new Surrender();
+    			click->operation();
  	 	}
  	 	else if (input == "S" || input == "s") { 
-			Button* save = new Save();
-      			save->operation();
+			click = new Save();
+      			click->operation();
 		  }
 		  else {
-	    	cout << "Invalid Option. Please Try Again.";
+	    		cout << "Invalid Option. Please Try Again." << endl;
    	  	}
  	}
+*/	
+	click = new Quit("game");
+        click->operation();
+
+}
+

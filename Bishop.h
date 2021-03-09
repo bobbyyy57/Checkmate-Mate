@@ -1,5 +1,5 @@
-#ifndef __BISHOP_HPP__
-#define __BISHOP_HPP__
+#ifndef __BISHOP_H__
+#define __BISHOP_H__
 
 #include <iostream>
 #include "Piece.h"
@@ -58,4 +58,5 @@ class Bishop: public Piece{
 
 
 
-#endif
+
+#endif //__BISHOP_H__
