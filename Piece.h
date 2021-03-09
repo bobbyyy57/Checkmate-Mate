@@ -1,10 +1,15 @@
 #ifndef PIECE_H
 #define PIECE_H
 
-class Piece {
-        virtual ~Piece() {};
-        virtual bool isValid() = 0;
+#include "Board.h"
+
+using namespace std;
+
+class Piece : public Board {
+	public: 
+       	   virtual ~Piece() {};
+     	   virtual bool isValid() = 0;
  
-}
+};
 
 #endif

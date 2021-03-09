@@ -4,6 +4,7 @@
 using namespace std;
 
 #include "Piece.h"
+#include "Board.h"
 #include <iostream> 
 
 class Knight : public Piece {
@@ -46,13 +47,13 @@ class Knight : public Piece {
 
                         //PATH CLEAR
                         for(int i = start.GetRow() + 1; i < end.GetRow(); ++i) {
-                                if (throw_away[i][start.GetColumn()]->isEmpty() == false) {
+                                if (throwawayBoard[i][start.GetColumn()]->isEmpty() == false) {
                                        cout << "ERROR: Path is not clear!" << endl;
                                        return false;
                                 }
                         }
                         for(int i = start.GetColumn() + 1; i < end.GetColumn(); ++i) {
-                                if (throw_away[start.GetRow][i]->isEmpty() == false) {
+                                if (throwawayBoard[start.GetRow][i]->isEmpty() == false) {
                                         cout << "ERROR: Path is not clear!" << endl;
                                        return false;
                                 }

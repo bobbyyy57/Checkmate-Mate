@@ -9,7 +9,7 @@ using namespace std;
 class Menu {
 
 	private: 
-		Button* click;
+		Operation* click;
 
 	public: 	
 		void printLogo();

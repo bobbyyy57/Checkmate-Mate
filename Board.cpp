@@ -2,6 +2,8 @@
 #include <typeinfo>
 
 #include "Board.h"
+#include "Pawn.h"
+#include "Knight.h"
 
 using namespace std;
 
@@ -50,46 +52,46 @@ string  Board::printP(Position curr) {
 	if (curr.isEmpty() == false) {
 
 		if (curr.GetColor() == 1) {	
-			if (typeid(King) == typeid(curr.getPiece())) {
+			if (typeid(King) == typeid(curr.GetPiece())) {
 				return "K";
 			}
-			else if (typeid(Queen) == typeid(curr.getPiece())) {
+			else if (typeid(Queen) == typeid(curr.GetPiece())) {
                                 return "Q";
                         }
-			else if (typeid(Bishop) == typeid(curr.getPiece())) {
+			else if (typeid(Bishop) == typeid(curr.GetPiece())) {
                                 return "B";
                         }
-			else if (typeid(Knight) == typeid(curr.getPiece())) {
+			else if (typeid(Knight) == typeid(curr.GetPiece())) {
                                 return "H";
                         }
-			else if (typeid(Rook) == typeid(curr.getPiece())) {
+			else if (typeid(Rook) == typeid(curr.GetPiece())) {
                                 return "R";
                         }
-			else if (typeid(Pawn) == typeid(curr.getPiece())) {
+			else if (typeid(Pawn) == typeid(curr.GetPiece())) {
                                 return "P";
                         }
 		}
 		else {
-			if (typeid(King) == typeid(curr.getPiece())) {
+			if (typeid(King) == typeid(curr.GetPiece())) {
                                 return "k";
                         }
-                        else if (typeid(Queen) == typeid(curr.getPiece())) {
+                        else if (typeid(Queen) == typeid(curr.GetPiece())) {
                                 return "q";
                         }
-                        else if (typeid(Bishop) == typeid(curr.getPiece())) {
+                        else if (typeid(Bishop) == typeid(curr.GetPiece())) {
                                 return "b";
                         }
-                        else if (typeid(Knight) == typeid(curr.getPiece())) {
+                        else if (typeid(Knight) == typeid(curr.GetPiece())) {
                                 return "h";
                         }
-                        else if (typeid(Rook) == typeid(curr.getPiece())) {
+                        else if (typeid(Rook) == typeid(curr.GetPiece())) {
                                 return "r";
                         }
-                        else if (typeid(Pawn) == typeid(curr.getPiece())) {
+                        else if (typeid(Pawn) == typeid(curr.GetPiece())) {
                                 return "p";
                         }
 		}
-			
+	}		
 	else {
 		return ":";
 	}
