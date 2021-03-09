@@ -4,7 +4,6 @@
 #include <iostream> 
 #include "Piece.h"
 #include "Board.h"
-//#include "Position.h"
 
 using namespace std;
 
@@ -18,7 +17,7 @@ class Pawn : public Piece {
                         int rowDifference = start.GetRow() - end.GetRow();
 
                         //WRONG COLOR
-                        if (turn == start.GetColor()) {
+                        if (turn != start.GetColor()) {
                                 cout << "ERROR: Wrong color!" << endl;
                                 return false;
                         }

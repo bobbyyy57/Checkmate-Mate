@@ -1,8 +1,8 @@
 #include <iostream>
 
 #include "Menu.h"
-#include "quit.h"
-#include "play.h"
+#include "Quit.h"
+#include "Play.h"
 #include "Operation.h"
 #include "Board.h"
 

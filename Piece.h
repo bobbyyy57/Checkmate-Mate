@@ -7,7 +7,6 @@ using namespace std;
 
 class Piece : public Board {
 	public: 
-       	   virtual ~Piece() {};
      	   virtual bool isValid() = 0;
  
 };

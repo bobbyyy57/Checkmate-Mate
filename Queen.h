@@ -1,14 +1,14 @@
 #ifndef QUEEN_H
 #define QUEEN_H
 
-#include "Operation.h"
 #include "Piece.h"
+#include "Board.h"
 
 using namespace std;
 
 class Queen : public Piece {
 
-        bool isValid(Position start, Position end) {
+        virtual bool isValid(Position start, Position end) {
                 return false; 
         }
 

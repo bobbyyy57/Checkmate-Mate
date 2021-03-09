@@ -3,8 +3,6 @@
 
 using namespace std;
 
-#include "Menu.h"
-
 class Operation {
         public:
            	virtual void operation() = 0;
