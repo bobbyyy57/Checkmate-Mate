@@ -5,11 +5,10 @@
 
 
 
-class Surrender : public Button{
+class Surrender : public Operation{
 	public:
-		void printMessage() = 0;
 		void operation(){
-        		//called from main when user chooses S or s
+        		//called  when user chooses S or s
         		char choice;
         		cout << "Are you sure you would like to surrender? (Y)ES/(N)O: " << endl;
         		cin >> choice;
@@ -22,7 +21,7 @@ class Surrender : public Button{
                 		quit();
        		 	}
         		else{
-               		 //printBoard(); (still need to implement)
+               		printBoard();
                		printGameMenu();
         }
 }

@@ -10,8 +10,9 @@ using namespace std;
 //void clearScreen() { system("clear"); }
 
 int main() {
-	clearScreen();	
-	printGreeting();
-	clearScreen();
-	beginningMenu();
+	Menu m;
+	m.clearScreen();	
+	m.printGreeting();
+	m.clearScreen();
+	m.beginningMenu();
 }

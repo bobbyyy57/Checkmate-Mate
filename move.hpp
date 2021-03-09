@@ -3,10 +3,12 @@
 
 #include "button.hpp"
 #include "Menu.h"
+#include <string>
+#include <iostream>
 
-class Move : public Button {
+using namespace std;
+class Move : public Operation {
 	public:
-		void printMessage() = 0;
 		void operation(){
         		//called from main when user chooses M or m
 			string pos1;
@@ -15,6 +17,8 @@ class Move : public Button {
         		cin >> pos1;
         		cout << "Where would you like to move it?: "
         		cin >> pos2;
+
+			
 
         		//movePiece(pos1, pos2, castling(), enpassant(), promotion()); (still need to implement)
         		//printBoard(); (still need to implement)
