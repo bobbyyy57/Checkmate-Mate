@@ -22,7 +22,7 @@ class Quit : public Button {
 		}
 		virtual void operation() {
 			clearScreen();
-			//	opearions::quit();			
+			//	operations::quit();			
 			if (status == "beginning") {
 				printMessage();
 				exit;

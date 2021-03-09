@@ -5,7 +5,7 @@ using namespace std;
 
 #include "Menu.h"
 
-class Button {
+class Operation {
 	public: 
 		virtual void printMessage() = 0;
 		virtual void operation() = 0;
