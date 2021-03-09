@@ -4,13 +4,14 @@
 #include <iostream> 
 #include "Piece.h"
 #include "Board.h"
+//#include "Position.h"
 
 using namespace std;
 
 
 class Pawn : public Piece {
         public:
-
+		Pawn() {};
                 virtual bool isValid(Position start, Position end) {
 
                         int colDifference = start.GetColumn() - end.GetColumn();
@@ -36,14 +37,14 @@ class Pawn : public Piece {
 
                         //CLEAR PATH
                         for(int i = start.GetRow() + 1; i < end.GetRow(); ++i) {
-                                if (throwawayBoard[i][start.GetColumn()]->isEmpty() == false) {
+                                if (throwawayBoard[i][start.GetColumn()].isEmpty() == false) {
                                         cout << "ERROR: Path is not clear!" << endl;
                                         return false;
                                 }
                         }
 
                         //WITHIN MOVE RANGE AND NOT ZERO
-                        if (start.FirstMove() == true) {
+                        if (start.GetFirst() == true) {
                                 if (start.GetColumn() == end.GetColumn() &&
                                     start.GetRow() + 2 == end.GetRow()) {
                                         return true;

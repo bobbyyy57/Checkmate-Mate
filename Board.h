@@ -1,13 +1,15 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-#include "Menu.h"
-#include "Position.h"
+//#include "Position.h"
+class Menu;
+//struct Position;
+class Piece;
 
 #include <string>
 
 using namespace std;
-/*
+
 struct Position {
 
 	private: 
@@ -26,13 +28,17 @@ struct Position {
 			firstMove = true;
 		}
 	
-		SETTERS
-		void SetColumn(char col) { column = ColumnToNum(col); }
-		void SetRow(int x) { row = x; }
+		//SETTERS
+		void setColumn(char col) { column = ColumnToNum(col); }
+		void setRow(int x) { row = x; }
 		void SetFirst(bool x) { firstMove = x; }
-		void SetEmpty() { empty = true; }
-	
-		GETTERS
+		void setEmpty() { empty = true; }
+		void setPieceAndColor(Piece* curr, int PieceColor) {
+			type = curr;
+			color = PieceColor;
+		}
+
+		//GETTERS
 		int GetColumn() { return column; }
 		int GetRow(){ return row; }
 		Piece* GetPiece() { return type; }
@@ -40,7 +46,7 @@ struct Position {
 		bool GetFirst() { return firstMove; }
 		bool isEmpty() { return empty; }
 	
-		HELPERS
+		//HELPERS
 		int ColumnToNum(char column){
 			if(column == 'a' || column == 'A'){
 				return 0;
@@ -68,14 +74,16 @@ struct Position {
                 	}
 		}	
 };
-*/
+
 class Board {
-        public:
+        protected:
                 Position throwawayBoard[8][8];
 		Position initialBoard[8][8];
 		int turn;
-                void printBoard();
+	public:               
+  		void printBoard();
                 string printP(Position curr);
+		void setInitialBoard();
 };
 
 

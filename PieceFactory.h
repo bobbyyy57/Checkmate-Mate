@@ -3,8 +3,6 @@
 
 using namespace std;
 
-#include "Menu.h"
-#include "Board.h"
 #include "Piece.h"
 #include "Knight.h"
 #include "Pawn.h"
@@ -58,7 +56,6 @@ class PawnFactory : public PieceFactory {
         public:
                 return new Pawn;
 };
-		
 
 
 #endif
