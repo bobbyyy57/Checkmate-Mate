@@ -49,9 +49,9 @@ struct Position(){
 		type = curr;
 		color = PieceColor;
 	}
-        char GetColumn(){
-	//	int columnNum = ColumnToNum(column);
-		return column;
+        int GetColumn(){
+		int columnNum = ColumnToNum(column);
+		return columnNum;
         }
 	//We are using a map to make the board so wen the 
 	//user inputs a charater that represent their desired

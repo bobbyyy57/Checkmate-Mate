@@ -1,8 +1,8 @@
 #include <iostream>
 #include "Menu.h"
-#include "quit.hpp"
-#include "play.hpp"
-#include "button.hpp"
+#include "Quit.h"
+#include "Play.h"
+#include "Operation.h"
 #include "Board.h"
 
 using namespace std;

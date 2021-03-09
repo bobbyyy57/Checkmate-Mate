@@ -1,5 +1,5 @@
 #ifndef __MENU_HPP__
-#define __Menu_HPP__
+#define __MENU_HPP__
 
 using namespace std;
 
