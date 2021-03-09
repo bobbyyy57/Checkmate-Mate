@@ -1,8 +1,12 @@
-#ifndef __BOARD_H__
-#define __BOARD_H__
+
+#ifndef BOARD_H
+#define BOARD_H
+
+#include "button.hpp"
 #include "Menu.h"
 
 using namespace std;
+
 struct Positions{
     private:
    //     Piece* type;
@@ -40,9 +44,5 @@ class Board{
 	}
 	string printP(Position curr);
 };
-
-
-
-
 
 #endif
