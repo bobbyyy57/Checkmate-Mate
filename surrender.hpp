@@ -7,7 +7,8 @@
 
 class Surrender : public Button{
 	public:
-		void surrender(){
+		void printMessage() = 0;
+		void operation(){
         		//called from main when user chooses S or s
         		char choice;
         		cout << "Are you sure you would like to surrender? (Y)ES/(N)O: " << endl;

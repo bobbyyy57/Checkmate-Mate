@@ -6,6 +6,7 @@
 
 class Move : public Button {
 	public:
+		void printMessage() = 0;
 		void operation(){
         		//called from main when user chooses M or m
 			string pos1;
