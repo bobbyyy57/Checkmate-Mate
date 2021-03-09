@@ -7,11 +7,7 @@
 using namespace std;
 
 class King : public Piece {
-
-	bool isValid(Position start, Position end) {
-		start
-	}
-
+	bool isValid(Position start, Position end) {}
 };
 
 
