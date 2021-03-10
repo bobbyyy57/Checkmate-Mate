@@ -6,6 +6,9 @@
 using namespace std;
 
 class Operation : public Board {
+	protected: 
+		int position1;
+		int position2;
         public:
            	virtual void operation(Board) = 0;
 };

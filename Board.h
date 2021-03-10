@@ -84,6 +84,9 @@ class Board {
 		int turn;
 	public:               
   		void printBoard();
+		Position getPosition(int x, int y) {
+			return throwawayBoard[x][y];
+		}
                 string printP(Position curr);
 		void setInitialBoard();
 		void setTurn(int x) { turn = x; }

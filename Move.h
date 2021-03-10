@@ -19,7 +19,7 @@ class Move : public Operation {
 				else if (turn == 0){ cout << "Black's move!: " << endl; }
                        		cout << "Which piece would you like to move?: ";
                        		cin >> pos1;
-                        	cout << "Where would you like to move it?: "
+                        	cout << "Where would you like to move it?: ";
                         	cin >> pos2;
 				position1 = pos1;
 				position2 = pos2;
@@ -48,25 +48,25 @@ class Move : public Operation {
                                 if (col1 < 0 || col1 > 7 || row1 < 0 || row1 > 7 || col2 < 0 || col2 > 7 || row2 < 0 || row2 > 7){
                                         cout << "Out of bounds, try again." << endl;
                                 }
-                                else if(getPosition(row1,col1)->getPiece() == typeid(King)){
-                                        PieceFactory* factory = new KingFactory();
+                                else if(getPosition(row1,col1).GetPiece()->getType() == "King"){
+                                        PieceFactory* factory = new KingFactory(getPosition(row1,col1), getPosition(row2,col2));
                                         bool valid = factory->status();
 					if(valid == false){
                                                 cout << "Try again." << endl;
                               				  cout << "Which piece would you like to move?: ";
                               				  cin >> pos1;
-                               				 cout << "Where would you like to move it?: "
+                               				 cout << "Where would you like to move it?: ";
                                 			cin >> pos2;
                                         }
                                         else{
                                                 stop = true;
                                                 MoveLog(pos1, pos2);
-                                                throwawayBoard[row2][col2].setEmpty();
-                                                throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
-                                                throwawayBoard[row1][col1].setEmpty();
+                                                throwawayBoard[row2][col2].setEmpty(true);
+                                                throwawayBoard[row2][col2].set(getPosition(row1,col1).GetPiece(),getPosition(row1,col1).GetColor(), emptyy, firstM);
+                                                throwawayBoard[row1][col1].setEmpty(true);
                                                 b.printBoard();
-                                                if(temp->getPiece() == typeid(King)){
-                                                        if(getPosition(row1,row2)->getColor() == 0){
+                                                if(temp.GetPiece()->getType() == "King"){
+                                                        if(getPosition(row1,row2).GetColor() == 0){
                                                                 cout << "White wins!!! Congrats :)" << endl;
                                                         }
                                                         else{
@@ -77,25 +77,25 @@ class Move : public Operation {
                                         }
                                 }
 				
-				else if(getPosition(row1,row1)->getPiece() == typeid(Queen)){
-                                        PieceFactory* factory = new QueenFactory();
+				else if(getPosition(row1,col1).GetPiece()->getType() == "Queen"){
+                                        PieceFactory* factory = new QueenFactory(getPosition(row1,col1), getPosition(row2, col2));
                                         bool valid = factory->status();
 					if(valid == false){
                                                 cout << "Try again." << endl;
 						cout << "Which piece would you like to move?: ";
                                                           cin >> pos1;
-                                                         cout << "Where would you like to move it?: "
+                                                         cout << "Where would you like to move it?: ";
                                                         cin >> pos2;
                                         }
                                         else{
                                                 stop = true;
                                                 MoveLog(pos1, pos2);
-                                                throwawayBoard[row2][col2].setEmpty();
-                                                throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
-                                                throwawayBoard[row1][col1].setEmpty();
+                                                throwawayBoard[row2][col2].setEmpty(true);
+                                                throwawayBoard[row2][col2].set(getPosition(row1,col1).GetPiece(),getPosition(row1,col1).GetColor(), emptyy, firstM);
+                                                throwawayBoard[row1][col1].setEmpty(true);
                                                 b.printBoard();
-						if(temp->getPiece() == typeid(King)){
-                                                        if(getPosition(row1,row2)->getColor() == 0){
+						if(temp.GetPiece()->getType() == "King"){
+                                                        if(getPosition(row1,row2).GetColor() == 0){
                                                                 cout << "White wins!!! Congrats :)" << endl;
                                                         }
                                                         else{
@@ -106,25 +106,25 @@ class Move : public Operation {
                                 	}
 				}
 
-				else if(getPosition(row1,row1)->getPiece() == typeid(Bishop)){
-                                        PieceFactory* factory = new BishopFactory();
+				else if(getPosition(row1,col1).GetPiece()->getType() == "Bishop"){
+                                        PieceFactory* factory = new BishopFactory(getPosition(row1,col1), getPosition(row2,col2));
                                         bool valid = factory->status();
                                         if(valid == false){
                                                 cout << "Try again." << endl;
 						cout << "Which piece would you like to move?: ";
                                                           cin >> pos1;
-                                                         cout << "Where would you like to move it?: "
+                                                         cout << "Where would you like to move it?: ";
                                                         cin >> pos2;
                                         }
                                         else{
                                                 stop = true;
                                                 MoveLog(pos1, pos2);
-                                                throwawayBoard[row2][col2].setEmpty();
-                                                throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
-                                                throwawayBoard[row1][col1].setEmpty();
+                                                throwawayBoard[row2][col2].setEmpty(true);
+                                                throwawayBoard[row2][col2].set(getPosition(row1,col1).GetPiece(),getPosition(row1,col1).GetColor(), emptyy, firstM);
+                                                throwawayBoard[row1][col1].setEmpty(true);
                                                 b.printBoard();
-						if(temp->getPiece() == typeid(King)){
-                                                        if(getPosition(row1,row2)->getColor() == 0){
+						if(temp.GetPiece()->getType() == "King"){
+                                                        if(getPosition(row1,row2).GetColor() == 0){
                                                                 cout << "White wins!!! Congrats :)" << endl;
                                                         }
                                                         else{
@@ -135,25 +135,25 @@ class Move : public Operation {
                                         }
 				}
 
-				else if(getPosition(row1,row1)->getPiece() == typeid(Rook)){
-                                        PieceFactory* factory = new RookFactory();
+				else if(getPosition(row1,col1).GetPiece()->getType() == "Rook"){
+                                        PieceFactory* factory = new RookFactory(getPosition(row1,col1), getPosition(row2,col2));
                                         bool valid = factory->status();
                                         if(valid == false){
                                                 cout << "Try again." << endl;
 						cout << "Which piece would you like to move?: ";
                                                           cin >> pos1;
-                                                         cout << "Where would you like to move it?: "
+                                                         cout << "Where would you like to move it?: ";
                                                         cin >> pos2;
                                         }
                                         else{
                                                 stop = true;
                                                 MoveLog(pos1, pos2);
-                                                throwawayBoard[row2][col2].setEmpty();
-                                                throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
-                                                throwawayBoard[row1][col1].setEmpty();
+                                                throwawayBoard[row2][col2].setEmpty(true);
+                                                throwawayBoard[row2][col2].set(getPosition(row1,col1).GetPiece(),getPosition(row1,col1).GetColor(), emptyy, firstM);
+                                                throwawayBoard[row1][col1].setEmpty(true);
                                                 b.printBoard();
-						if(temp->getPiece() == typeid(King)){
-                                                        if(getPosition(row1,row2)->getColor() == 0){
+						if(temp.GetPiece()->getType() == "King"){
+                                                        if(getPosition(row1,row2).GetColor() == 0){
                                                                 cout << "White wins!!! Congrats :)" << endl;
                                                         }
                                                         else{
@@ -164,25 +164,25 @@ class Move : public Operation {
                                         }
 				}
 
-				else if(getPosition(row1,row1)->getPiece() == typeid(Knight)){
-                                        PieceFactory* factory = new KnightFactory();
+				else if(getPosition(row1,col1).GetPiece()->getType() == "Knight"){
+                                        PieceFactory* factory = new KnightFactory(getPosition(row1,col1), getPosition(row2,col2));
                                         bool valid = factory->status();
                                         if(valid == false){
                                                 cout << "Try again." << endl;
 						cout << "Which piece would you like to move?: ";
                                                           cin >> pos1;
-                                                         cout << "Where would you like to move it?: "
+                                                         cout << "Where would you like to move it?: ";
                                                         cin >> pos2;
                                         }
                                         else{
                                                 stop = true;
                                                 MoveLog(pos1, pos2);
-                                                throwawayBoard[row2][col2].setEmpty();
-						throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
-                                                throwawayBoard[row1][col1].setEmpty();
+                                                throwawayBoard[row2][col2].setEmpty(true);
+						throwawayBoard[row2][col2].set(getPosition(row1,col1).GetPiece(),getPosition(row1,col1).GetColor(), emptyy, firstM);
+                                                throwawayBoard[row1][col1].setEmpty(true);
                                                 b.printBoard();
-						if(temp->getPiece() == typeid(King)){
-                                                        if(getPosition(row1,row2)->getColor() == 0){
+						if(temp.GetPiece()->getType() == "King"){
+                                                        if(getPosition(row1,row2).GetColor() == 0){
                                                                 cout << "White wins!!! Congrats :)" << endl;
                                                         }
                                                         else{
@@ -193,26 +193,26 @@ class Move : public Operation {
                                         }
 				}
 
-				else if(getPosition(row1,row1)->getPiece() == typeid(Pawn)){
-                                        PieceFactory* factory = new PawnFactory();
+				else if(getPosition(row1,col1).GetPiece()->getType() == "Pawn"){
+                                        PieceFactory* factory = new PawnFactory(getPosition(row1,col1), getPosition(row2,col2));
                                         bool valid = factory->status();
                                         if(valid == false){
                                                cout << "Try again." << endl;
 						cout << "Which piece would you like to move?: ";
                                                           cin >> pos1;
-                                                         cout << "Where would you like to move it?: "
+                                                         cout << "Where would you like to move it?: ";
                                                         cin >> pos2;
                                         }
                                         else{
                                                 stop = true;
                                                 MoveLog(pos1, pos2);
 						Position* temp = throwawayBoard[row2][col2];
-                                                throwawayBoard[row2][col2].setEmpty();
-                                                throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
-                                              	throwawayBoard[row1][col1].setEmpty();
+                                                throwawayBoard[row2][col2].setEmpty(true);
+                                                throwawayBoard[row2][col2].set(getPosition(row1,col1).GetPiece(),getPosition(row1,col1).GetColor(), emptyy, firstM);
+                                              	throwawayBoard[row1][col1].setEmpty(true);
                                                 b.printBoard();
-						if(temp->getPiece() == typeid(King)){
-                               				if(getPosition(row1,row2)->getColor() == 0){
+						if(temp.GetPiece()->getType() == "King"){
+                               				if(getPosition(row1,row2).GetColor() == 0){
                                 				cout << "White wins!!! Congrats :)" << endl;
                                				}
                                 			else{
@@ -223,8 +223,9 @@ class Move : public Operation {
                		                }
 				}
 			}
+			Menu m;
 			changeTurn(turn);
-                        b.printGameMenu();
+                        m.gameMenu(b);
 		}
 };
 

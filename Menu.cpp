@@ -3,7 +3,8 @@
 #include "Menu.h"
 #include "Quit.h"
 #include "Play.h"
-//#include "Move.h"
+#include "Move.h"
+#include "PieceFactory.h"
 #include "Surrender.h"
 #include "Operation.h"
 #include "Board.h"
@@ -114,30 +115,30 @@ void Menu::gameMenu(Board b) {
  	cout << "Choose Option: ";
   	cin >> input;
 
-/*
+
  	while(input != "Q" || input == "q") {
 	
  		if (input == "M" || input == "m") { 
 			click = new Move();
-			click->operation();
+			click->operation(b);
  	 	}
-	  	else if (input == "U" || input == "u") { 
-			click = new Undo();
-      			click->operation();
- 	 	}
+//	  	else if (input == "U" || input == "u") { 
+//			click = new Undo();
+  //    			click->operation();
+ 	 //	}
  	 	else if (input == "X" || input == "x") { 
 			click = new Surrender();
-    			click->operation();
+    			click->operation(b);
  	 	}
- 	 	else if (input == "S" || input == "s") { 
-			click = new Save();
-      			click->operation();
-		  }
+ //	 	else if (input == "S" || input == "s") { 
+//			click = new Save();
+  //    			click->operation();
+	//	  }
 		  else {
 	    		cout << "Invalid Option. Please Try Again." << endl;
    	  	}
  	}
-*/
+
 	if (input == "Q" || input == "q") {	
 		click = new Quit("game");
 		click->operation(b);
