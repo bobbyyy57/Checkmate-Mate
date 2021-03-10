@@ -2,73 +2,59 @@
 #define ROOK_H
 
 #include "Board.h"
-#include <iostream> 
 #include "Piece.h"
 
 using namespace std;
 
 class Rook : public Piece {
-        public:
-                virtual string getType() { return "Rook"; }
-                virtual bool isValid(Position start, Position end){
-			int colDifference = start.GetColumn() - end.GetColumn();
-                        int rowDifference = start.GetRow() - end.GetRow();
-			
-			
-
-			if(color == start.GetColor()){
-				cout << "ERROR: Wrong color!" << endl;
-				return false;
-			}
-
-			
-			if (start.GetColor() == end.GetColor()){
-				cout << "ERROR: Destination is occupied by a piece of your color!" << endl;
+	virtual string getType() { return "Rook"; }
+        virtual bool isValid(Position* start, Position* end, Board b) {
+/*
+			int colDifference = start->GetColumn() - end->GetColumn();
+                        int rowDifference = start->GetRow() - end->GetRow();
+                        if(b.getTurn() == start->GetColor()){
+                                std::cout << "ERROR: Wrong color!" << std::endl;
                                 return false;
                         }
-
-			
-
+                        if (start->GetColor() == end->GetColor()){
+                                std::cout << "ERROR: Destination is occupied by a piece of your color!" << std::endl;
+                                return false;
+                        }
+                        if (colDifference > 0 && rowDifference > 0) {
+                                if(colDifference != rowDifference){
+					std::cout << "ERROR: Out of Queen's ability!" << std::endl; 
+				}
+                        }
+			if (colDifference > 0 && rowDifference < 0) {
+                                if((colDifference*-1) != rowDifference){ 
+                                        std::cout << "ERROR: Out of Queen's ability!" << std::endl;
+                                }
+                        }
+				
 			if (colDifference == 0 && rowDifference == 0) {
-                                cout << "ERROR: Same position!" << endl;
+                                std::cout << "ERROR: Same position!" << std::endl;
                                 return false;
                         }
-			
-			else if (colDifference > 1 && rowDifference > 1)  {
-                                cout << "ERROR: Out of Rook's ability!" << endl;
-				return false;
-                        }
-
-			else if (colDifference < -1 && rowDifference <-1){
-				cout << "ERROR: Out of Rook's ability!" << endl;
-				return false;
-			}
-
-			else if (colDifference > 1 && rowDifference < -1)  {
-                                cout << "ERROR: Out of Rook's ability!" << endl;
-				return false;
-                        }
-
-			else if (colDifference < -1 && rowDifference > 1)  {
-                                cout << "ERROR: Out of Rook's ability!" << endl;
+			for(int i = start->GetRow() + 1; i < end->GetRow(); ++i) {
+                                if (throwawayBoard[i][start->GetColumn()].isEmpty() == false) {
+                                std::cout << "ERROR: Path is not clear!" << std::endl;
                                 return false;
-                        }
-
-			
-			for(int i = start.GetRow() + 1; i < end.GetRow(); ++i) {
-                                if (throw_away[i][start.GetColumn()]->isEmpty() == false) {
-                                       cout << "ERROR: Path is not clear!" << endl;
-                                       return false;
                                 }
                         }
-                        for(int i = start.GetColumn() + 1; i < end.GetColumn(); ++i) {
-                                if (throw_away[start.GetRow][i]->isEmpty() == false) {
-                                        cout << "ERROR: Path is not clear!" << endl;
-                                       return false;
+                        for(int i = start->GetColumn() + 1; i < end->GetColumn(); ++i) {
+                                if (throwawayBoard[start->GetRow()][i].isEmpty() == false) {
+                                std::cout << "ERROR: Path is not clear!" << std::endl;
+                                return false;
                                 }
-                        }
+                        }*/
+			return true;
 
-                        return true;
-                }
+	}
+
 };
+
+
+
+
+
 #endif

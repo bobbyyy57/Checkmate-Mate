@@ -4,31 +4,44 @@
 using namespace std;
 
 #include "Piece.h"
+#include "Bishop.h"
+#include "King.h"
+#include "Queen.h"
+#include "Rook.h"
 #include "Knight.h"
 #include "Pawn.h"
-
+#include "Board.h"
+#include "Empty.h"
 
 //CREATOR
 class PieceFactory {
+	protected: 
+		Position* start;
+		Position* end;
+		Board b;
         public:
-		PieceFactory() {};
-		~PieceFactory() = default; 
+		PieceFactory() {}
+		virtual ~PieceFactory() = default;
 
 		virtual Piece* factory() = 0; 
 		
 		bool status() {
 			Piece* current = this->factory();
-			bool answer = current->isValid();	
+			bool answer = current->isValid(start, end, b);	
 			delete current;
 			return answer;
 		}
 
 };
 
-
 //CONCRETE CREATOR
 class KingFactory : public PieceFactory {
 	public: 
+		KingFactory(Position* x, Position* y, Board be) {
+                        start = x;
+                        end = y;
+			b = be;
+                }
 		virtual Piece* factory() {
 			return new King;
 		}
@@ -36,6 +49,11 @@ class KingFactory : public PieceFactory {
 
 class QueenFactory : public PieceFactory {
         public:
+		QueenFactory(Position* x, Position* y, Board be) {
+                        start = x;
+                        end = y;
+                	b = be;
+		}
                 virtual Piece* factory() {
 			return new Queen;
 		}
@@ -43,6 +61,11 @@ class QueenFactory : public PieceFactory {
 
 class BishopFactory : public PieceFactory {
         public:
+		BishopFactory(Position* x, Position* y, Board be) {
+                        start = x;
+                        end = y;
+			b = be;
+                }
 		virtual Piece* factory() {
                 	return new Bishop;
 		}
@@ -50,6 +73,11 @@ class BishopFactory : public PieceFactory {
 
 class KnightFactory : public PieceFactory {
         public:
+		KnightFactory(Position* x, Position* y, Board be) {
+                        start = x;
+                        end = y;
+			b = be;
+                }
 		virtual Piece* factory() {
         	        return new Knight;
 		}
@@ -57,6 +85,11 @@ class KnightFactory : public PieceFactory {
 
 class RookFactory : public PieceFactory {
         public:
+		RookFactory(Position* x, Position* y, Board be) {
+                        start = x;
+                        end = y;
+			b = be;
+                }
                 virtual Piece* factory() {
 			return new Rook;
 		}
@@ -64,11 +97,15 @@ class RookFactory : public PieceFactory {
 
 class PawnFactory : public PieceFactory {
         public:
+		PawnFactory(Position* x, Position* y, Board be) {
+                        start = x;
+                        end = y;
+			b = be;
+                }
 		virtual Piece* factory() {
                 	return new Pawn;
 		}
 };
-
 
 #endif
 

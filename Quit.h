@@ -21,7 +21,7 @@ class Quit : public Operation {
 			cout << endl;
 		}
 	
-		virtual void operation() {
+		virtual void operation(Board b) {
 			Menu m;
 			m.clearScreen();
 			if (status == "beginning") {

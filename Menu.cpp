@@ -1,8 +1,12 @@
 #include <iostream>
+#include <string>
 
 #include "Menu.h"
 #include "Quit.h"
 #include "Play.h"
+#include "Move.h"
+#include "PieceFactory.h"
+#include "Surrender.h"
 #include "Operation.h"
 #include "Board.h"
 
@@ -58,6 +62,7 @@ void Menu::printBeginningMenu() {
 	cout << "  (=======)  (======)  (======)  (=====)  (=====)  (====)      (====)  (=====)  (=====)  (======)  (======)  (=======)"        << endl;
 	cout << "  }======={  }======{  }======{  }====={  }====={  }===={      }===={  }====={  }====={  }======{  }======{  }======={"        << endl;
 	cout << " (_________)(________)(________)(_______)(_______)(______)    (______)(_______)(_______)(________)(________)(_________)"       << endl;
+	cout << " 					                                              © \"Chess Pieces\" by Joan G. Stark"	<< endl;
 	cout << endl;
 	cout << endl;
 }
@@ -65,7 +70,8 @@ void Menu::printBeginningMenu() {
 void Menu::beginningMenu() {
 	printLogo();
 	printBeginningMenu();
-  
+  	
+	Board b;
 	string input;
   	cout << "Choose Option: ";
   	cin >> input;
@@ -73,87 +79,22 @@ void Menu::beginningMenu() {
   	if (input == "P" || input == "p") { 
 		click = new Play();
 		clearScreen();
-		click->operation();
+		click->operation(b);
 		delete click;
 	}
 //  	else if (input == "L" || input == "l") { 
-//       		click = new Load();
-//       		click->operation();
+//  			click = new Load();
+//  			click->operation(b);
 //  	}
 	else if (input == "Q" || input == "q") {
 		click = new Quit("beginning");
-     		click->operation();
+     		click->operation(b);
 	}
   	else {	
 		clearScreen();
    		cout << "ERROR: Invalid Option. Please Try Again." << endl;
 		beginningMenu();
   	}
-}
-
-void printGreeting() {
- 
- 	cout << "      -----------------------------------------------------------------------------------------------------------------" << endl;	
-  	cout << "      |                                                                                                               |" << endl; 
-  	cout << "      |                                                  Hey! Hey! Hey!                                               |" << endl;
-  	cout << "      |            Welcome to Checkmate, Mate! A two-player game that calls upon the most clever to defend,           |" << endl;
-  	cout << "      |         attack, and strategize to secure a win. Brought to you by Ashley Bautista, Rodrigo Lamas, and         |" << endl;
-  	cout << "      |              Bobby Lerias. We thank you for playing, but we have one question for you. You ready?             |" << endl;
-  	cout << "      |                                                     GAME ON!                                                  |" << endl;
-  	cout << "      |                                                                                                               |" << endl;
-  	cout << "      -----------------------------------------------------------------------------------------------------------------" << endl;
-  	cout << "                                                                                            press 'ENTER' to proceed..." << endl;
-
-	cin.get();
-}
-
-void printBeginningMenu() {
-	cout << "                                                                                                                       "       << endl;
-	cout << "                                                -----------------------                      				"       << endl;
-	cout << "                                                      P - Play                              				" 	<< endl;
-	cout << "    '-.-'                                             L - Load Game                                            '-.-'"          << endl;
-	cout << "   __.'.__      ()                                    Q - Quit                                        ()      __.'.__"         << endl;
-	cout << "  |_______|  .-:--:-.                           -----------------------                            .-:--:-.  |_______|"        << endl;
-	cout << "   \\=====/    \\____/      ()                                                                ()      \\____/    \\=====/"     << endl;
-	cout << "    )___(     {====}      /\\                                                                /\\      {====}     )___("        << endl;
-	cout << "   /_____\\     )__(      //\\\\     (\\=,                                            (\\=,     //\\\\      )__(     /_____\\" << endl;
-	cout << "    |   |     /____\\    (    )   //  .\\   |'-'-'|    __          __    |'-'-'|  //  .\\    (    )    /____\\     |   |"      << endl;
-	cout << "    |   |      |  |      )__(   (( \\_  \\  |_____|   /  \\        /  \\   |_____| (( \\_  \\    )__(      |  |      |   |"    << endl;
-	cout << "    |   |      |  |     /____\\   ))  `\\_)  |===|    \\__/        \\__/    |===|   ))  `\\_)  /____\\     |  |      |   |"    << endl;
-	cout << "    |   |      |  |      |  |   (/     \\   |   |   /____\\      /____\\   |   |  (/     \\    |  |      |  |      |   |"      << endl;
-	cout << "    |   |      |  |      |  |    | _.-'|   |   |    |  |        |  |    |   |   | _.-'|    |  |      |  |      |   |"          << endl;
-	cout << "   /_____\\    /____\\    /____\\    )___(    )___(    |__|        |__|    )___(    )___(    /____\\    /____\\    /_____\\"   << endl;
-	cout << "  (=======)  (======)  (======)  (=====)  (=====)  (====)      (====)  (=====)  (=====)  (======)  (======)  (=======)"        << endl;
-	cout << "  }======={  }======{  }======{  }====={  }====={  }===={      }===={  }====={  }====={  }======{  }======{  }======={"        << endl;
-	cout << " (_________)(________)(________)(_______)(_______)(______)    (______)(_______)(_______)(________)(________)(_________)"       << endl;
-	cout << endl;
-	cout << endl;
-}
-
-void beginningMenu() {
-	printLogo();
-	printBeginningMenu();
-  
-	string input;
-  	cout << "Choose Option: ";
-  	cin >> input;
-
-  	if (input == "P" || input == "p") { 
-		Button* play = new Play();
-		clearScreen();
-		play->operation();
-  	}
-	/*  	else if (input == "L" || input == "l") { 
-    	       		Button* load = new Load();
-    	       		       		load->operation();
-    	       		       		  	}*/	
-	else if(input == "Q" || input == "q") { 
-       		Button* quit = new Quit("beginning");
-   	    	quit->operation();
-  	}
-	/*	else {
-	    		cout << "Invalid Option";
-	    		  	}*/
 }
 
 
@@ -167,49 +108,53 @@ void Menu::printGameMenu() {
 
 }
 
-void Menu::gameMenu() {
-  
+void Menu::gameMenu(Board b) {
+  	b.printBoard();
 	printGameMenu();
 
+
+	cout << "TURN: ";
+		if(b.getTurn() == 0) {
+			cout << "WHITE:" << endl;
+		}
+		else{
+			cout << "BLACK" << endl;
+		}
 	string input;
- 	cout << "Choose Option: ";
-  	cin >> input;
-
-/*
-
- 	while(input != "Q" || input == "q") {
-
-
+	cout << "Choose Option: ";
+	cin >> input;
+ 	while(input != "Q" || input != "q") {
 	
  		if (input == "M" || input == "m") { 
 			click = new Move();
-			click->operation();
+			click->operation(b);
  	 	}
-	  	else if (input == "U" || input == "u") { 
-			click = new Undo();
-      			click->operation();
- 	 	}
- 	 	else if (input == "X" || input == "x") { 
+//	  	else if (input == "U" || input == "u") { 
+//	  		click = new Undo();
+//	  		click->operation();
+//	  	}
+		else if (input == "X" || input == "x") { 
 			click = new Surrender();
-    			click->operation();
+    			click->operation(b);
  	 	}
- 	 	else if (input == "S" || input == "s") { 
-			click = new Save();
-      			click->operation();
-		  }
-		  else {
+ //	 	else if (input == "S" || input == "s") { 
+ //	 		click = new Save();
+ //	 		click->operation();
+ //	 	}
+ 		else {
 	    		cout << "Invalid Option. Please Try Again." << endl;
-   	  	}
+   	  		cout << "Choose Option: ";
+        		cin >> input;	
+		  }
  	}
-
-*/	
-	click = new Quit("game");
-        click->operation();
+	if (input == "Q" || input == "q") {	
+		click = new Quit("game");
+		click->operation(b);
+	}
+	else {	
+		clearScreen();
+		cout << "ERROR: Invalid Option. Please Try Again." << endl;			
+		gameMenu(b);
+	}
 
 }
-
-
-
-
-
-

@@ -7,7 +7,7 @@ class Menu;
 class Piece;
 #include <string>
 #include <string.h>
-#include <iostream>
+//#include <iostream>
 #include <vector>
 using namespace std;
 struct Position {
@@ -20,14 +20,14 @@ struct Position {
 		bool firstMove;
 		Piece* type;
 	public: 
-
+/*
 		Position() {
 			type = nullptr;
 			color = -1;
 			empty = true;
 			firstMove = true;
 		}
-	
+*/	
 		//SETTERS
 		void setColumn(char col) { column = ColumnToNum(col); }
 		void setRow(int x) { row = x; }
@@ -87,11 +87,11 @@ class Board {
    public:
 	void printBoard();
 	void setInitialBoard();
-	Position* getPosition(int x, int y) {
-		return &throwawayboard[x][y];
+	Position* getPosition(int x,int y) {
+		return &throwawayBoard[x][y];
 	}
 	string printP(Position curr);
-	void changeTurn(int turn){
+	void changeTurn(){
 		if(turn == 0){
 			turn = 1;
 		}
@@ -102,7 +102,10 @@ class Board {
 	int getTurn(){
 		return turn;
 	}
-	void MoveLog(string start, string end){ MovesLog.push_back(start);} 
+	void MoveLog(string start, string end){ 
+		MovesLog.push_back(start);
+		MovesLog.push_back(end);
+	} 
    // void copyBoard() {
 //			memcpy(throwawayBoard, initialBoard, sizeof(Position) * 8 * 8);
 //		}

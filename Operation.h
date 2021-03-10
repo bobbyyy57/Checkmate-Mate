@@ -2,15 +2,16 @@
 #define OPERATION_HPP
 
 #include "Board.h"
+#include "Menu.h"
 
 using namespace std;
 
 class Operation : public Board {
-	protected:
-		int position1;
-		int position2;
+	protected: 
+		string position1;
+		string position2;
         public:
-           	virtual void operation() = 0;
+           	virtual void operation(Board) = 0;
 };
 
 #endif

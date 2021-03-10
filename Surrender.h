@@ -2,27 +2,31 @@
 #define __SURRENDER_H__
 #include "Operation.h"
 #include "Menu.h"
-
+#include "Board.h"
+#include <iostream>
 
 
 class Surrender : public Operation{
         public:
-                void operation(Board b){
-                        //called  when user chooses S or s
+                virtual void operation(Board b){
+                        
+                        Menu m;
                         char choice;
                         cout << "Are you sure you would like to surrender? (Y)ES/(N)O: " << endl;
                         cin >> choice;
                         if(toupper(choice) == 'Y'){
                                 cout << "You chose to surrender" << endl;
-                                if(currentTurn == 1){
+                                if(turn == 1){
                                         cout << "Player 2 wins!!" << endl;
                                 }
                                 else{cout << "Player 1 wins!!" << endl;}
-                                quit();
+                                m.beginningMenu();
                         }
                         else{
                         b.printBoard();
-                        b.printGameMenu();
+                        m.gameMenu(b);
+			}
         }
-}
+};
+
 #endif

@@ -161,16 +161,17 @@ void Board::setInitialBoard() {
                 throwawayBoard[7][6].set(new Pawn(), 1, false, true);
 
                 for (int i = 2; i < 6; i++){
-                        for (int j = 0; j < 8; j++)
-                                throwawayBoard[j][i].setEmpty(true);
-                }
+                        for (int j = 0; j < 8; j++) {
+                                throwawayBoard[j][i].set(new Empty(), -1, true, true);
+                	}
+		}
 
                 for (int i = 0; i < 8; i++){
                         for (int j = 0; j < 8; j++){
-                                int colAscii = 65 + i;
-                                char col = colAscii;
-                                throwawayBoard[i][j].setColumn(col);
-                                throwawayBoard[i][j].setRow(j);
+                               // int colAscii = 65 + i;
+                               // char col = colAscii;
+                                throwawayBoard[i][j].setColumn(j);
+                                throwawayBoard[i][j].setRow(i);
                         }
                 }
 }
