@@ -5,8 +5,10 @@
 
 using namespace std;
 class Piece : public Board {
-    public:    
-        virtual bool isValid() = 0;
+	public: 
+     	   virtual bool isValid(Position, Position) = 0;
+	   virtual string getType() = 0;
+ 
 };
 
 #endif

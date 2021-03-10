@@ -9,6 +9,7 @@ using namespace std;
 
 class Queen : public Piece {
 	public:
+                virtual string getType() { return "Queen"; }
                 virtual bool isValid(Position start, Position end){
                         int colDifference = start.GetColumn() - end.GetColumn();
                         int rowDifference = start.GetRow() - end.GetRow();

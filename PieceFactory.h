@@ -3,11 +3,10 @@
 
 using namespace std;
 
-#include "Menu.h"
-#include "Board.h"
 #include "Piece.h"
 #include "Knight.h"
 #include "Pawn.h"
+
 
 //CREATOR
 class PieceFactory {
@@ -15,10 +14,10 @@ class PieceFactory {
 		PieceFactory() {};
 		~PieceFactory() = default; 
 
-		virtual Piece* PieceFactory() {} = 0; 
+		virtual Piece* factory() = 0; 
 		
 		bool status() {
-			Piece* current = this->PieceFactory();
+			Piece* current = this->factory();
 			bool answer = current->isValid();	
 			delete current;
 			return answer;
@@ -26,37 +25,49 @@ class PieceFactory {
 
 };
 
+
 //CONCRETE CREATOR
 class KingFactory : public PieceFactory {
 	public: 
-		return new King;
-};
+		virtual Piece* factory() {
+			return new King;
+		}
+};	
 
 class QueenFactory : public PieceFactory {
         public:
-                return new Queen;
+                virtual Piece* factory() {
+			return new Queen;
+		}
 };
 
 class BishopFactory : public PieceFactory {
         public:
-                return new Bishop;
+		virtual Piece* factory() {
+                	return new Bishop;
+		}
 };
 
 class KnightFactory : public PieceFactory {
         public:
-                return new Knight;
+		virtual Piece* factory() {
+        	        return new Knight;
+		}
 };
 
 class RookFactory : public PieceFactory {
         public:
-                return new Rook;
+                virtual Piece* factory() {
+			return new Rook;
+		}
 };
 
 class PawnFactory : public PieceFactory {
         public:
-                return new Pawn;
+		virtual Piece* factory() {
+                	return new Pawn;
+		}
 };
-		
 
 
 #endif

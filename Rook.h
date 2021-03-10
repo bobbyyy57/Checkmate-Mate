@@ -1,6 +1,7 @@
 #ifndef ROOK_H
 #define ROOK_H
 
+#include "Board.h"
 #include <iostream> 
 #include "Piece.h"
 
@@ -8,6 +9,7 @@ using namespace std;
 
 class Rook : public Piece {
         public:
+                virtual string getType() { return "Rook"; }
                 virtual bool isValid(Position start, Position end){
 			int colDifference = start.GetColumn() - end.GetColumn();
                         int rowDifference = start.GetRow() - end.GetRow();
@@ -69,5 +71,4 @@ class Rook : public Piece {
                         return true;
                 }
 };
-
 #endif

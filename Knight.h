@@ -10,6 +10,9 @@ using namespace std;
 
 class Knight : public Piece {
         public:
+		          virtual string getType() { return "Knight"; }
+
+
                 virtual bool isValid(Position start, Position end) {
 
                         int colDifference = start.GetColumn() - end.GetColumn();
@@ -28,7 +31,7 @@ class Knight : public Piece {
                                 return false;
                         }
 
-                        //WITHIN RANGE
+                        //WITHIN RANGE  
                         if (colDifference == 0 || rowDifference == 0) {
                                 cout << "ERROR: Same position!" << endl;
                                 return false;
