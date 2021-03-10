@@ -43,6 +43,7 @@ class KingFactory : public PieceFactory {
 			b = be;
                 }
 		virtual Piece* factory() {
+
 			return new King;
 		}
 };	
@@ -61,6 +62,7 @@ class QueenFactory : public PieceFactory {
 
 class BishopFactory : public PieceFactory {
         public:
+
 		BishopFactory(Position x, Position y, Board be) {
                         start = x;
                         end = y;
@@ -97,6 +99,7 @@ class RookFactory : public PieceFactory {
 
 class PawnFactory : public PieceFactory {
         public:
+
 		PawnFactory(Position x, Position y, Board be) {
                         start = x;
                         end = y;

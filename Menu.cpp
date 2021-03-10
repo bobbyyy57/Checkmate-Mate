@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include "Menu.h"
 #include "Quit.h"
 #include "Play.h"
@@ -12,6 +11,7 @@
 using namespace std;
 
 void Menu::printLogo(){
+
 	cout << "                                                                                                            " << endl;
 	cout << "                                                                                                            " << endl;
     	cout << "           __________ ____   ____ __________ _________ ___  ___  _______ _______ _________ __________ __________\n";
@@ -26,7 +26,9 @@ void Menu::printLogo(){
     	cout << "                                   /__/  /__/  /__//__/  /__/    /__/   /_________/ /__/\n";
 }
 
+
 void Menu::printGreeting() {
+
  
  	cout << "      -----------------------------------------------------------------------------------------------------------------" << endl;	
   	cout << "      |                                                                                                               |" << endl; 
@@ -42,7 +44,9 @@ void Menu::printGreeting() {
 	cin.get();
 }
 
+
 void Menu::printBeginningMenu() {
+
 	cout << "                                                                                                                       "       << endl;
 	cout << "                                                -----------------------                      				"       << endl;
 	cout << "                                                      P - Play                              				" 	<< endl;
@@ -65,6 +69,7 @@ void Menu::printBeginningMenu() {
 	cout << endl;
 	cout << endl;
 }
+
 
 void Menu::beginningMenu() {
 	printLogo();
@@ -107,12 +112,14 @@ void Menu::printGameMenu() {
 
 }
 
+
 void Menu::gameMenu(Board b) {
   	b.printBoard();
 	printGameMenu();
 
 	string input;
  	cout << "Choose Option: ";
+
   	cin >> input;
 
 
