@@ -17,15 +17,16 @@ class PieceFactory {
 	protected: 
 		Position start;
 		Position end;
+		Board b;
         public:
-		PieceFactory();
-		~PieceFactory() = default; 
+		PieceFactory() {}
+		virtual ~PieceFactory() = default;
 
 		virtual Piece* factory() = 0; 
 		
 		bool status() {
 			Piece* current = this->factory();
-			bool answer = current->isValid(start, end);	
+			bool answer = current->isValid(start, end, b);	
 			delete current;
 			return answer;
 		}
@@ -36,10 +37,11 @@ class PieceFactory {
 //CONCRETE CREATOR
 class KingFactory : public PieceFactory {
 	public: 
-		KingFactory(Position x, Position y) {
+		KingFactory(Position x, Position y, Board be) {
                         start = x;
                         end = y;
-                };
+			b = be;
+                }
 		virtual Piece* factory() {
 			return new King;
 		}
@@ -47,10 +49,11 @@ class KingFactory : public PieceFactory {
 
 class QueenFactory : public PieceFactory {
         public:
-		QueenFactory(Position x, Position y) {
+		QueenFactory(Position x, Position y, Board be) {
                         start = x;
                         end = y;
-                };
+                	b = be;
+		}
                 virtual Piece* factory() {
 			return new Queen;
 		}
@@ -58,10 +61,11 @@ class QueenFactory : public PieceFactory {
 
 class BishopFactory : public PieceFactory {
         public:
-		BishopFactory(Position x, Position y) {
+		BishopFactory(Position x, Position y, Board be) {
                         start = x;
                         end = y;
-                };
+			b = be;
+                }
 		virtual Piece* factory() {
                 	return new Bishop;
 		}
@@ -69,10 +73,11 @@ class BishopFactory : public PieceFactory {
 
 class KnightFactory : public PieceFactory {
         public:
-		KnightFactory(Position x, Position y) {
+		KnightFactory(Position x, Position y, Board be) {
                         start = x;
                         end = y;
-                };
+			b = be;
+                }
 		virtual Piece* factory() {
         	        return new Knight;
 		}
@@ -80,10 +85,11 @@ class KnightFactory : public PieceFactory {
 
 class RookFactory : public PieceFactory {
         public:
-		RookFactory(Position x, Position y) {
+		RookFactory(Position x, Position y, Board be) {
                         start = x;
                         end = y;
-                };
+			b = be;
+                }
                 virtual Piece* factory() {
 			return new Rook;
 		}
@@ -91,10 +97,11 @@ class RookFactory : public PieceFactory {
 
 class PawnFactory : public PieceFactory {
         public:
-		PawnFactory(Position x, Position y) {
+		PawnFactory(Position x, Position y, Board be) {
                         start = x;
                         end = y;
-                };
+			b = be;
+                }
 		virtual Piece* factory() {
                 	return new Pawn;
 		}

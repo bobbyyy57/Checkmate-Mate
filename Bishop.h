@@ -9,8 +9,8 @@ using namespace std;
 class Bishop : public Piece {
 
 	virtual string getType() { return "Bishop"; }
-        virtual bool isValid(Position start, Position end) {
-                if(start.GetColor() != turn){
+        virtual bool isValid(Position start, Position end, Board b) {
+                if(start.GetColor() != b.getTurn()){
 		std::cout << "ERROR: Wrong color!" << std::endl;
 			return false;
 		}

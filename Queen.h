@@ -8,11 +8,11 @@ using namespace std;
 
 class Queen : public Piece {
 	virtual string getType() { return "Queen"; }
-        virtual bool isValid(Position start, Position end) {
+        virtual bool isValid(Position start, Position end, Board b) {
                 int colDifference = start.GetColumn() - end.GetColumn();
                         int rowDifference = start.GetRow() - end.GetRow();
 
-                        if(turn == start.GetColor()){
+                        if(b.getTurn() == start.GetColor()){
                                 std::cout << "ERROR: Wrong color!" << std::endl;
                                 return false;
                         }

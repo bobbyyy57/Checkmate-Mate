@@ -7,8 +7,8 @@ using namespace std;
 
 class Operation : public Board {
 	protected: 
-		int position1;
-		int position2;
+		string position1;
+		string position2;
         public:
            	virtual void operation(Board) = 0;
 };

@@ -6,6 +6,7 @@ class Menu;
 //struct Position;
 class Piece;
 #include <string>
+#include <vector>
 #include <string.h>
 
 using namespace std;
@@ -82,6 +83,7 @@ class Board {
                 Position throwawayBoard[8][8];
 //		Position initialBoard[8][8];
 		int turn;
+		vector<string>MovesLog;
 	public:               
   		void printBoard();
 		Position getPosition(int x, int y) {
@@ -89,8 +91,13 @@ class Board {
 		}
                 string printP(Position curr);
 		void setInitialBoard();
-		void setTurn(int x) { turn = x; }
-
+		void setTurn(int x) {turn = x; }
+		void changeTurn(int x) {turn = x;}
+		int getTurn() { return turn; }
+		void MoveLog(string start, string end){
+			MovesLog.push_back(start);
+			MovesLog.push_back(end);
+		}
 /*		void copyBoard() {
 			memcpy(throwawayBoard, initialBoard, sizeof(Position) * 8 * 8);
 		}
