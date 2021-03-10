@@ -8,7 +8,6 @@
 #include <typeinfo>
 #include "PieceFactory.h"
 #include "Board.h"
-class KingFactory;
 
 using namespace std;
 class Move : public Operation {
@@ -80,10 +79,15 @@ class Move : public Operation {
 				cout << "Col1: " << col1 << endl;
                                 cout << "test: " << b.getPosition(row1,col1)->GetPiece()->getType() << endl;
 				cout << "Row1: " << row1 << endl;
+				 cout << "Color1: " << b.getPosition(row1,col1)->GetColor() << endl;
+
                                 cout << "Col2: " << col2 << endl;
-                                cout << "Row2: " << row2 << endl;
+        			cout << "test: " << b.getPosition(row2,col2)->GetPiece()->getType() << endl;
+	                        cout << "Row2: " << row2 << endl;
+	
+
 				cout << "Turn: " << b.getTurn() << endl;
-				cout << "Color: " << b.getPosition(row1,col1)->GetColor() << endl;
+				cout << "Color2: " << b.getPosition(row2,col2)->GetColor() << endl;
 
                                 if (col1 < -1 || col1 > 8 || row1 < -1 || row1 > 8 || col2 < -1 || col2 > 8 || row2 < -1 || row2 > 8){
                                         cout << "Out of bounds, try again." << endl;
@@ -235,7 +239,22 @@ class Move : public Operation {
 
 				else if(b.getPosition(row1,col1)->GetPiece()->getType() == "Pawn"){
 					cout << "PAWN REACHED!" << endl;
-                                        PieceFactory* factory = new PawnFactory(getPosition(row1,col1), getPosition(row2,col2), b);
+
+					cout << "Col1: " << col1 << endl;
+                                cout << "test: " << b.getPosition(row1,col1)->GetPiece()->getType() << endl;
+                                cout << "Row1: " << row1 << endl;
+                                 cout << "Color1: " << b.getPosition(row1,col1)->GetColor() << endl;
+
+                                cout << "Col2: " << col2 << endl;
+                                cout << "test: " << b.getPosition(row2,col2)->GetPiece()->getType() << endl;
+                                cout << "Row2: " << row2 << endl;
+				
+
+				cout << "get column" << b.getPosition(row1,col1)->GetColumn() << endl;
+			        cout << "get row" << b.getPosition(row1,col1)->GetRow() << endl;
+
+
+                                        PieceFactory* factory = new PawnFactory(b.getPosition(row1,col1), b.getPosition(row2,col2), b);
                                         bool valid = factory->status();
                                         if(valid == false){
                                                cout << "Try again." << endl;
@@ -247,9 +266,9 @@ class Move : public Operation {
                                         else{
                                                 stop = true;
                                                 MoveLog(pos1, pos2);
-                                                b.getPosition(row2,col2)->setEmpty(true);
+                                                b.getPosition(row2,col2)->set(new Empty(), -1, true, true);
                                              	b.getPosition(row2,col2)->set(b.getPosition(row1,col1)->GetPiece(), b.getPosition(row1,col1)->GetColor(), emptyy, firstM);
-						b.getPosition(row1,col1)->setEmpty(true);
+						b.getPosition(row1,col1)->set(new Empty(), -1, true, true);
                                                 b.printBoard();
 						if( b.getPosition(row2, col2)->GetPiece()->getType() == "King"){
                                				if(b.getPosition(row1,col1)->GetColor() == 0){

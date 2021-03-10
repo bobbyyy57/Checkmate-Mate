@@ -11,6 +11,7 @@ using namespace std;
 #include "Knight.h"
 #include "Pawn.h"
 #include "Board.h"
+#include "Empty.h"
 
 //CREATOR
 class PieceFactory {

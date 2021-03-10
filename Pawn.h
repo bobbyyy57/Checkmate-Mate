@@ -16,7 +16,16 @@ class Pawn : public Piece {
 
                         int colDifference = start->GetColumn() - end->GetColumn();
                         int rowDifference = start->GetRow() - end->GetRow();
-/*
+				
+			cout << endl;
+			cout << "PAWN TEST: " << start->GetColor()<< ", " << end->GetColor() << endl;
+			cout << "StartCol: " << start->GetColumn() << endl;
+			cout << "EndCol: " << end->GetColumn() << endl;
+			cout << "StartRow: " << start->GetRow() << endl;
+                        cout << "EndROw: " << end->GetRow() << endl;
+			cout << "colDiff: " << colDifference << endl;
+			cout << "rowDiff: " << rowDifference << endl;
+
                         //WRONG COLOR
                         if (b.getTurn() != start->GetColor()) {
                                 cout << "ERROR: Wrong color!" << endl;
@@ -72,7 +81,7 @@ class Pawn : public Piece {
                                 }
                         }
 
-  */                      return true;
+                        return true;
                 }
 };
 

@@ -172,10 +172,10 @@ void Board::setInitialBoard() {
 */
                 for (int i = 0; i < 8; i++){
                         for (int j = 0; j < 8; j++){
-                                int colAscii = 65 + i;
-                                char col = colAscii;
-                                throwawayBoard[i][j].setColumn(col);
-                                throwawayBoard[i][j].setRow(j);
+			//	int colAscii = 65 + i;
+                             //   char col = colAscii;
+                                throwawayBoard[i][j].setColumn(j);
+                                throwawayBoard[i][j].setRow(i);
                         }
                 }
 }
