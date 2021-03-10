@@ -93,8 +93,8 @@ protected:
 public:               
   	void printBoard();
 	void setInitialBoard();
-	Position getPosition(int x, int y) {
-			return throwawayBoard[x][y];
+	Position* getPosition(int x, int y) {
+		return& throwawayBoard[x][y];
 	}
   string printP(Position curr);
   void changeTurn(int x) {turn = x;}
@@ -109,6 +109,7 @@ public:
 // 		    }
 //   	 }
   void setTurn(int x) { turn = x; }
+  int getTurn(){return turn;}
 	int GetTurn(){ return turn; }
 	void MoveLog(string start, string end){
 		MovesLog.push_back(start);

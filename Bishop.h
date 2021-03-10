@@ -11,8 +11,6 @@ using namespace std;
 class Bishop: public Piece{
 	
 	public:
-	 virtual string getType() { return "Bishop"; }
-
 
 	virtual string getType() { return "Bishop"; }
         virtual bool isValid(Position start, Position end, Board b) {
@@ -44,7 +42,7 @@ class Bishop: public Piece{
 			for(unsigned i = 1; i <abs(bishopR - finishR); i++){
 				std::cout << "testing testing" << std::endl;
 //CHECKING IF THERE IS ANY PIECES IN THE WAY
-				if(b[bishopR + increment_r * i][bishopC + increment_c *i].isEmpty() != false ){
+				if(throwawayBoard[bishopR + increment_r * i][bishopC + increment_c *i].isEmpty() != false ){
 					return false;
 				}
 			}

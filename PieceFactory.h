@@ -4,19 +4,19 @@
 using namespace std;
 
 #include "Piece.h"
-#include "Bishop.h"
-#include "King.h"
-#include "Queen.h"
-#include "Rook.h"
-#include "Knight.h"
+//#include "Bishop.h"
+//#include "King.h"
+//#include "Queen.h"
+//#include "Rook.h"
+//#include "Knight.h"
 #include "Pawn.h"
 #include "Board.h"
 
 //CREATOR
 class PieceFactory {
 	protected: 
-		Position start;
-		Position end;
+		Position* start;
+		Position* end;
 		Board b;
         public:
 		PieceFactory() {}
@@ -26,13 +26,14 @@ class PieceFactory {
 		
 		bool status() {
 			Piece* current = this->factory();
-			bool answer = current->isValid(start, end, b);	
+			bool answer = current->isValid(*start, *end, b);
 			delete current;
 			return answer;
 		}
 
 };
 
+/*
 
 //CONCRETE CREATOR
 class KingFactory : public PieceFactory {
@@ -97,10 +98,11 @@ class RookFactory : public PieceFactory {
 		}
 };
 
+*/
 class PawnFactory : public PieceFactory {
         public:
 
-		PawnFactory(Position x, Position y, Board be) {
+		PawnFactory(Position* x, Position* y, Board be) {
                         start = x;
                         end = y;
 			b = be;

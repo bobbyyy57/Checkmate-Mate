@@ -2,13 +2,14 @@
 #include <typeinfo>
 
 #include "Piece.h"
+#include "Empty.h"
 #include "Board.h"
 #include "Pawn.h"
-#include "Knight.h"
-#include "King.h"
-#include "Queen.h"
-#include "Bishop.h"
-#include "Rook.h"
+//#include "Knight.h"
+//#include "King.h"
+//#include "Queen.h"
+//#include "Bishop.h"
+//#include "Rook.h"
 
 using namespace std;
 
@@ -118,7 +119,7 @@ string  Board::printP(Position curr) {
 
 
 void Board::setInitialBoard() {
-	
+/*	
 		//SET: PIECE , COLOR, EMPTY, FIRSTMOVE 			
 		throwawayBoard[0][0].set(new Rook(), 0, false, true);
                 throwawayBoard[1][0].set(new Knight(), 0, false, true);
@@ -137,7 +138,7 @@ void Board::setInitialBoard() {
                 throwawayBoard[5][7].set(new Bishop(), 1, false, true);
                 throwawayBoard[6][7].set(new Knight(), 1, false, true);
                 throwawayBoard[7][7].set(new Rook(), 1, false, true);
-
+*/
                 throwawayBoard[0][1].set(new Pawn(), 0, false, true);
                 throwawayBoard[1][1].set(new Pawn(), 0, false, true);
                 throwawayBoard[2][1].set(new Pawn(), 0, false, true);
@@ -158,12 +159,12 @@ void Board::setInitialBoard() {
 
                 for (int i = 2; i < 6; i++){
                         for (int j = 0; j < 8; j++)
-                                throwawayBoard[j][i].setEmpty(true);
+                                throwawayBoard[j][i].set(new Empty(), -1, true, true);
                 }
 
                 for (int i = 0; i < 8; i++){
                         for (int j = 0; j < 8; j++){
-                                int colAscii = 65 + i;
+                                int colAscii = 48 + i;
                                 char col = colAscii;
                                 throwawayBoard[i][j].setColumn(col);
                                 throwawayBoard[i][j].setRow(j);

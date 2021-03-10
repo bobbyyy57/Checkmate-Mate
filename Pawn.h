@@ -13,7 +13,7 @@ class Pawn : public Piece {
 		Pawn() {};
 		virtual string getType() { return "Pawn"; }
                 virtual bool isValid(Position start, Position end, Board b) {
-
+/*
                         int colDifference = start.GetColumn() - end.GetColumn();
                         int rowDifference = start.GetRow() - end.GetRow();
 
@@ -71,7 +71,7 @@ class Pawn : public Piece {
                                         return false;
                                 }
                         }
-
+*/
                         return true;
                 }
 };
