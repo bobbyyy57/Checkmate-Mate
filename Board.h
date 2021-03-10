@@ -80,7 +80,6 @@ struct Position {
 
 class Board{
    protected:
-	Position initialBoard[8][8];
 	Position throwawayBoard[8][8];
 	int turn = 0;
 	vector<string> MovesLog;
