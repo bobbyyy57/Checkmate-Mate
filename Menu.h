@@ -1,5 +1,5 @@
-#ifndef MENU_H
-#define MENU_H
+#ifndef __MENU_H__
+#define __MENU_H__
 
 using namespace std;
 
@@ -25,4 +25,4 @@ class Menu {
 		}*/
 
 };
-#endif
+#endif // __MENU_H__

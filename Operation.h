@@ -2,6 +2,7 @@
 #define OPERATION_HPP
 
 #include "Board.h"
+#include "Menu.h"
 
 using namespace std;
 
