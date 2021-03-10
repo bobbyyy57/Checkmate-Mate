@@ -4,7 +4,6 @@
 #include "Board.h"
 
 using namespace std;
-
 class Piece : public Board {
 	public: 
      	   virtual bool isValid(Position, Position) = 0;

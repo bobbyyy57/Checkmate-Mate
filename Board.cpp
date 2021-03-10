@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <typeinfo>
 
@@ -9,17 +10,18 @@
 #include "Queen.h"
 #include "Bishop.h"
 #include "Rook.h"
-
-//#include "PieceFactory.h"
-
 using namespace std;
+
+
 
 void Board::printBoard() {
 		//chess 8x8
-	cout << "			      A       B       C       D       E       F       G       H    " << endl;
+cout << "			      A       B       C       D       E       F       G       H    " << endl;
 	cout << endl;
 	cout << "                                  ::::::::        ::::::::        ::::::::        ::::::::" << endl;
+
 	cout << "                       0     " + printP(initialBoard[0][0]) + "    :::" + printP(throwawayBoard[0][1]) + "::::   " + printP(throwawayBoard[0][2]) + "    :::" + printP(throwawayBoard[0][3]) + "::::   " + printP(throwawayBoard[0][4]) + "    :::" + printP(throwawayBoard[0][5]) + "::::   " + printP(throwawayBoard[0][6]) + "    :::" + printP(throwawayBoard[0][7]) + "::::" << endl;
+
 	cout << "                                  ::::::::        ::::::::        ::::::::        ::::::::" << endl; 
 	cout << "                                  ::::::::        ::::::::        ::::::::        ::::::::" << endl; 
 	cout << "                          ::::::::        ::::::::        ::::::::        ::::::::        " << endl;
@@ -100,6 +102,7 @@ string  Board::printP(Position curr) {
 				return "r";
                         }
                         else if (key == "Pawn") {
+
                                 return "p";
                         }
 		}
@@ -119,9 +122,10 @@ string  Board::printP(Position curr) {
 
 
 void Board::setInitialBoard() {
+
 	
 		//SET: PIECE , COLOR, EMPTY, FIRSTMOVE 			
-		initialBoard[0][0].set(new Rook(), 0, false, true);
+	            	initialBoard[0][0].set(new Rook(), 0, false, true);
                 initialBoard[1][0].set(new Knight(), 0, false, true);
                 initialBoard[2][0].set(new Bishop(), 0, false, true);
                 initialBoard[3][0].set(new Queen(), 0, false, true);
@@ -130,7 +134,7 @@ void Board::setInitialBoard() {
                 initialBoard[6][0].set(new Knight(), 0, false, true);
                 initialBoard[7][0].set(new Rook(), 0, false, true);
 	
-		initialBoard[0][7].set(new Rook(), 1, false, true);
+		            initialBoard[0][7].set(new Rook(), 1, false, true);
                 initialBoard[1][7].set(new Knight(), 1, false, true);
                 initialBoard[2][7].set(new Bishop(), 1, false, true);
                 initialBoard[3][7].set(new Queen(), 1, false, true);
