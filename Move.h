@@ -35,7 +35,8 @@ class Move : public Operation {
                         int col2;
                         int row2;
 			bool stop = false;
-
+			bool emptyy = false;
+			bool firstM = false;
 			while(!stop){ 
 				col1 = ColumnToNum(pos1[0]);
                                 row1 = pos1[1];
@@ -59,7 +60,7 @@ class Move : public Operation {
                                                 stop = true;
                                                 MoveLog(pos1, pos2);
                                                 throwawayBoard[row2][col2].setEmpty();
-                                                throwawayBoard[row2][col2].setPieceandColor(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor());
+                                                throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
                                                 throwawayBoard[row1][col1].setEmpty();
                                                 printBoard();
                                                 if(temp->getPiece() == typeid(King)){
@@ -88,7 +89,7 @@ class Move : public Operation {
                                                 stop = true;
                                                 MoveLog(pos1, pos2);
                                                 throwawayBoard[row2][col2].setEmpty();
-                                                throwawayBoard[row2][col2].setPieceandColor(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor());
+                                                throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
                                                 throwawayBoard[row1][col1].setEmpty();
                                                 printBoard();
 						if(temp->getPiece() == typeid(King)){
@@ -117,7 +118,7 @@ class Move : public Operation {
                                                 stop = true;
                                                 MoveLog(pos1, pos2);
                                                 throwawayBoard[row2][col2].setEmpty();
-                                                throwawayBoard[row2][col2].setPieceandColor(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor());
+                                                throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
                                                 throwawayBoard[row1][col1].setEmpty();
                                                 printBoard();
 						if(temp->getPiece() == typeid(King)){
@@ -146,7 +147,7 @@ class Move : public Operation {
                                                 stop = true;
                                                 MoveLog(pos1, pos2);
                                                 throwawayBoard[row2][col2].setEmpty();
-                                                throwawayBoard[row2][col2].setPieceandColor(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor());
+                                                throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
                                                 throwawayBoard[row1][col1].setEmpty();
                                                 printBoard();
 						if(temp->getPiece() == typeid(King)){
@@ -175,7 +176,7 @@ class Move : public Operation {
                                                 stop = true;
                                                 MoveLog(pos1, pos2);
                                                 throwawayBoard[row2][col2].setEmpty();
-                                                throwawayBoard[row2][col2].setPieceandColor(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor());
+						throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
                                                 throwawayBoard[row1][col1].setEmpty();
                                                 printBoard();
 						if(temp->getPiece() == typeid(King)){
@@ -205,7 +206,7 @@ class Move : public Operation {
                                                 MoveLog(pos1, pos2);
 						Position* temp = throwawayBoard[row2][col2];
                                                 throwawayBoard[row2][col2].setEmpty();
-                                                throwawayBoard[row2][col2].setPieceandColor(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor());
+                                                throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
                                               	throwawayBoard[row1][col1].setEmpty();
                                                 printBoard();
 						if(temp->getPiece() == typeid(King)){
