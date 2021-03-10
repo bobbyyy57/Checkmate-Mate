@@ -7,7 +7,7 @@ using namespace std;
 
 class Operation : public Board {
         public:
-           	virtual void operation() = 0;
+           	virtual void operation(Board) = 0;
 };
 
 #endif

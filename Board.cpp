@@ -10,8 +10,6 @@
 #include "Bishop.h"
 #include "Rook.h"
 
-//#include "PieceFactory.h"
-
 using namespace std;
 
 void Board::printBoard() {

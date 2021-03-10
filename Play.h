@@ -17,15 +17,13 @@ class Play : public Operation {
 			cout << "Starting Game" << endl;
 		}
 
-		virtual void operation() {
+		virtual void operation(Board game) {
 			Menu m;
-			Board* game = new Board();
-
 			printMessage();
-			game->setInitialBoard();
-			game->printBoard();
-			game->setTurn(0);
-			m.gameMenu();
+			game.setInitialBoard();
+	//PrintBoard
+			game.setTurn(0);
+			m.gameMenu(game);
 		}
 
 };
