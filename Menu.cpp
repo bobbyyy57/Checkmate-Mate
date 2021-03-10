@@ -3,6 +3,8 @@
 #include "Menu.h"
 #include "Quit.h"
 #include "Play.h"
+//#include "Move.h"
+#include "Surrender.h"
 #include "Operation.h"
 #include "Board.h"
 
