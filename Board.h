@@ -8,6 +8,7 @@ class Piece;
 
 #include <vector>
 #include <string>
+#include <vector>
 #include <string.h>
 
 using namespace std;
@@ -91,29 +92,29 @@ protected:
 
 public:               
   	void printBoard();
-    	string printP(Position curr);
 	void setInitialBoard();
-	void changeTurn(){
-	//white's turn is denoted by int 0
-	//black pieces' turn is denoted by 1
- 		  if(turn == 0){
- 			  turn = 1;
-		  }
-		  else{
-			  turn = 0;
-		    }
-  	 }
-  void setTurn(int x) { turn = x; }
-	int GetTurn(){
-		return turn;
+	Position getPosition(int x, int y) {
+			return throwawayBoard[x][y];
 	}
+  string printP(Position curr);
+  void changeTurn(int x) {turn = x;}
+// 	void changeTurn(){
+// 	//white's turn is denoted by int 0
+// 	//black pieces' turn is denoted by 1
+//  		  if(turn == 0){
+//  			  turn = 1;
+// 		  }
+// 		  else{
+// 			  turn = 0;
+// 		    }
+//   	 }
+  void setTurn(int x) { turn = x; }
+	int GetTurn(){ return turn; }
 	void MoveLog(string start, string end){
 		MovesLog.push_back(start);
 		MovesLog.push_back(end);
 	}
 
 };
-
-
 
 #endif // __BOARD_H__

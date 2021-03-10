@@ -4,15 +4,23 @@
 using namespace std;
 
 #include "Piece.h"
+#include "Bishop.h"
+#include "King.h"
+#include "Queen.h"
+#include "Rook.h"
 #include "Knight.h"
 #include "Pawn.h"
-#include "Bishop.h"
+#include "Board.h"
 
 //CREATOR
 class PieceFactory {
+	protected: 
+		Position start;
+		Position end;
+		Board b;
         public:
-		PieceFactory() {};
-		~PieceFactory() = default; 
+		PieceFactory() {}
+		virtual ~PieceFactory() = default;
 
 		virtual Piece* factory() = 0; 
 		
@@ -29,42 +37,75 @@ class PieceFactory {
 //CONCRETE CREATOR
 class KingFactory : public PieceFactory {
 	public: 
-		virtual Piece* factory(Position x, Position, Board x) {
+		KingFactory(Position x, Position y, Board be) {
+                        start = x;
+                        end = y;
+			b = be;
+                }
+		virtual Piece* factory() {
+
 			return new King;
 		}
 };	
 
 class QueenFactory : public PieceFactory {
         public:
-                virtual Piece* factory(Position x, Position, Board x) {
+		QueenFactory(Position x, Position y, Board be) {
+                        start = x;
+                        end = y;
+                	b = be;
+		}
+                virtual Piece* factory() {
 			return new Queen;
 		}
 };
 
 class BishopFactory : public PieceFactory {
         public:
-		virtual Piece* factory(Position x, Position, Board x) {
+
+		BishopFactory(Position x, Position y, Board be) {
+                        start = x;
+                        end = y;
+			b = be;
+                }
+		virtual Piece* factory() {
                 	return new Bishop;
 		}
 };
 
 class KnightFactory : public PieceFactory {
         public:
-		virtual Piece* factory(Position x, Position, Board x) {
+		KnightFactory(Position x, Position y, Board be) {
+                        start = x;
+                        end = y;
+			b = be;
+                }
+		virtual Piece* factory() {
         	        return new Knight;
 		}
 };
 
 class RookFactory : public PieceFactory {
         public:
-                virtual Piece* factory(Position x, Position, Board x) {
+		RookFactory(Position x, Position y, Board be) {
+                        start = x;
+                        end = y;
+			b = be;
+                }
+                virtual Piece* factory() {
 			return new Rook;
 		}
 };
 
 class PawnFactory : public PieceFactory {
         public:
-		virtual Piece* factory(Position x, Position, Board x) {
+
+		PawnFactory(Position x, Position y, Board be) {
+                        start = x;
+                        end = y;
+			b = be;
+                }
+		virtual Piece* factory() {
                 	return new Pawn;
 		}
 };

@@ -13,9 +13,11 @@ class Bishop: public Piece{
 	public:
 	 virtual string getType() { return "Bishop"; }
 
-	virtual bool isValid(Position start, Position end, Board b){
-//CHECKING IF PLAYER IS MOVING THE CORRECT PIECE
-		if(start.GetColor() != turn){
+
+	virtual string getType() { return "Bishop"; }
+        virtual bool isValid(Position start, Position end, Board b) {
+                if(start.GetColor() != b.getTurn()){
+                  
 		std::cout << "ERROR: Wrong color!" << std::endl;
 			return false;
 		}

@@ -8,13 +8,13 @@ using namespace std;
 
 class King : public Piece {
 	virtual string getType() { return "King"; }
-	virtual bool isValid(Position start, Position end) {
+	virtual bool isValid(Position start, Position end, Board b) {
 		 
 		int colDifference = start.GetColumn() - end.GetColumn();
                 int rowDifference = start.GetRow() - end.GetRow();
 	
 		//WRONG COLOR
-		if (turn == start.GetColor()) {
+		if (b.getTurn() != start.GetColor()) {
              		cout << "ERROR: Wrong color!" << endl;
                        	return false;
 		}
