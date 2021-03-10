@@ -2,6 +2,8 @@
 #include "Menu.h"
 #include "Quit.h"
 #include "Play.h"
+//#include "Move.h"
+#include "Surrender.h"
 #include "Operation.h"
 #include "Board.h"
 
@@ -62,6 +64,7 @@ void Menu::printBeginningMenu() {
 	cout << "  (=======)  (======)  (======)  (=====)  (=====)  (====)      (====)  (=====)  (=====)  (======)  (======)  (=======)"        << endl;
 	cout << "  }======={  }======{  }======{  }====={  }====={  }===={      }===={  }====={  }====={  }======{  }======{  }======={"        << endl;
 	cout << " (_________)(________)(________)(_______)(_______)(______)    (______)(_______)(_______)(________)(________)(_________)"       << endl;
+	cout << " 					                                              © \"Chess Pieces\" by Joan G. Stark"	<< endl;
 	cout << endl;
 	cout << endl;
 }
@@ -70,7 +73,8 @@ void Menu::printBeginningMenu() {
 void Menu::beginningMenu() {
 	printLogo();
 	printBeginningMenu();
-  
+  	
+	Board b;
 	string input;
   	cout << "Choose Option: ";
   	cin >> input;
@@ -78,16 +82,16 @@ void Menu::beginningMenu() {
   	if (input == "P" || input == "p") { 
 		click = new Play();
 		clearScreen();
-		click->operation();
+		click->operation(b);
 		delete click;
 	}
 //  	else if (input == "L" || input == "l") { 
 //       		click = new Load();
-//       		click->operation();
+//       		click->operation(b);
 //  	}
 	else if (input == "Q" || input == "q") {
 		click = new Quit("beginning");
-     		click->operation();
+     		click->operation(b);
 	}
   	else {	
 		clearScreen();
@@ -107,8 +111,10 @@ void Menu::printGameMenu() {
 
 }
 
-void Menu::gameMenu() {
-  	printGameMenu();
+
+void Menu::gameMenu(Board b) {
+  	b.printBoard();
+	printGameMenu();
 
 	string input;
  	cout << "Choose Option: ";
@@ -138,9 +144,16 @@ void Menu::gameMenu() {
 	    		cout << "Invalid Option. Please Try Again." << endl;
    	  	}
  	}
-*/	
-	click = new Quit("game");
-        click->operation();
+*/
+	if (input == "Q" || input == "q") {	
+		click = new Quit("game");
+		click->operation(b);
+	}
+	else {	
+		clearScreen();
+		cout << "ERROR: Invalid Option. Please Try Again." << endl;			
+		gameMenu(b);
+	}
 
 }
 

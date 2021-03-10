@@ -4,7 +4,9 @@
 #include "Menu.h"
 #include "Board.h"
 #include <stdio.h>
-#include <string.h>
+#include <string.h> 
+#include "Piece.h"
+#include "Rook.h"
 
 using namespace std;
 
@@ -15,13 +17,13 @@ class Play : public Operation {
 			cout << "Starting Game" << endl;
 		}
 
-		virtual void operation() {
+		virtual void operation(Board game) {
 			Menu m;
 			printMessage();
-			Board* game = new Board();
-			memcpy(throwawayBoard, initialBoard, sizeof(Position)* 8 * 8);
-			game->printBoard();
-			m.gameMenu();
+			game.setInitialBoard();
+	//PrintBoard
+			game.setTurn(0);
+			m.gameMenu(game);
 		}
 
 };

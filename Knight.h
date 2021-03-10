@@ -5,12 +5,12 @@ using namespace std;
 
 #include "Piece.h"
 #include "Board.h"
-//#include "Position.h"
 
 #include <iostream>
 
 class Knight : public Piece {
         public:
+		virtual string getType() { return "Knight"; }
                 virtual bool isValid(Position start, Position end) {
 
                         int colDifference = start.GetColumn() - end.GetColumn();

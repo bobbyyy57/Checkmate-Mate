@@ -8,10 +8,10 @@
 #include <cstdlib>
 using namespace std;
 
-
 class Bishop: public Piece{
 	
 	public:
+  virtual string getType() { return "Bishop"; }
 	bool isValid(Position*start, Position* end){
 //CHECKING IF PLAYER IS MOVING THE CORRECT PIECE
 		if(start->GetColor() != CurrentTurn){
@@ -39,7 +39,7 @@ class Bishop: public Piece{
 			int increment_c = (finishC - bishopC) / (abs(finishC - bishopC));
 //FOR LOOP WALKS THE PATH SET FOR THE PIECE
 			for(unsigned i = 1; i <abs(bishopR - finishR); i++){
-				std::cout << "testting testing" << std::endl;
+				std::cout << "testing testing" << std::endl;
 //CHECKING IF THERE IS ANY PIECES IN THE WAY
 				if(throwawayBoard[bishopR + increment_r * i][bishopC + increment_c *i].isEmpty() != false ){
 					return false;

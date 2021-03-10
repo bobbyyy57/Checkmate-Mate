@@ -7,8 +7,8 @@ using namespace std;
 
 class Piece : public Board {
 	public: 
-       	   virtual ~Piece() {};
-     	   virtual bool isValid() = 0;
+     	   virtual bool isValid(Position, Position) = 0;
+	   virtual string getType() = 0;
  
 };
 

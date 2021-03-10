@@ -1,13 +1,14 @@
 #ifndef OPERATION_HPP
 #define OPERATION_HPP
 
+#include "Board.h"
+#include "Menu.h"
+
 using namespace std;
 
-#include "Menu.h"
-#include "Board.h"
-class Operation: public Board {
+class Operation : public Board {
         public:
-           	virtual void operation() = 0;
+           	virtual void operation(Board) = 0;
 };
 
 #endif

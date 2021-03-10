@@ -16,9 +16,13 @@ class Menu {
 		void printBeginningMenu();
 		void printGameMenu();
 		void printGreeting();
-		void gameMenu();
+		void gameMenu(Board);
 		void beginningMenu();
 		void clearScreen() { system("clear"); }
+    	/*		for (int n = 0; n < 3; n++) {
+      				cout << "\n\n\n\n\n\n\n\n\n";
+    			}
+		}*/
 
 };
 #endif // __MENU_H__

@@ -5,8 +5,11 @@
 class Menu;
 //struct Position;
 class Piece;
+
 #include <vector>
+
 #include <string>
+#include <string.h>
 
 using namespace std;
 
@@ -31,10 +34,12 @@ struct Position {
 		void setColumn(char col) { column = ColumnToNum(col); }
 		void setRow(int x) { row = x; }
 		void SetFirst(bool x) { firstMove = x; }
-		void setEmpty() { empty = true; }
-		void setPieceAndColor(Piece* curr, int PieceColor) {
+		void setEmpty(bool x) { empty = x; }
+		void set(Piece* curr, int PieceColor, bool mtee, bool first) {
 			type = curr;
 			color = PieceColor;
+			empty = mtee;
+			firstMove = first;
 		}
   
   
@@ -81,9 +86,8 @@ struct Position {
 class Board {
 protected:
 	  int PlayerColor;
-	  int CurrentTurn = 0;
+	  int turn = 0;
  	  Position throwawayBoard[8][8];
-//	  Position initialBoard[8][8];
 	  vector <string> MovesLog;
 
 public:               
@@ -100,6 +104,7 @@ public:
 			  CurrentTurn = 0;	
 		    }
   	 }
+  void setTurn(int x) { turn = x; }
 	int GetTurn(){
 		return CurrentTurn;
 	}
