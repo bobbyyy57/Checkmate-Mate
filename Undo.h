@@ -1,7 +1,7 @@
 #ifndef __UNDO_HPP__
 #define __UNDO_HPP__
 
-#include "button.hpp"
+#include "Operation.hpp"
 #include "Menu.h"
 #include <string>
 #include <iostream>

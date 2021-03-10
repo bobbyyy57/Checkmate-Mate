@@ -83,7 +83,7 @@ protected:
 	  int PlayerColor;
 	  int CurrentTurn = 0;
  	  Position throwawayBoard[8][8];
-	  Position initialBoard[8][8];
+//	  Position initialBoard[8][8];
 	  vector <string> MovesLog;
 
 public:               
