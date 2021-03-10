@@ -15,8 +15,8 @@ using namespace std;
 //CREATOR
 class PieceFactory {
 	protected: 
-		Position start;
-		Position end;
+		Position* start;
+		Position* end;
 		Board b;
         public:
 		PieceFactory() {}
@@ -33,11 +33,10 @@ class PieceFactory {
 
 };
 
-
 //CONCRETE CREATOR
 class KingFactory : public PieceFactory {
 	public: 
-		KingFactory(Position x, Position y, Board be) {
+		KingFactory(Position* x, Position* y, Board be) {
                         start = x;
                         end = y;
 			b = be;
@@ -50,7 +49,7 @@ class KingFactory : public PieceFactory {
 
 class QueenFactory : public PieceFactory {
         public:
-		QueenFactory(Position x, Position y, Board be) {
+		QueenFactory(Position* x, Position* y, Board be) {
                         start = x;
                         end = y;
                 	b = be;
@@ -63,7 +62,7 @@ class QueenFactory : public PieceFactory {
 class BishopFactory : public PieceFactory {
         public:
 
-		BishopFactory(Position x, Position y, Board be) {
+		BishopFactory(Position* x, Position* y, Board be) {
                         start = x;
                         end = y;
 			b = be;
@@ -75,7 +74,7 @@ class BishopFactory : public PieceFactory {
 
 class KnightFactory : public PieceFactory {
         public:
-		KnightFactory(Position x, Position y, Board be) {
+		KnightFactory(Position* x, Position* y, Board be) {
                         start = x;
                         end = y;
 			b = be;
@@ -87,7 +86,7 @@ class KnightFactory : public PieceFactory {
 
 class RookFactory : public PieceFactory {
         public:
-		RookFactory(Position x, Position y, Board be) {
+		RookFactory(Position* x, Position* y, Board be) {
                         start = x;
                         end = y;
 			b = be;
@@ -100,7 +99,7 @@ class RookFactory : public PieceFactory {
 class PawnFactory : public PieceFactory {
         public:
 
-		PawnFactory(Position x, Position y, Board be) {
+		PawnFactory(Position* x, Position* y, Board be) {
                         start = x;
                         end = y;
 			b = be;
@@ -109,6 +108,5 @@ class PawnFactory : public PieceFactory {
                 	return new Pawn;
 		}
 };
-
 
 #endif

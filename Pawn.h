@@ -12,19 +12,19 @@ class Pawn : public Piece {
         public:
 		Pawn() {};
 		virtual string getType() { return "Pawn"; }
-                virtual bool isValid(Position start, Position end, Board b) {
+                virtual bool isValid(Position* start, Position* end, Board b) {
 
-                        int colDifference = start.GetColumn() - end.GetColumn();
-                        int rowDifference = start.GetRow() - end.GetRow();
-
+                        int colDifference = start->GetColumn() - end->GetColumn();
+                        int rowDifference = start->GetRow() - end->GetRow();
+/*
                         //WRONG COLOR
-                        if (b.getTurn() != start.GetColor()) {
+                        if (b.getTurn() != start->GetColor()) {
                                 cout << "ERROR: Wrong color!" << endl;
                                 return false;
                         }
 
                         //SAME COLOR
-                        if (start.GetColor() == end.GetColor()) {
+                        if (start->GetColor() == end->GetColor()) {
                                 cout << "ERROR: Destination is occupied by a piece of your color!" << endl;
                                 return false;
                         }
@@ -36,17 +36,17 @@ class Pawn : public Piece {
                         }
 
                         //CLEAR PATH
-                        for(int i = start.GetRow() + 1; i < end.GetRow(); ++i) {
-                                if (throwawayBoard[i][start.GetColumn()].isEmpty() == false) {
+                        for(int i = start->GetRow() + 1; i < end->GetRow(); ++i) {
+                                if (throwawayBoard[i][start->GetColumn()].isEmpty() == false) {
                                         cout << "ERROR: Path is not clear!" << endl;
                                         return false;
                                 }
                         }
 
                         //WITHIN MOVE RANGE AND NOT ZERO
-                        if (start.GetFirst() == true) {
-                                if (start.GetColumn() == end.GetColumn() &&
-                                    start.GetRow() + 2 == end.GetRow()) {
+                        if (start->GetFirst() == true) {
+                                if (start->GetColumn() == end->GetColumn() &&
+                                    start->GetRow() + 2 == end->GetRow()) {
                                         return true;
                                 }
                                 else {
@@ -58,8 +58,8 @@ class Pawn : public Piece {
                                 //KILL
                                 if ( (colDifference == 1 || colDifference == -1) &&
                                     (rowDifference == 1 || rowDifference == -1) &&
-                                     start.GetColor() != end.GetColor() &&
-                                     end.isEmpty() == false )
+                                     start->GetColor() != end->GetColor() &&
+                                     end->isEmpty() == false )
                                 {
                                         return true;
                                 }
@@ -72,7 +72,7 @@ class Pawn : public Piece {
                                 }
                         }
 
-                        return true;
+  */                      return true;
                 }
 };
 

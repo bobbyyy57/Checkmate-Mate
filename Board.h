@@ -22,14 +22,14 @@ struct Position {
 		bool firstMove;
 		Piece* type;
 	public: 
-
+/*
 		Position() {
 			type = nullptr;
 			color = -1;
 			empty = true;
 			firstMove = true;
 		}
-	
+*/	
 		//SETTERS
 		void setColumn(char col) { column = ColumnToNum(col); }
 		void setRow(int x) { row = x; }
@@ -84,6 +84,7 @@ struct Position {
 };
 
 class Board {
+
 protected:
 	  int PlayerColor;
 	  int turn = 0;
@@ -92,10 +93,10 @@ protected:
 
 public:               
   	void printBoard();
-	void setInitialBoard();
-	Position getPosition(int x, int y) {
-			return throwawayBoard[x][y];
+  Position* getPosition(int x, int y) {
+			return &throwawayBoard[x][y];
 	}
+	void setInitialBoard();
   string printP(Position curr);
   void changeTurn(int x) {turn = x;}
 // 	void changeTurn(){
