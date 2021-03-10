@@ -228,6 +228,4 @@ class Move : public Operation {
 		}
 };
 
-#endif
-
-
+#endif //__MOVE_H__

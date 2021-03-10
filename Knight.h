@@ -17,7 +17,7 @@ class Knight : public Piece {
                         int rowDifference = start.GetRow() - end.GetRow();
 
                         //WRONG COLOR
-                        if (CurrentTurn == start.GetColor()) {
+                        if (turn == start.GetColor()) {
                                 cout << "ERROR: Wrong color!" << endl;
                                 return false;
                         }

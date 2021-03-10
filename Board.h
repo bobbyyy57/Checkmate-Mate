@@ -7,7 +7,6 @@ class Menu;
 class Piece;
 
 #include <vector>
-
 #include <string>
 #include <string.h>
 
@@ -94,19 +93,19 @@ public:
   	void printBoard();
     	string printP(Position curr);
 	void setInitialBoard();
-	void changeTurn(int currentTurn){
+	void changeTurn(){
 	//white's turn is denoted by int 0
 	//black pieces' turn is denoted by 1
- 		  if(currentTurn == 0){
- 			  CurrentTurn = 1;
+ 		  if(turn == 0){
+ 			  turn = 1;
 		  }
 		  else{
-			  CurrentTurn = 0;	
+			  turn = 0;
 		    }
   	 }
   void setTurn(int x) { turn = x; }
 	int GetTurn(){
-		return CurrentTurn;
+		return turn;
 	}
 	void MoveLog(string start, string end){
 		MovesLog.push_back(start);

@@ -41,7 +41,7 @@ class Load: public Operation{
 						line.erase(0, pos + delimeter.length());
 						pos2 = line.substr(0, pos);
 					}
-				load->move(pos1, po2);
+				load->move(pos1, po2, board);
 				}
 			delete load;
 			ifs.close();
