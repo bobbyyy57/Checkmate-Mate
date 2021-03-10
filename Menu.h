@@ -19,6 +19,10 @@ class Menu {
 		void gameMenu();
 		void beginningMenu();
 		void clearScreen() { system("clear"); }
+    	/*		for (int n = 0; n < 3; n++) {
+      				cout << "\n\n\n\n\n\n\n\n\n";
+    			}
+		}*/
 
 };
 #endif

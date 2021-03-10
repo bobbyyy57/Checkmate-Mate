@@ -10,6 +10,7 @@ using namespace std;
 
 class Knight : public Piece {
         public:
+		virtual string getType() { return "Knight"; }
                 virtual bool isValid(Position start, Position end) {
 
                         int colDifference = start.GetColumn() - end.GetColumn();

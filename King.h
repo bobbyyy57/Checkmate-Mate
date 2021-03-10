@@ -7,7 +7,7 @@
 using namespace std;
 
 class King : public Piece {
-
+	virtual string getType() { return "King"; }
 	virtual bool isValid(Position start, Position end) {
 		return false;
 	}

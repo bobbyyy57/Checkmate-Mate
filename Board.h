@@ -5,8 +5,8 @@
 class Menu;
 //struct Position;
 class Piece;
-
 #include <string>
+#include <string.h>
 
 using namespace std;
 
@@ -32,10 +32,12 @@ struct Position {
 		void setColumn(char col) { column = ColumnToNum(col); }
 		void setRow(int x) { row = x; }
 		void SetFirst(bool x) { firstMove = x; }
-		void setEmpty() { empty = true; }
-		void setPieceAndColor(Piece* curr, int PieceColor) {
+		void setEmpty(bool x) { empty = x; }
+		void set(Piece* curr, int PieceColor, bool mtee, bool first) {
 			type = curr;
 			color = PieceColor;
+			empty = mtee;
+			firstMove = first;
 		}
 
 		//GETTERS
@@ -84,6 +86,11 @@ class Board {
   		void printBoard();
                 string printP(Position curr);
 		void setInitialBoard();
+		void setTurn(int x) { turn = x; }
+
+		void copyBoard() {
+			memcpy(throwawayBoard, initialBoard, sizeof(Position) * 8 * 8);
+		}
 };
 
 
