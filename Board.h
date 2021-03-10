@@ -1,4 +1,3 @@
-
 #ifndef BOARD_H
 #define BOARD_H
 
@@ -8,7 +7,9 @@ class Menu;
 class Piece;
 #include <string>
 #include <string.h>
-
+#include <iostream>
+#include <vector>
+using namespace std;
 struct Position {
 
 	private: 
@@ -78,9 +79,9 @@ struct Position {
 
 
 
-class Board{
+class Board {
    protected:
-	Position initialBoard[8][8];
+//	Position initialBoard[8][8];
 	Position throwawayBoard[8][8];
 	int turn = 0;
 	vector<string> MovesLog;
@@ -102,10 +103,10 @@ class Board{
 	int getTurn(){
 		return turn;
 	}
-	void MoveLog(string start, string end){ MovesLog.push_back(start); )
-    void copyBoard() {
-			memcpy(throwawayBoard, initialBoard, sizeof(Position) * 8 * 8);
-		}
+	void MoveLog(string start, string end){ MovesLog.push_back(start);} 
+   // void copyBoard() {
+//			memcpy(throwawayBoard, initialBoard, sizeof(Position) * 8 * 8);
+//		}
      void setTurn(int x) { turn = x; }
 
 };
