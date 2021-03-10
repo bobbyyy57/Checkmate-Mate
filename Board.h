@@ -106,8 +106,6 @@ public:
 	void MoveLog(string start, string end){
 		MovesLog.push_back(start);
 		MovesLog.push_back(end);
-	//HELPS IDENTIFY AND SEPARATE MOVES WHEN READING THE FILE
-		MovesLog.push_back("|||");
 	}
 
 };
