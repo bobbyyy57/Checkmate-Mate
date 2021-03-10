@@ -14,7 +14,7 @@ class Rook : public Piece {
 			
 			
 
-			if(turn == start.GetColor()){
+			if(color == start.GetColor()){
 				cout << "ERROR: Wrong color!" << endl;
 				return false;
 			}
