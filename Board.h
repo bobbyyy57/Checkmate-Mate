@@ -80,7 +80,7 @@ struct Position {
 class Board {
         protected:
                 Position throwawayBoard[8][8];
-		Position initialBoard[8][8];
+//		Position initialBoard[8][8];
 		int turn;
 	public:               
   		void printBoard();

@@ -19,19 +19,10 @@ class Play : public Operation {
 
 		virtual void operation() {
 			Menu m;
-			printMessage();
 			Board* game = new Board();
-			game->setInitialBoard();
-	
-			copyBoard();
-			cout << "Throw: " << sizeof(throwawayBoard) << endl;
-			cout << "Init: " << sizeof(initialBoard) << endl;
-			cout << "Pos: " << sizeof(Position) * 8 * 8 << endl;
-	//		memcpy(&throwawayBoard, initialBoard, sizeof(Position) * 8 * 8);
 
-//			cout << "Initial: "<< initialBoard[0][0].GetPiece()->getType() << endl;
-		//	cout << "Throw: " <<  throwawayBoard[0][0].GetPiece()->getType() << endl;
-		
+			printMessage();
+			game->setInitialBoard();
 			game->printBoard();
 			game->setTurn(0);
 			m.gameMenu();

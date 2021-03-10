@@ -16,10 +16,14 @@ using namespace std;
 
 void Board::printBoard() {
 		//chess 8x8
+	
+	cout << "						  CHECKMATE, MATE!    					" << endl;
+	cout << "            -------------------------------------------------------------------------------------------" << endl;
+	cout << endl;
 	cout << "			      A       B       C       D       E       F       G       H    " << endl;
 	cout << endl;
 	cout << "                                  ::::::::        ::::::::        ::::::::        ::::::::" << endl;
-	cout << "                       0     " + printP(initialBoard[0][0]) + "    :::" + printP(throwawayBoard[0][1]) + "::::   " + printP(throwawayBoard[0][2]) + "    :::" + printP(throwawayBoard[0][3]) + "::::   " + printP(throwawayBoard[0][4]) + "    :::" + printP(throwawayBoard[0][5]) + "::::   " + printP(throwawayBoard[0][6]) + "    :::" + printP(throwawayBoard[0][7]) + "::::" << endl;
+	cout << "                       0     " + printP(throwawayBoard[0][0]) + "    :::" + printP(throwawayBoard[0][1]) + "::::   " + printP(throwawayBoard[0][2]) + "    :::" + printP(throwawayBoard[0][3]) + "::::   " + printP(throwawayBoard[0][4]) + "    :::" + printP(throwawayBoard[0][5]) + "::::   " + printP(throwawayBoard[0][6]) + "    :::" + printP(throwawayBoard[0][7]) + "::::" << endl;
 	cout << "                                  ::::::::        ::::::::        ::::::::        ::::::::" << endl; 
 	cout << "                                  ::::::::        ::::::::        ::::::::        ::::::::" << endl; 
 	cout << "                          ::::::::        ::::::::        ::::::::        ::::::::        " << endl;
@@ -57,9 +61,6 @@ void Board::printBoard() {
 string  Board::printP(Position curr) {
 
 	if (curr.isEmpty() == false) {
-		if (curr.GetPiece() == nullptr) {
-			cout << "Piece: null" << endl;
-		}
 
 		string key = curr.GetPiece()->getType();
 
@@ -112,7 +113,7 @@ string  Board::printP(Position curr) {
 			return ":";
 		}
 		else {
-			return "-1";
+			return " ";
 		}
 	}
 }
@@ -121,53 +122,53 @@ string  Board::printP(Position curr) {
 void Board::setInitialBoard() {
 	
 		//SET: PIECE , COLOR, EMPTY, FIRSTMOVE 			
-		initialBoard[0][0].set(new Rook(), 0, false, true);
-                initialBoard[1][0].set(new Knight(), 0, false, true);
-                initialBoard[2][0].set(new Bishop(), 0, false, true);
-                initialBoard[3][0].set(new Queen(), 0, false, true);
-                initialBoard[4][0].set(new King(), 0, false, true);
-                initialBoard[5][0].set(new Bishop(), 0, false, true);
-                initialBoard[6][0].set(new Knight(), 0, false, true);
-                initialBoard[7][0].set(new Rook(), 0, false, true);
+		throwawayBoard[0][0].set(new Rook(), 0, false, true);
+                throwawayBoard[1][0].set(new Knight(), 0, false, true);
+                throwawayBoard[2][0].set(new Bishop(), 0, false, true);
+                throwawayBoard[3][0].set(new Queen(), 0, false, true);
+                throwawayBoard[4][0].set(new King(), 0, false, true);
+                throwawayBoard[5][0].set(new Bishop(), 0, false, true);
+                throwawayBoard[6][0].set(new Knight(), 0, false, true);
+                throwawayBoard[7][0].set(new Rook(), 0, false, true);
 	
-		initialBoard[0][7].set(new Rook(), 1, false, true);
-                initialBoard[1][7].set(new Knight(), 1, false, true);
-                initialBoard[2][7].set(new Bishop(), 1, false, true);
-                initialBoard[3][7].set(new Queen(), 1, false, true);
-                initialBoard[4][7].set(new King(), 1, false, true);
-                initialBoard[5][7].set(new Bishop(), 1, false, true);
-                initialBoard[6][7].set(new Knight(), 1, false, true);
-                initialBoard[7][7].set(new Rook(), 1, false, true);
+		throwawayBoard[0][7].set(new Rook(), 1, false, true);
+                throwawayBoard[1][7].set(new Knight(), 1, false, true);
+                throwawayBoard[2][7].set(new Bishop(), 1, false, true);
+                throwawayBoard[3][7].set(new Queen(), 1, false, true);
+                throwawayBoard[4][7].set(new King(), 1, false, true);
+                throwawayBoard[5][7].set(new Bishop(), 1, false, true);
+                throwawayBoard[6][7].set(new Knight(), 1, false, true);
+                throwawayBoard[7][7].set(new Rook(), 1, false, true);
 
-                initialBoard[0][1].set(new Pawn(), 0, false, true);
-                initialBoard[1][1].set(new Pawn(), 0, false, true);
-                initialBoard[2][1].set(new Pawn(), 0, false, true);
-                initialBoard[3][1].set(new Pawn(), 0, false, true);
-                initialBoard[4][1].set(new Pawn(), 0, false, true);
-                initialBoard[5][1].set(new Pawn(), 0, false, true);
-                initialBoard[6][1].set(new Pawn(), 0, false, true);
-                initialBoard[7][1].set(new Pawn(), 0, false, true);
+                throwawayBoard[0][1].set(new Pawn(), 0, false, true);
+                throwawayBoard[1][1].set(new Pawn(), 0, false, true);
+                throwawayBoard[2][1].set(new Pawn(), 0, false, true);
+                throwawayBoard[3][1].set(new Pawn(), 0, false, true);
+                throwawayBoard[4][1].set(new Pawn(), 0, false, true);
+                throwawayBoard[5][1].set(new Pawn(), 0, false, true);
+                throwawayBoard[6][1].set(new Pawn(), 0, false, true);
+                throwawayBoard[7][1].set(new Pawn(), 0, false, true);
 
-                initialBoard[0][6].set(new Pawn(), 1, false, true);
-                initialBoard[1][6].set(new Pawn(), 1, false, true);
-                initialBoard[2][6].set(new Pawn(), 1, false, true);
-                initialBoard[3][6].set(new Pawn(), 1, false, true);
-                initialBoard[4][6].set(new Pawn(), 1, false, true);
-                initialBoard[5][6].set(new Pawn(), 1, false, true);
-                initialBoard[6][6].set(new Pawn(), 1, false, true);
-                initialBoard[7][6].set(new Pawn(), 1, false, true);
+                throwawayBoard[0][6].set(new Pawn(), 1, false, true);
+                throwawayBoard[1][6].set(new Pawn(), 1, false, true);
+                throwawayBoard[2][6].set(new Pawn(), 1, false, true);
+                throwawayBoard[3][6].set(new Pawn(), 1, false, true);
+                throwawayBoard[4][6].set(new Pawn(), 1, false, true);
+                throwawayBoard[5][6].set(new Pawn(), 1, false, true);
+                throwawayBoard[6][6].set(new Pawn(), 1, false, true);
+                throwawayBoard[7][6].set(new Pawn(), 1, false, true);
 
                 for (int i = 2; i < 6; i++){
                         for (int j = 0; j < 8; j++)
-                                initialBoard[j][i].setEmpty(true);
+                                throwawayBoard[j][i].setEmpty(true);
                 }
 
                 for (int i = 0; i < 8; i++){
                         for (int j = 0; j < 8; j++){
                                 int colAscii = 65 + i;
                                 char col = colAscii;
-                                initialBoard[i][j].setColumn(col);
-                                initialBoard[i][j].setRow(j);
+                                throwawayBoard[i][j].setColumn(col);
+                                throwawayBoard[i][j].setRow(j);
                         }
                 }
 }
