@@ -16,8 +16,13 @@ class Move : public Operation {
                 void operation(Board b){
                         string pos1;
                         string pos2;
-				if (turn == 0){ cout << "White's move!: " << endl; }
-				else if (turn == 0){ cout << "Black's move!: " << endl; }
+				cout << "TURN: ";
+                		if (b.getTurn() == 0) {
+                        		cout << "WHITE" << endl;
+                		}
+                		else {
+                        		cout << "BLACK" << endl;
+                		}
                        		cout << "Which piece would you like to move?: ";
                        		cin >> pos1;
                         	cout << "Where would you like to move it?: ";
@@ -67,7 +72,7 @@ class Move : public Operation {
                         int row2;
 			bool stop = false;
 			bool emptyy = false;
-			bool firstM = false;
+			bool firstM = true;
 
 		
 			while(!stop){ 
@@ -266,6 +271,11 @@ class Move : public Operation {
                                         else{
                                                 stop = true;
                                                 MoveLog(pos1, pos2);
+
+						if (b.getPosition(row1,col1)->GetFirst() == true) { 
+							b.getPosition(row1,col1)->SetFirst(false); 
+						}
+
                                                 b.getPosition(row2,col2)->set(new Empty(), -1, true, true);
                                              	b.getPosition(row2,col2)->set(b.getPosition(row1,col1)->GetPiece(), b.getPosition(row1,col1)->GetColor(), emptyy, firstM);
 						b.getPosition(row1,col1)->set(new Empty(), -1, true, true);
@@ -282,9 +292,7 @@ class Move : public Operation {
 				}
 			}
 			Menu m;
-                        cout << "6" << endl;
-			b.changeTurn(1);
-                        cout << "7" << endl;
+			b.changeTurn();
                         m.gameMenu(b);
 		}
 };

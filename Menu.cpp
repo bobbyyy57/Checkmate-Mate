@@ -111,6 +111,14 @@ void Menu::gameMenu(Board b) {
   	b.printBoard();
 	printGameMenu();
 
+	cout << "TURN: ";
+                if (b.getTurn() == 0) {
+                        cout << "WHITE" << endl;
+                }
+                else {
+                        cout << "BLACK" << endl;
+                }
+
 	string input;
  	cout << "Choose Option: ";
   	cin >> input;

@@ -39,26 +39,27 @@ class Pawn : public Piece {
                         }
 
                         //SAME SPOT
-                        if (colDifference == 0 || rowDifference == 0 ) {
+                        if (colDifference == 0 && rowDifference == 0 ) {
                                 cout << "ERROR: Same position!" << endl;
                                 return false;
                         }
 
                         //CLEAR PATH
                         for(int i = start->GetRow() + 1; i < end->GetRow(); ++i) {
-                                if (throwawayBoard[i][start->GetColumn()].isEmpty() == false) {
+                                if (b.getPosition(i,start->GetColumn())->isEmpty() == false) {
                                         cout << "ERROR: Path is not clear!" << endl;
                                         return false;
                                 }
                         }
 
                         //WITHIN MOVE RANGE AND NOT ZERO
-                        if (start->GetFirst() == true) {
+                        if (start->GetFirst() == true && colDifference > 1) {
                                 if (start->GetColumn() == end->GetColumn() &&
                                     start->GetRow() + 2 == end->GetRow()) {
                                         return true;
                                 }
                                 else {
+					cout << "first";
                                         cout << "ERROR: Out of Pawn's ability!" << endl;
                                         return false;
                                 }
@@ -76,7 +77,8 @@ class Pawn : public Piece {
                                 //REG
                                 if (colDifference > 1 || colDifference < -1 ||
                                     rowDifference > 1 || rowDifference < -1 ) {
-                                        cout << "ERROR: Out of Pawn's ability!" << endl;
+                                	cout << "reg";     
+				   	cout << "ERROR: Out of Pawn's ability!" << endl;
                                         return false;
                                 }
                         }

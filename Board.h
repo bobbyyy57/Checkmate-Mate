@@ -92,7 +92,14 @@ class Board {
                 string printP(Position curr);
 		void setInitialBoard();
 		void setTurn(int x) {turn = x; }
-		void changeTurn(int x) {turn = x;}
+		void changeTurn() {
+			if(turn == 0) {
+				turn = 1;
+			}
+			else {
+				turn = 0;
+			}
+		}
 		int getTurn() { return turn; }
 		void MoveLog(string start, string end){
 			MovesLog.push_back(start);
