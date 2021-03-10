@@ -71,3 +71,4 @@ class PawnFactory : public PieceFactory {
 
 
 #endif
+

@@ -10,8 +10,8 @@ using namespace std;
 
 class Pawn : public Piece {
         public:
-		Pawn() {};
-		virtual string getType() { return "Pawn"; }
+	             	Pawn() {};
+		            virtual string getType() { return "Pawn"; }
                 virtual bool isValid(Position start, Position end) {
 
                         int colDifference = start.GetColumn() - end.GetColumn();

@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <typeinfo>
 
@@ -9,10 +10,9 @@
 #include "Queen.h"
 #include "Bishop.h"
 #include "Rook.h"
-
-//#include "PieceFactory.h"
-
 using namespace std;
+
+
 
 void Board::printBoard() {
 		//chess 8x8
@@ -101,6 +101,7 @@ string  Board::printP(Position curr) {
 				return "r";
                         }
                         else if (key == "Pawn") {
+
                                 return "p";
                         }
 		}
@@ -120,6 +121,7 @@ string  Board::printP(Position curr) {
 
 
 void Board::setInitialBoard() {
+
 	
 		//SET: PIECE , COLOR, EMPTY, FIRSTMOVE 			
 		throwawayBoard[0][0].set(new Rook(), 0, false, true);

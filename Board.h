@@ -1,3 +1,4 @@
+
 #ifndef BOARD_H
 #define BOARD_H
 
@@ -7,8 +8,6 @@ class Menu;
 class Piece;
 #include <string>
 #include <string.h>
-
-using namespace std;
 
 struct Position {
 
@@ -77,21 +76,38 @@ struct Position {
 		}	
 };
 
-class Board {
-        protected:
-                Position throwawayBoard[8][8];
-//		Position initialBoard[8][8];
-		int turn;
-	public:               
-  		void printBoard();
-                string printP(Position curr);
-		void setInitialBoard();
-		void setTurn(int x) { turn = x; }
 
-/*		void copyBoard() {
+
+class Board{
+   protected:
+	Position throwawayBoard[8][8];
+	int turn = 0;
+	vector<string> MovesLog;
+   public:
+	void printBoard();
+	void setInitialBoard();
+	Position* getPosition(int x, int y) {
+		return &throwawayboard[x][y];
+	}
+	string printP(Position curr);
+	void changeTurn(int turn){
+		if(turn == 0){
+			turn = 1;
+		}
+		else{
+			turn = 0;
+		}
+	}
+	int getTurn(){
+		return turn;
+	}
+	void MoveLog(string start, string end){ MovesLog.push_back(start); )
+    void copyBoard() {
 			memcpy(throwawayBoard, initialBoard, sizeof(Position) * 8 * 8);
 		}
-*/};
+     void setTurn(int x) { turn = x; }
+
+};
 
 
 
