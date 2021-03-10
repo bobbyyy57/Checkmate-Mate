@@ -13,8 +13,7 @@
 using namespace std;
 
 void Board::printBoard() {
-		//chess 8x8
-	cout << "			      A       B       C       D       E       F       G       H    " << endl;
+cout << "			      A       B       C       D       E       F       G       H    " << endl;
 	cout << endl;
 	cout << "                                  ::::::::        ::::::::        ::::::::        ::::::::" << endl;
 	cout << "                       0     " + printP(throwawayBoard[0][0]) + "    :::" + printP(throwawayBoard[0][1]) + "::::   " + printP(throwawayBoard[0][2]) + "    :::" + printP(throwawayBoard[0][3]) + "::::   " + printP(throwawayBoard[0][4]) + "    :::" + printP(throwawayBoard[0][5]) + "::::   " + printP(throwawayBoard[0][6]) + "    :::" + printP(throwawayBoard[0][7]) + "::::" << endl;
@@ -104,47 +103,80 @@ string  Board::printP(Position curr) {
 
 
 void Board::setInitialBoard() {
+			
+		
+		Rook* wRook1;
+		Rook* wRook2;
+		Knight* wKnight1;
+		Knight* wKnight2;
+		Bishop* wBishop1; 
+		Bishop* wBishop2;
+		Queen* wQueen; 
+		King* wKing;
 
-                initialBoard[0][0].setPieceAndColor(new Rook(), 0);
-                initialBoard[1][0].setPieceAndColor(new Knight(), 0);
-                initialBoard[2][0].setPieceAndColor(new Bishop(), 0);
-                initialBoard[3][0].setPieceAndColor(new Queen(), 0);
-                initialBoard[4][0].setPieceAndColor(new King(), 0);
-                initialBoard[5][0].setPieceAndColor(new Bishop(), 0);
-                initialBoard[6][0].setPieceAndColor(new Knight(), 0);
-                initialBoard[7][0].setPieceAndColor(new Rook(), 0);
+		Rook* bRook1;
+                Rook* bRook2;
+                Knight* bKnight1;
+                Knight* bKnight2;
+                Bishop* bBishop1;
+                Bishop* bBishop2;
+                Queen* bQueen;
+                King* bKing;
 
-                initialBoard[0][7].setPieceAndColor(new Rook(), 1);
-                initialBoard[1][7].setPieceAndColor(new Knight(), 1);
-                initialBoard[2][7].setPieceAndColor(new Bishop(), 1);
-                initialBoard[3][7].setPieceAndColor(new Queen(), 1);
-                initialBoard[4][7].setPieceAndColor(new King(), 1);
-                initialBoard[5][7].setPieceAndColor(new Bishop(), 1);
-                initialBoard[6][7].setPieceAndColor(new Knight(), 1);
-                initialBoard[7][7].setPieceAndColor(new Rook(), 1);
+                initialBoard[0][0].setPieceAndColor(wRook1, 0);
+                initialBoard[1][0].setPieceAndColor(wKnight1, 0);
+                initialBoard[2][0].setPieceAndColor(wBishop1, 0);
+                initialBoard[3][0].setPieceAndColor(wQueen, 0);
+                initialBoard[4][0].setPieceAndColor(wKing, 0);
+                initialBoard[5][0].setPieceAndColor(wBishop2, 0);
+                initialBoard[6][0].setPieceAndColor(wKnight2, 0);
+                initialBoard[7][0].setPieceAndColor(wRook2, 0);
 
-                initialBoard[0][1].setPieceAndColor(new Pawn(), 0);
-                initialBoard[1][1].setPieceAndColor(new Pawn(), 0);
-                initialBoard[2][1].setPieceAndColor(new Pawn(), 0);
-                initialBoard[3][1].setPieceAndColor(new Pawn(), 0);
-                initialBoard[4][1].setPieceAndColor(new Pawn(), 0);
-                initialBoard[5][1].setPieceAndColor(new Pawn(), 0);
-                initialBoard[6][1].setPieceAndColor(new Pawn(), 0);
-                initialBoard[7][1].setPieceAndColor(new Pawn(), 0);
+                initialBoard[0][7].setPieceAndColor(bRook1, 1);
+                initialBoard[1][7].setPieceAndColor(bKnight1, 1);
+                initialBoard[2][7].setPieceAndColor(bBishop1, 1);
+                initialBoard[3][7].setPieceAndColor(bQueen, 1);
+                initialBoard[4][7].setPieceAndColor(bKing, 1);
+                initialBoard[5][7].setPieceAndColor(bBishop2, 1);
+                initialBoard[6][7].setPieceAndColor(bKnight2, 1);
+                initialBoard[7][7].setPieceAndColor(bRook2, 1);
 
-                initialBoard[0][6].setPieceAndColor(new Pawn(), 1);
-                initialBoard[1][6].setPieceAndColor(new Pawn(), 1);
-                initialBoard[1][6].setPieceAndColor(new Pawn(), 1);
-                initialBoard[1][6].setPieceAndColor(new Pawn(), 1);
-                initialBoard[1][6].setPieceAndColor(new Pawn(), 1);
-                initialBoard[1][6].setPieceAndColor(new Pawn(), 1);
-                initialBoard[1][6].setPieceAndColor(new Pawn(), 1);
-                initialBoard[1][6].setPieceAndColor(new Pawn(), 1);
+		Pawn* wPawn1;
+                Pawn* wPawn2;
+                Pawn* wPawn3;
+                Pawn* wPawn4;
+                Pawn* wPawn5;
+                Pawn* wPawn6;
+                Pawn* wPawn7;
+                Pawn* wPawn8;
+                Pawn* bPawn1;
+                Pawn* bPawn2;
+                Pawn* bPawn3;
+                Pawn* bPawn4;
+                Pawn* bPawn5;
+                Pawn* bPawn6;
+                Pawn* bPawn7;
+                Pawn* bPawn8;
+		
 
-                for (int i = 0; i < 8; i++){
-                        initialBoard[i][1].setPieceAndColor(new Pawn(), 0);
-                        initialBoard[i][6].setPieceAndColor(new Pawn(), 1);
-                }
+                initialBoard[0][1].setPieceAndColor(wPawn1, 0);
+                initialBoard[1][1].setPieceAndColor(wPawn2, 0);
+                initialBoard[2][1].setPieceAndColor(wPawn3, 0);
+                initialBoard[3][1].setPieceAndColor(wPawn4, 0);
+                initialBoard[4][1].setPieceAndColor(wPawn5, 0);
+                initialBoard[5][1].setPieceAndColor(wPawn6, 0);
+                initialBoard[6][1].setPieceAndColor(wPawn7, 0);
+                initialBoard[7][1].setPieceAndColor(wPawn8, 0);
+
+                initialBoard[0][6].setPieceAndColor(bPawn1, 1);
+                initialBoard[1][6].setPieceAndColor(bPawn2, 1);
+                initialBoard[1][6].setPieceAndColor(bPawn3, 1);
+                initialBoard[1][6].setPieceAndColor(bPawn4, 1);
+                initialBoard[1][6].setPieceAndColor(bPawn5, 1);
+                initialBoard[1][6].setPieceAndColor(bPawn6, 1);
+                initialBoard[1][6].setPieceAndColor(bPawn7, 1);
+                initialBoard[1][6].setPieceAndColor(bPawn8, 1);
+
                 for (int i = 2; i < 6; i++){
                         for (int j = 0; j < 8; j++)
                                 initialBoard[j][i].setEmpty();
@@ -159,12 +191,3 @@ void Board::setInitialBoard() {
                         }
                 }
 }
-
-
-
-
-
-
-
-
-

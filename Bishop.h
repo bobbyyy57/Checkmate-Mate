@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Piece.h"
+#include "Board.h"
 #include <cmath>
 #include <cstdlib>
 using namespace std;
@@ -13,7 +14,7 @@ class Bishop: public Piece{
 	public:
 	bool isValid(Position*start, Position* end){
 //CHECKING IF PLAYER IS MOVING THE CORRECT PIECE
-		if(start->GetColor() != throwawayBoard->GetTurn()){
+		if(start->GetColor() != CurrentTurn){
 		std::cout << "ERROR: Wrong color!" << std::endl;
 			return false;
 		}
@@ -23,7 +24,7 @@ class Bishop: public Piece{
 			return false;
 		}
 //CHECKING IF PLAYER IS ACTUALLY MOVING
-		if((start->GetRow() == end->GetRow()) && (end->GetColumn == start->GetColumn())){
+		if((start->GetRow() == end->GetRow()) && (end->GetColumn() == start->GetColumn())){
 		std::cout <<"ERROR: You can stay in the same position!"<<std::endl;
 		}
 //CHECKING IF THE PATH IS CLEAR FOR THE PIECE TO MOVE
@@ -40,7 +41,7 @@ class Bishop: public Piece{
 			for(unsigned i = 1; i <abs(bishopR - finishR); i++){
 				std::cout << "testting testing" << std::endl;
 //CHECKING IF THERE IS ANY PIECES IN THE WAY
-				if(thorwawayBoard[bishopR + increment_r * i][bishopC + increment_c *i]->isEmpty() != false ){
+				if(throwawayBoard[bishopR + increment_r * i][bishopC + increment_c *i].isEmpty() != false ){
 					return false;
 				}
 			}
@@ -52,10 +53,6 @@ class Bishop: public Piece{
 		if(flag == false){return true;}
 	}
 };
-
-
-
-
 
 
 

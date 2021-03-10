@@ -18,7 +18,7 @@ class Pawn : public Piece {
                         int rowDifference = start.GetRow() - end.GetRow();
 
                         //WRONG COLOR
-                        if (turn == start.GetColor()) {
+                        if (CurrentTurn == start.GetColor()) {
                                 cout << "ERROR: Wrong color!" << endl;
                                 return false;
                         }

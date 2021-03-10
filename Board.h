@@ -5,7 +5,7 @@
 class Menu;
 //struct Position;
 class Piece;
-
+#include <vector>
 #include <string>
 
 using namespace std;
@@ -79,28 +79,35 @@ struct Position {
 };
 
 class Board {
-  protected:
+protected:
 	  int PlayerColor;
 	  int CurrentTurn = 0;
-    Position throwawayBoard[8][8];
+ 	  Position throwawayBoard[8][8];
 	  Position initialBoard[8][8];
+	  vector <string> MovesLog;
 
-	public:               
+public:               
   	void printBoard();
-    string printP(Position curr);
-		void setInitialBoard();
-    void changeTurn(int currentTurn){
+    	string printP(Position curr);
+	void setInitialBoard();
+	void changeTurn(int currentTurn){
 	//white's turn is denoted by int 0
 	//black pieces' turn is denoted by 1
  		  if(currentTurn == 0){
  			  CurrentTurn = 1;
 		  }
 		  else{
-			  CurreentTurn = 0;	
+			  CurrentTurn = 0;	
 		    }
   	 }
 	int GetTurn(){
-		return CurrenTurn;
+		return CurrentTurn;
+	}
+	void MoveLog(string start, string end){
+		MovesLog.push_back(start);
+		MovesLog.push_back(end);
+	//HELPS IDENTIFY AND SEPARATE MOVES WHEN READING THE FILE
+		MovesLog.push_back("|||");
 	}
 
 };

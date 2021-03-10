@@ -1,36 +1,43 @@
-#ifndef __SAVE_HPP__
-#define __SAVE_HPP__
+#ifndef __SAVE_H__
+#define __SAVE_H__
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "Board.h"
+#include "Operation.h"
 
 using namespace std;
 
-class Save: public Button{
+class Save: public Operation{
 protected:
-        std::string message;
-        bool isTaken;
+        std::string file;
+
 public:
-        void saveMatch(){
+        void operation(Board board){
 		string save_container;
-		cout << "Please enter name of file where you would like to save the match: " << endl;;
+		cout << "Please enter name of file where you would like to save the match." << endl;
+		cout << "Please only enter .txt files: " << endl;
 		getline(cin, save_container);
 		
-		std::ofstream ofs(file_name);
+		file = save_container + ".txt";
+		std::ofstream ofs(file);
 		if(ofs.is_open()){
 		
-			for(unsigned i = 0: i <Postion::MakeLog->match.size(); ++i){
-			ofs <<MakeLog->math[i] << endl;
+			for(unsigned i = 0: i <MovesLog.size(); ++i){
+			ofs << MovesLog.at(i) << " ";
+				if((i % 2) != 0){
+					cout << endl; 
+				}
 			}
 		ofs.close();
-		cout << "Game saved in " << save_container << ", go take your coffee break." << endl;
+		cout << "Game saved in " << file << ", go take your coffee break." << endl;
 		}
 		else{
-			cout << "Error creating/saving file!" << endl;
+			cout << "ERROR: file not found, please try again!" << endl;
 		}
 	return;
         }
 };
 
 
-#endif // __SAVE_HPP__
+#endif // __SAVE_H__

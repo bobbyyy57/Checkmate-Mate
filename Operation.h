@@ -4,8 +4,8 @@
 using namespace std;
 
 #include "Menu.h"
-
-class Operation {
+#include "Board.h"
+class Operation: public Board {
         public:
            	virtual void operation() = 0;
 };
