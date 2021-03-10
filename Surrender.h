@@ -7,7 +7,7 @@
 
 class Surrender : public Operation{
         public:
-                void operation(){
+                void operation(Board b){
                         //called  when user chooses S or s
                         char choice;
                         cout << "Are you sure you would like to surrender? (Y)ES/(N)O: " << endl;
@@ -21,8 +21,8 @@ class Surrender : public Operation{
                                 quit();
                         }
                         else{
-                        printBoard();
-                        printGameMenu();
+                        b.printBoard();
+                        b.printGameMenu();
         }
 }
 #endif

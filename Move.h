@@ -11,7 +11,7 @@ using namespace std;
 class Move : public Operation {
         public:
 
-                void operation(){
+                void operation(Board b){
                         string pos1;
                         string pos2;
 				if (turn == 0){ cout << "White's move!: " << endl; }
@@ -23,13 +23,13 @@ class Move : public Operation {
 				position1 = pos1;
 				position2 = pos2;
 
-				move(pos1, pos2);
+				move(pos1, pos2, b);
 		}
 
 
 
            
-                 void move(pos1, pos2){
+                 void move(string pos1, string pos2, Board b){
 			int col1;
                         int row1;
                         int col2;
@@ -37,6 +37,8 @@ class Move : public Operation {
 			bool stop = false;
 			bool emptyy = false;
 			bool firstM = false;
+
+		
 			while(!stop){ 
 				col1 = ColumnToNum(pos1[0]);
                                 row1 = pos1[1];
@@ -62,7 +64,7 @@ class Move : public Operation {
                                                 throwawayBoard[row2][col2].setEmpty();
                                                 throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
                                                 throwawayBoard[row1][col1].setEmpty();
-                                                printBoard();
+                                                b.printBoard();
                                                 if(temp->getPiece() == typeid(King)){
                                                         if(getPosition(row1,row2)->getColor() == 0){
                                                                 cout << "White wins!!! Congrats :)" << endl;
@@ -91,7 +93,7 @@ class Move : public Operation {
                                                 throwawayBoard[row2][col2].setEmpty();
                                                 throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
                                                 throwawayBoard[row1][col1].setEmpty();
-                                                printBoard();
+                                                b.printBoard();
 						if(temp->getPiece() == typeid(King)){
                                                         if(getPosition(row1,row2)->getColor() == 0){
                                                                 cout << "White wins!!! Congrats :)" << endl;
@@ -120,7 +122,7 @@ class Move : public Operation {
                                                 throwawayBoard[row2][col2].setEmpty();
                                                 throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
                                                 throwawayBoard[row1][col1].setEmpty();
-                                                printBoard();
+                                                b.printBoard();
 						if(temp->getPiece() == typeid(King)){
                                                         if(getPosition(row1,row2)->getColor() == 0){
                                                                 cout << "White wins!!! Congrats :)" << endl;
@@ -149,7 +151,7 @@ class Move : public Operation {
                                                 throwawayBoard[row2][col2].setEmpty();
                                                 throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
                                                 throwawayBoard[row1][col1].setEmpty();
-                                                printBoard();
+                                                b.printBoard();
 						if(temp->getPiece() == typeid(King)){
                                                         if(getPosition(row1,row2)->getColor() == 0){
                                                                 cout << "White wins!!! Congrats :)" << endl;
@@ -178,7 +180,7 @@ class Move : public Operation {
                                                 throwawayBoard[row2][col2].setEmpty();
 						throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
                                                 throwawayBoard[row1][col1].setEmpty();
-                                                printBoard();
+                                                b.printBoard();
 						if(temp->getPiece() == typeid(King)){
                                                         if(getPosition(row1,row2)->getColor() == 0){
                                                                 cout << "White wins!!! Congrats :)" << endl;
@@ -208,7 +210,7 @@ class Move : public Operation {
                                                 throwawayBoard[row2][col2].setEmpty();
                                                 throwawayBoard[row2][col2].set(getPosition(row1,col1)->getPiece(),getPosition(row1,col1)->getColor(), emptyy, firstM);
                                               	throwawayBoard[row1][col1].setEmpty();
-                                                printBoard();
+                                                b.printBoard();
 						if(temp->getPiece() == typeid(King)){
                                				if(getPosition(row1,row2)->getColor() == 0){
                                 				cout << "White wins!!! Congrats :)" << endl;
@@ -222,7 +224,7 @@ class Move : public Operation {
 				}
 			}
 			changeTurn(turn);
-                        printGameMenu();
+                        b.printGameMenu();
 		}
 };
 
