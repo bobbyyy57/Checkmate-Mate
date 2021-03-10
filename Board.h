@@ -88,10 +88,10 @@ class Board {
 		void setInitialBoard();
 		void setTurn(int x) { turn = x; }
 
-		void copyBoard() {
+/*		void copyBoard() {
 			memcpy(throwawayBoard, initialBoard, sizeof(Position) * 8 * 8);
 		}
-};
+*/};
 
 
 
