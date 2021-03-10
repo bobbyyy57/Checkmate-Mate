@@ -116,7 +116,7 @@ void Menu::gameMenu(Board b) {
   	cin >> input;
 
 
- 	while(input != "Q" || input == "q") {
+ 	while(input != "Q" || input != "q") {
 	
  		if (input == "M" || input == "m") { 
 			click = new Move();
@@ -136,7 +136,9 @@ void Menu::gameMenu(Board b) {
 	//	  }
 		  else {
 	    		cout << "Invalid Option. Please Try Again." << endl;
-   	  	}
+   	  		cout << "Choose Option: ";
+        		cin >> input;	
+		  }
  	}
 
 	if (input == "Q" || input == "q") {	

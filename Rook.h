@@ -8,18 +8,18 @@ using namespace std;
 
 class Rook : public Piece {
 	virtual string getType() { return "Rook"; }
-        virtual bool isValid(Position start, Position end, Board b) {
-        		
-			int colDifference = start.GetColumn() - end.GetColumn();
-                        int rowDifference = start.GetRow() - end.GetRow();
+        virtual bool isValid(Position* start, Position* end, Board b) {
+        		/*
+			int colDifference = start->GetColumn() - end->GetColumn();
+                        int rowDifference = start->GetRow() - end->GetRow();
 
-                        if(b.getTurn() == start.GetColor()){
+                        if(b.getTurn() == start->GetColor()){
                                 std::cout << "ERROR: Wrong color!" << std::endl;
                                 return false;
                         }
 
 
-                        if (start.GetColor() == end.GetColor()){
+                        if (start->GetColor() == end->GetColor()){
                                 std::cout << "ERROR: Destination is occupied by a piece of your color!" << std::endl;
                                 return false;
                         }
@@ -42,20 +42,20 @@ class Rook : public Piece {
                                 return false;
                         }
 
-			for(int i = start.GetRow() + 1; i < end.GetRow(); ++i) {
-                                if (throwawayBoard[i][start.GetColumn()].isEmpty() == false) {
+			for(int i = start->GetRow() + 1; i < end->GetRow(); ++i) {
+                                if (throwawayBoard[i][start->GetColumn()].isEmpty() == false) {
                                 std::cout << "ERROR: Path is not clear!" << std::endl;
                                 return false;
                                 }
                         }
 
-                        for(int i = start.GetColumn() + 1; i < end.GetColumn(); ++i) {
-                                if (throwawayBoard[start.GetRow()][i].isEmpty() == false) {
+                        for(int i = start->GetColumn() + 1; i < end->GetColumn(); ++i) {
+                                if (throwawayBoard[start->GetRow()][i].isEmpty() == false) {
                                 std::cout << "ERROR: Path is not clear!" << std::endl;
                                 return false;
                                 }
                         }
-
+*/
                         return true;
 
 	}

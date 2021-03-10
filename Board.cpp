@@ -9,6 +9,7 @@
 #include "Queen.h"
 #include "Bishop.h"
 #include "Rook.h"
+#include "Empty.h"
 
 using namespace std;
 
@@ -118,7 +119,7 @@ string  Board::printP(Position curr) {
 
 
 void Board::setInitialBoard() {
-	
+
 		//SET: PIECE , COLOR, EMPTY, FIRSTMOVE 			
 		throwawayBoard[0][0].set(new Rook(), 0, false, true);
                 throwawayBoard[1][0].set(new Knight(), 0, false, true);
@@ -157,10 +158,18 @@ void Board::setInitialBoard() {
                 throwawayBoard[7][6].set(new Pawn(), 1, false, true);
 
                 for (int i = 2; i < 6; i++){
-                        for (int j = 0; j < 8; j++)
-                                throwawayBoard[j][i].setEmpty(true);
+                        for (int j = 0; j < 8; j++) {
+                                throwawayBoard[j][i].set(new Empty(), -1, true, true);
+                	}
+		}
+/*
+		for (int i = 0; i < 8; i++){
+      	  	            throwawayBoard[i][0].set(new Empty(), -1, true, true);
                 }
-
+		for (int i = 0; i < 8; i++){
+                            throwawayBoard[i][7].set(new Empty(), -1, true, true);
+                }
+*/
                 for (int i = 0; i < 8; i++){
                         for (int j = 0; j < 8; j++){
                                 int colAscii = 65 + i;

@@ -21,14 +21,14 @@ struct Position {
 		bool firstMove;
 		Piece* type;
 	public: 
-
+/*
 		Position() {
 			type = nullptr;
 			color = -1;
 			empty = true;
 			firstMove = true;
 		}
-	
+*/	
 		//SETTERS
 		void setColumn(char col) { column = ColumnToNum(col); }
 		void setRow(int x) { row = x; }
@@ -86,8 +86,8 @@ class Board {
 		vector<string>MovesLog;
 	public:               
   		void printBoard();
-		Position getPosition(int x, int y) {
-			return throwawayBoard[x][y];
+		Position* getPosition(int x, int y) {
+			return &throwawayBoard[x][y];
 		}
                 string printP(Position curr);
 		void setInitialBoard();
