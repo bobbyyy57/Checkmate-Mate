@@ -80,13 +80,27 @@ class Board{
    protected:
 	Position initialBoard[8][8];
 	Position throwawayBoard[8][8];
+	int turn = 0;
+	vector<string> MovesLog;
    public:
 	void printBoard();
 	void setInitialBoard();
-	//Positions* getPosition(int x, int y) {
-	//	return &throwawayboard[x][y];
-	//}
+	Position* getPosition(int x, int y) {
+		return &throwawayboard[x][y];
+	}
 	string printP(Position curr);
+	void changeTurn(int turn){
+		if(turn == 0){
+			turn = 1;
+		}
+		else{
+			turn = 0;
+		}
+	}
+	int getTurn(){
+		return turn;
+	}
+	void MoveLog(string start, string end){ MovesLog.push_back(start); )
 };
 
 #endif
