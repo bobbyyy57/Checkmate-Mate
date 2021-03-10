@@ -1,10 +1,12 @@
-#ifndef BOARD_H
-#define BOARD_H
-
+#ifndef __BOARD_H__
+#define __BOARD_H__
+#include <map>
 //#include "Position.h"
 class Menu;
 //struct Position;
 class Piece;
+
+#include <vector>
 #include <string>
 #include <vector>
 #include <string.h>
@@ -12,10 +14,9 @@ class Piece;
 using namespace std;
 
 struct Position {
-
-	private: 
+	protected:
 		int row; 
-		int column;
+		char column;
 		int color;
 		bool empty;
 		bool firstMove;
@@ -40,9 +41,13 @@ struct Position {
 			empty = mtee;
 			firstMove = first;
 		}
-
+  
+  
 		//GETTERS
-		int GetColumn() { return column; }
+		int GetColumn() { 
+      int columnNum = ColumnToNum(column);
+		  return columnNum; 
+    }
 		int GetRow(){ return row; }
 		Piece* GetPiece() { return type; }
 		int GetColor() { return color; }
@@ -79,30 +84,38 @@ struct Position {
 };
 
 class Board {
-        protected:
-                Position throwawayBoard[8][8];
-//		Position initialBoard[8][8];
-		int turn;
-		vector<string>MovesLog;
-	public:               
-  		void printBoard();
-		Position* getPosition(int x, int y) {
+
+protected:
+	  int PlayerColor;
+	  int turn = 0;
+ 	  Position throwawayBoard[8][8];
+	  vector <string> MovesLog;
+
+public:               
+  	void printBoard();
+  Position* getPosition(int x, int y) {
 			return &throwawayBoard[x][y];
-		}
-                string printP(Position curr);
-		void setInitialBoard();
-		void setTurn(int x) {turn = x; }
-		void changeTurn(int x) {turn = x;}
-		int getTurn() { return turn; }
-		void MoveLog(string start, string end){
-			MovesLog.push_back(start);
-			MovesLog.push_back(end);
-		}
-/*		void copyBoard() {
-			memcpy(throwawayBoard, initialBoard, sizeof(Position) * 8 * 8);
-		}
-*/};
+	}
+	void setInitialBoard();
+  string printP(Position curr);
+  void changeTurn(int x) {turn = x;}
+// 	void changeTurn(){
+// 	//white's turn is denoted by int 0
+// 	//black pieces' turn is denoted by 1
+//  		  if(turn == 0){
+//  			  turn = 1;
+// 		  }
+// 		  else{
+// 			  turn = 0;
+// 		    }
+//   	 }
+  void setTurn(int x) { turn = x; }
+	int GetTurn(){ return turn; }
+	void MoveLog(string start, string end){
+		MovesLog.push_back(start);
+		MovesLog.push_back(end);
+	}
 
+};
 
-
-#endif
+#endif // __BOARD_H__

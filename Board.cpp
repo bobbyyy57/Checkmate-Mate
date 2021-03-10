@@ -179,4 +179,3 @@ void Board::setInitialBoard() {
                         }
                 }
 }
-
