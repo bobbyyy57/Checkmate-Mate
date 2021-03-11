@@ -1,48 +1,105 @@
-
 #ifndef BOARD_H
 #define BOARD_H
 
-#include "button.hpp"
-#include "Menu.h"
+
+class Menu;
+
+class Piece;
+#include <string>
+#include <vector>
+#include <string.h>
 
 using namespace std;
 
-struct Positions{
-    private:
-   //     Piece* type;
-        int row;
-        char column;
-        int color;
-	bool firstMove;
-	bool empty;
-    public:
-	Positions(){
-//		type = nullptr;
-		empty = true;
-		color = -1;
-		firstMove = true;
-	}
-	void SetRow(int x) { row = x; }
-//	Piece GetPiece() { return type; };
-	int GetColor() { return color; };
-        void SetColumn(int col){ column = col; } 
-	void SetFirst(bool x) { firstMove = x; }
-        int GetRow(){ return row; }
-	bool isEmpty() { return empty; }
+struct Position {
 
+	private: 
+		int row; 
+		int column;
+		int color;
+		bool empty;
+		bool firstMove;
+		Piece* type;
+	public: 
+	
+
+		void setColumn(char col) { column = ColumnToNum(col); }
+		void setRow(int x) { row = x; }
+		void SetFirst(bool x) { firstMove = x; }
+		void setEmpty(bool x) { empty = x; }
+		void set(Piece* curr, int PieceColor, bool mtee, bool first) {
+			type = curr;
+			color = PieceColor;
+			empty = mtee;
+			firstMove = first;
+		}
+
+		int GetColumn() { return column; }
+		int GetRow(){ return row; }
+		Piece* GetPiece() { return type; }
+		int GetColor() { return color; }
+		bool GetFirst() { return firstMove; }
+		bool isEmpty() { return empty; }
+	
+
+		int ColumnToNum(char column){
+			if(column == 'a' || column == 'A'){
+				return 0;
+			}
+			else if(column == 'b' || column == 'B'){
+				return 1;
+			}
+			else if(column == 'c' || column == 'C'){
+				return 2;
+                	}
+			else if(column == 'd' || column == 'D'){
+				return 3;
+                	}
+			else if(column == 'e' || column == 'E'){
+				return 4;
+                	}
+			else if(column == 'f' || column == 'F'){
+				return 5;
+                	}
+			else if(column == 'g' || column == 'G'){
+				return 6;
+                	}
+			else if(column == 'h' || column == 'H'){
+				return 7;
+                	}
+		}	
 };
 
-class Board{
-   protected:
-	Positions initialBoard[8][8];
-	Positions throwawayBoard[8][8];
-   public:
-	void printBoard();
-	void setInitialBoard();
-	Position* getPosition(int x, int y) {
-		return &throwawayboard[x][y];
-	}
-	string printP(Position curr);
+class Board {
+        protected:
+                Position throwawayBoard[8][8];
+
+		int turn;
+		vector<string>MovesLog;
+	public:               
+  		void printBoard();
+		Position* getPosition(int x, int y) {
+			return &throwawayBoard[x][y];
+		}
+                string printP(Position curr);
+		void setInitialBoard();
+		void setTurn(int x) {turn = x; }
+		void changeTurn() {
+			if(turn == 0) {
+				turn = 1;
+			}
+			else {
+				turn = 0;
+			}
+		}
+		int getTurn() { return turn; }
+		void MoveLog(string start, string end){
+			MovesLog.push_back(start);
+			MovesLog.push_back(end);
+		}
 };
+
+
 
 #endif
+

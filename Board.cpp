@@ -1,12 +1,24 @@
 #include <iostream>
 #include <typeinfo>
 
+#include "Piece.h"
 #include "Board.h"
+#include "Pawn.h"
+#include "Knight.h"
+#include "King.h"
+#include "Queen.h"
+#include "Bishop.h"
+#include "Rook.h"
+#include "Empty.h"
 
 using namespace std;
 
 void Board::printBoard() {
-		
+
+	
+	cout << "						  CHECKMATE, MATE!    					" << endl;
+	cout << "            -------------------------------------------------------------------------------------------" << endl;
+	cout << endl;
 	cout << "			      A       B       C       D       E       F       G       H    " << endl;
 	cout << endl;
 	cout << "                                  ::::::::        ::::::::        ::::::::        ::::::::" << endl;
@@ -45,108 +57,106 @@ void Board::printBoard() {
 	cout << "            -------------------------------------------------------------------------------------------" << endl;
 }
 
-string Board::printP(Position curr) {
+string  Board::printP(Position curr) {
 
 	if (curr.isEmpty() == false) {
 
+		string key = curr.GetPiece()->getType();
+
 		if (curr.GetColor() == 1) {	
-			if (typeid(King) == typeid(curr.getPiece())) {
-				return "K";
-			}
-			else if (typeid(Queen) == typeid(curr.getPiece())) {
+			if (key == "King") {
+                                return "K";
+                        }
+                        else if (key == "Queen") {
                                 return "Q";
                         }
-			else if (typeid(Bishop) == typeid(curr.getPiece())) {
+                        else if (key == "Bishop") {
                                 return "B";
                         }
-			else if (typeid(Knight) == typeid(curr.getPiece())) {
+                        else if (key == "Knight") {
                                 return "H";
                         }
-			else if (typeid(Rook) == typeid(curr.getPiece())) {
+                        else if (key == "Rook") {
                                 return "R";
                         }
-			else if (typeid(Pawn) == typeid(curr.getPiece())) {
+                        else if (key == "Pawn") {
                                 return "P";
                         }
 		}
 		else {
-			if (typeid(King) == typeid(curr.getPiece())) {
+			if (key == "King") {
                                 return "k";
                         }
-                        else if (typeid(Queen) == typeid(curr.getPiece())) {
+                        else if (key == "Queen") {
                                 return "q";
                         }
-                        else if (typeid(Bishop) == typeid(curr.getPiece())) {
+                        else if (key == "Bishop") {
                                 return "b";
                         }
-                        else if (typeid(Knight) == typeid(curr.getPiece())) {
+                        else if (key == "Knight") {
                                 return "h";
                         }
-                        else if (typeid(Rook) == typeid(curr.getPiece())) {
-                                return "r";
+                        else if (key == "Rook") {
+				return "r";
                         }
-                        else if (typeid(Pawn) == typeid(curr.getPiece())) {
+                        else if (key == "Pawn") {
                                 return "p";
                         }
 		}
-			
+	}		
 	else {
-		return ":";
+			return " ";
 	}
 }
 
-void Board::setInitialBoard(){
 
-                initialBoard[0][0].setPieceAndColor(new Rook(), 0, );
-                initialBoard[1][0].setPieceAndColor(new Knight(), 0);
-                initialBoard[2][0].setPieceAndColor(new Bishop(), 0);
-                initialBoard[3][0].setPieceAndColor(new Queen(), 0);
-                initialBoard[4][0].setPieceAndColor(new King(), 0);
-                initialBoard[5][0].setPieceAndColor(new Bishop(), 0);
-                initialBoard[6][0].setPieceAndColor(new Knight(), 0);
-                initialBoard[7][0].setPieceAndColor(new Rook(), 0);
+void Board::setInitialBoard() {
+throwawayBoard[0][0].set(new Rook(), 0, false, true);
+                throwawayBoard[1][0].set(new Knight(), 0, false, true);
+                throwawayBoard[2][0].set(new Bishop(), 0, false, true);
+                throwawayBoard[3][0].set(new Queen(), 0, false, true);
+                throwawayBoard[4][0].set(new King(), 0, false, true);
+                throwawayBoard[5][0].set(new Bishop(), 0, false, true);
+                throwawayBoard[6][0].set(new Knight(), 0, false, true);
+                throwawayBoard[7][0].set(new Rook(), 0, false, true);
+	
+		throwawayBoard[0][7].set(new Rook(), 1, false, true);
+                throwawayBoard[1][7].set(new Knight(), 1, false, true);
+                throwawayBoard[2][7].set(new Bishop(), 1, false, true);
+                throwawayBoard[3][7].set(new Queen(), 1, false, true);
+                throwawayBoard[4][7].set(new King(), 1, false, true);
+                throwawayBoard[5][7].set(new Bishop(), 1, false, true);
+                throwawayBoard[6][7].set(new Knight(), 1, false, true);
+                throwawayBoard[7][7].set(new Rook(), 1, false, true);
 
-                initialBoard[0][7].setPieceAndColor(new Rook(), 1);
-                initialBoard[1][7].setPieceAndColor(new Knight(), 1);
-                initialBoard[2][7].setPieceAndColor(new Bishop(), 1);
-                initialBoard[3][7].setPieceAndColor(new Queen(), 1);
-                initialBoard[4][7].setPieceAndColor(new King(), 1);
-                initialBoard[5][7].setPieceAndColor(new Bishop(), 1);
-                initialBoard[6][7].setPieceAndColor(new Knight(), 1);
-                initialBoard[7][7].setPieceAndColor(new Rook(), 1);
+                throwawayBoard[0][1].set(new Pawn(), 0, false, true);
+                throwawayBoard[1][1].set(new Pawn(), 0, false, true);
+                throwawayBoard[2][1].set(new Pawn(), 0, false, true);
+                throwawayBoard[3][1].set(new Pawn(), 0, false, true);
+                throwawayBoard[4][1].set(new Pawn(), 0, false, true);
+                throwawayBoard[5][1].set(new Pawn(), 0, false, true);
+                throwawayBoard[6][1].set(new Pawn(), 0, false, true);
+                throwawayBoard[7][1].set(new Pawn(), 0, false, true);
 
-                initialBoard[0][1].setPieceAndColor(new Pawn(), 0);
-                initialBoard[1][1].setPieceAndColor(new Pawn(), 0);
-                initialBoard[2][1].setPieceAndColor(new Pawn(), 0);
-                initialBoard[3][1].setPieceAndColor(new Pawn(), 0);
-                initialBoard[4][1].setPieceAndColor(new Pawn(), 0);
-                initialBoard[5][1].setPieceAndColor(new Pawn(), 0);
-                initialBoard[6][1].setPieceAndColor(new Pawn(), 0);
-                initialBoard[7][1].setPieceAndColor(new Pawn(), 0);
+                throwawayBoard[0][6].set(new Pawn(), 1, false, true);
+                throwawayBoard[1][6].set(new Pawn(), 1, false, true);
+                throwawayBoard[2][6].set(new Pawn(), 1, false, true);
+                throwawayBoard[3][6].set(new Pawn(), 1, false, true);
+                throwawayBoard[4][6].set(new Pawn(), 1, false, true);
+                throwawayBoard[5][6].set(new Pawn(), 1, false, true);
+                throwawayBoard[6][6].set(new Pawn(), 1, false, true);
+                throwawayBoard[7][6].set(new Pawn(), 1, false, true);
 
-                initialBoard[0][6].setPieceAndColor(new Pawn(), 1);
-                initialBoard[1][6].setPieceAndColor(new Pawn(), 1);
-                initialBoard[1][6].setPieceAndColor(new Pawn(), 1);
-                initialBoard[1][6].setPieceAndColor(new Pawn(), 1);
-                initialBoard[1][6].setPieceAndColor(new Pawn(), 1);
-                initialBoard[1][6].setPieceAndColor(new Pawn(), 1);
-                initialBoard[1][6].setPieceAndColor(new Pawn(), 1);
-                initialBoard[1][6].setPieceAndColor(new Pawn(), 1);
-                for (int i = 0; i < 8; i++){
-                        initialBoard[i][1].setPieceAndColor(new Pawn(), 0);
-                        initialBoard[i][6].setPieceAndColor(new Pawn(), 1);
-                }
                 for (int i = 2; i < 6; i++){
-                        for (int j = 0; j < 8; j++)
-                                initialBoard[j][i].setEmpty();
-                }
-
+                        for (int j = 0; j < 8; j++) {
+                                throwawayBoard[j][i].set(new Empty(), -1, true, true);
+                	}
+		}
                 for (int i = 0; i < 8; i++){
                         for (int j = 0; j < 8; j++){
-                                int colAscii = 65 + i;
-                                char col = colAscii;
-                                initialBoard[i][j].setColumn(col);
-                                initialBoard[i][j].setRow(j);
+	
+                                throwawayBoard[i][j].setColumn(j);
+                                throwawayBoard[i][j].setRow(i);
                         }
                 }
 }

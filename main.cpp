@@ -6,8 +6,6 @@
 
 using namespace std;
 
-//void clearScreen() { system("clear"); }
-
 int main() {
 	Menu m;
 	m.clearScreen();	

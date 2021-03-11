@@ -1,15 +1,15 @@
-#ifndef QUIT_HPP
-#define QUIT_HPP
+#ifndef QUIT_H
+#define QUIT_H
 
-#include "button.hpp"
 #include "Menu.h"
+#include "Operation.h"
 
-class Quit : public Button {
+class Quit : public Operation {
 	private: 
 		string status;
 	public: 
 		Quit(string current) { status = current; }
-		virtual void printMessage() {
+		void printMessage() {
 			cout << "      -----------------------------------------------------------------------------------------------------------------" << endl;
 		        cout << "      |                                                                                                               |" << endl;
   		        cout << "      |                           Thank you so much for playing! We hope to see you soon! :)                          |" << endl;
@@ -20,15 +20,15 @@ class Quit : public Button {
 			cout << endl;
 			cout << endl;
 		}
-		virtual void operation() {
-			clearScreen();
-			//	operations::quit();			
+		virtual void operation(Board b) {
+			Menu m;
+			m.clearScreen();
 			if (status == "beginning") {
 				printMessage();
 				exit;
 			}
 			else {
-				beginningMenu();
+				m.beginningMenu();
 			}
 		}
 	

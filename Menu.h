@@ -3,12 +3,22 @@
 
 using namespace std;
 
-void printLogo();
-void printBeginningMenu();
-void printGameMenu();
-void printGreeting();
-void gameMenu();
-void beginningMenu();
-void clearScreen() { system("clear"); }
+#include "Operation.h"
+#include <stdlib.h>
 
+class Menu {
+
+	private: 
+		Operation* click;
+
+	public: 	
+		void printLogo();
+		void printBeginningMenu();
+		void printGameMenu();
+		void printGreeting();
+		void gameMenu(Board);
+		void beginningMenu();
+		void clearScreen() { system("clear"); }
+
+};
 #endif
