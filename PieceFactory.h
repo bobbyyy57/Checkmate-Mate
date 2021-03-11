@@ -4,13 +4,14 @@
 using namespace std;
 
 #include "Piece.h"
-//#include "Bishop.h"
-//#include "King.h"
-//#include "Queen.h"
-//#include "Rook.h"
-//#include "Knight.h"
+#include "Bishop.h"
+#include "King.h"
+#include "Queen.h"
+#include "Rook.h"
+#include "Knight.h"
 #include "Pawn.h"
 #include "Board.h"
+#include "Empty.h"
 
 //CREATOR
 class PieceFactory {
@@ -26,19 +27,18 @@ class PieceFactory {
 		
 		bool status() {
 			Piece* current = this->factory();
-			bool answer = current->isValid(*start, *end, b);
+			bool answer = current->isValid(start, end, b);
 			delete current;
 			return answer;
 		}
 
 };
 
-/*
 
 //CONCRETE CREATOR
 class KingFactory : public PieceFactory {
 	public: 
-		KingFactory(Position x, Position y, Board be) {
+		KingFactory(Position* x, Position* y, Board be) {
                         start = x;
                         end = y;
 			b = be;
@@ -51,7 +51,7 @@ class KingFactory : public PieceFactory {
 
 class QueenFactory : public PieceFactory {
         public:
-		QueenFactory(Position x, Position y, Board be) {
+		QueenFactory(Position* x, Position* y, Board be) {
                         start = x;
                         end = y;
                 	b = be;
@@ -64,7 +64,7 @@ class QueenFactory : public PieceFactory {
 class BishopFactory : public PieceFactory {
         public:
 
-		BishopFactory(Position x, Position y, Board be) {
+		BishopFactory(Position* x, Position* y, Board be) {
                         start = x;
                         end = y;
 			b = be;
@@ -76,7 +76,7 @@ class BishopFactory : public PieceFactory {
 
 class KnightFactory : public PieceFactory {
         public:
-		KnightFactory(Position x, Position y, Board be) {
+		KnightFactory(Position* x, Position* y, Board be) {
                         start = x;
                         end = y;
 			b = be;
@@ -88,7 +88,7 @@ class KnightFactory : public PieceFactory {
 
 class RookFactory : public PieceFactory {
         public:
-		RookFactory(Position x, Position y, Board be) {
+		RookFactory(Position* x, Position* y, Board be) {
                         start = x;
                         end = y;
 			b = be;
@@ -98,7 +98,7 @@ class RookFactory : public PieceFactory {
 		}
 };
 
-*/
+
 class PawnFactory : public PieceFactory {
         public:
 
@@ -111,6 +111,5 @@ class PawnFactory : public PieceFactory {
                 	return new Pawn;
 		}
 };
-
 
 #endif

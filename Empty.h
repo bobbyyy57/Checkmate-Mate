@@ -10,13 +10,13 @@ using namespace std;
 
 class Empty : public Piece {
         public:
-              
+
+                Empty() {};
                 virtual string getType() { return "Empty"; }
-                virtual bool isValid(Position start, Position end, Board b) {
-                        return true;
-                }
+                virtual bool isValid(Position* start, Position* end, Board b) {
+			return true;
+		}
 
 };
 
 #endif
-
