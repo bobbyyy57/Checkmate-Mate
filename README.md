@@ -19,8 +19,8 @@
    * 'Q' = 'quit'
    * 'U' = 'undo'
    * 'S' = 'save'
-   * 'L' = quit
-   * 'P' = play
+   * 'X' = 'surrender'
+   * 'M' = 'move'
  * *Output*:
    * the pieces moving from one spot (node) to another by either a user.
    * quits the game
