@@ -66,9 +66,9 @@ class Move : public Operation {
 			bool stop = false;
 			bool emptyy = false;
 			bool firstM = false;
-
-		
+			
 			while(!stop){ 
+				if (b.MovesLog.size() == 0){ firstM = true; }
 				col1 = ColumnToNums(pos1.at(0));
                                 row1 = pos1.at(1) - 48;
                                 col2 = ColumnToNums(pos2.at(0));
@@ -96,7 +96,7 @@ class Move : public Operation {
                                                         cin >> pos2;
 				}
                                 else if(b.getPosition(row1,col1)->GetPiece()->getType() == "King"){
-                                        PieceFactory* factory = new KingFactory(getPosition(row1,col1), getPosition(row2,col2), b);
+                                        PieceFactory* factory = new KingFactory(b.getPosition(row1,col1), b.getPosition(row2,col2), b);
                                         bool valid = factory->status();
 					if(valid == false){
                                                 cout << "Try again." << endl;
@@ -108,9 +108,9 @@ class Move : public Operation {
                                         else{
                                         	stop = true;
                                                 MoveLog(pos1, pos2);
-                                                b.getPosition(row2,col2)->setEmpty(true);
+                                                b.getPosition(row2,col2)->set(new Empty(), -1, true, true);
                                                 b.getPosition(row2,col2)->set(b.getPosition(row1,col1)->GetPiece(), b.getPosition(row1,col1)->GetColor(), emptyy, firstM);
-                                                b.getPosition(row1,col1)->setEmpty(true);
+                                                b.getPosition(row1,col1)->set(new Empty(), -1, true, true);
                                                 b.printBoard();
                                                 if( b.getPosition(row2, col2)->GetPiece()->getType() == "King"){
                                                         if(b.getPosition(row1,col1)->GetColor() == 0){
@@ -124,7 +124,23 @@ class Move : public Operation {
                                 }
 				
 				else if(b.getPosition(row1,col1)->GetPiece()->getType() == "Queen"){
-                                        PieceFactory* factory = new QueenFactory(getPosition(row1,col1), getPosition(row2, col2), b);
+					cout << "QUEEN REACHED!" << endl;
+
+                                        cout << "Col1: " << col1 << endl;
+                                cout << "test: " << b.getPosition(row1,col1)->GetPiece()->getType() << endl;
+                                cout << "Row1: " << row1 << endl;
+                                 cout << "Color1: " << b.getPosition(row1,col1)->GetColor() << endl;
+
+                                cout << "Col2: " << col2 << endl;
+                                cout << "test: " << b.getPosition(row2,col2)->GetPiece()->getType() << endl;
+                                cout << "Row2: " << row2 << endl;
+
+
+                                cout << "get column" << b.getPosition(row1,col1)->GetColumn() << endl;
+                                cout << "get row" << b.getPosition(row1,col1)->GetRow() << endl;
+
+
+                                        PieceFactory* factory = new QueenFactory(b.getPosition(row1,col1), b.getPosition(row2, col2), b);
                                         bool valid = factory->status();
 					if(valid == false){
                                                 cout << "Try again." << endl;
@@ -136,9 +152,9 @@ class Move : public Operation {
                                         else{
                                 		stop = true;
                                                 MoveLog(pos1, pos2);
-                                                b.getPosition(row2,col2)->setEmpty(true);
+                                                b.getPosition(row2,col2)->set(new Empty(), -1, true, true);
                                                 b.getPosition(row2,col2)->set(b.getPosition(row1,col1)->GetPiece(), b.getPosition(row1,col1)->GetColor(), emptyy, firstM);
-                                                b.getPosition(row1,col1)->setEmpty(true);
+                                                b.getPosition(row1,col1)->set(new Empty(), -1, true, true);
                                                 b.printBoard();
                                                 if( b.getPosition(row2, col2)->GetPiece()->getType() == "King"){
                                                         if(b.getPosition(row1,col1)->GetColor() == 0){
@@ -152,7 +168,7 @@ class Move : public Operation {
 				}
 
 				else if(b.getPosition(row1,col1)->GetPiece()->getType() == "Bishop"){
-                                        PieceFactory* factory = new BishopFactory(getPosition(row1,col1), getPosition(row2,col2), b);
+                                        PieceFactory* factory = new BishopFactory(b.getPosition(row1,col1), b.getPosition(row2,col2), b);
                                         bool valid = factory->status();
                                         if(valid == false){
                                                 cout << "Try again." << endl;
@@ -164,9 +180,9 @@ class Move : public Operation {
                                         else{
                                         	stop = true;
                                                 MoveLog(pos1, pos2);
-                                                b.getPosition(row2,col2)->setEmpty(true);
+                                                b.getPosition(row2,col2)->set(new Empty(), -1, true, true);
                                                 b.getPosition(row2,col2)->set(b.getPosition(row1,col1)->GetPiece(), b.getPosition(row1,col1)->GetColor(), emptyy, firstM);
-                                                b.getPosition(row1,col1)->setEmpty(true);
+                                                b.getPosition(row1,col1)->set(new Empty(), -1, true, true);
                                                 b.printBoard();
                                                 if( b.getPosition(row2, col2)->GetPiece()->getType() == "King"){
                                                         if(b.getPosition(row1,col1)->GetColor() == 0){
@@ -180,7 +196,23 @@ class Move : public Operation {
 				}
 
 				else if(b.getPosition(row1,col1)->GetPiece()->getType() == "Rook"){
-                                        PieceFactory* factory = new RookFactory(getPosition(row1,col1), getPosition(row2,col2), b);
+					cout << "ROOK REACHED!" << endl;
+
+                                        cout << "Col1: " << col1 << endl;
+                                cout << "test: " << b.getPosition(row1,col1)->GetPiece()->getType() << endl;
+                                cout << "Row1: " << row1 << endl;
+                                 cout << "Color1: " << b.getPosition(row1,col1)->GetColor() << endl;
+
+                                cout << "Col2: " << col2 << endl;
+                                cout << "test: " << b.getPosition(row2,col2)->GetPiece()->getType() << endl;
+                                cout << "Row2: " << row2 << endl;
+
+
+                                cout << "get column" << b.getPosition(row1,col1)->GetColumn() << endl;
+                                cout << "get row" << b.getPosition(row1,col1)->GetRow() << endl;
+
+
+                                        PieceFactory* factory = new RookFactory(b.getPosition(row1,col1), b.getPosition(row2,col2), b);
                                         bool valid = factory->status();
                                         if(valid == false){
                                                 cout << "Try again." << endl;
@@ -192,9 +224,9 @@ class Move : public Operation {
                                         else{
                                         	stop = true;
                                                 MoveLog(pos1, pos2);
-                                                b.getPosition(row2,col2)->setEmpty(true);
+                                                b.getPosition(row2,col2)->set(new Empty(), -1, true, true);
                                                 b.getPosition(row2,col2)->set(b.getPosition(row1,col1)->GetPiece(), b.getPosition(row1,col1)->GetColor(), emptyy, firstM);
-                                                b.getPosition(row1,col1)->setEmpty(true);
+                                                b.getPosition(row1,col1)->set(new Empty(), -1, true, true);
                                                 b.printBoard();
                                                 if( b.getPosition(row2, col2)->GetPiece()->getType() == "King"){
                                                         if(b.getPosition(row1,col1)->GetColor() == 0){
@@ -208,7 +240,7 @@ class Move : public Operation {
 				}
 
 				else if(b.getPosition(row1,col1)->GetPiece()->getType() == "Knight"){
-                                        PieceFactory* factory = new KnightFactory(getPosition(row1,col1), getPosition(row2,col2), b);
+                                        PieceFactory* factory = new KnightFactory(b.getPosition(row1,col1), b.getPosition(row2,col2), b);
                                         bool valid = factory->status();
                                         if(valid == false){
                                                 cout << "Try again." << endl;
@@ -220,9 +252,9 @@ class Move : public Operation {
                                         else{
                                         	stop = true;
                                                 MoveLog(pos1, pos2);
-                                                b.getPosition(row2,col2)->setEmpty(true);
+                                                b.getPosition(row2,col2)->set(new Empty(), -1, true, true);
                                                 b.getPosition(row2,col2)->set(b.getPosition(row1,col1)->GetPiece(), b.getPosition(row1,col1)->GetColor(), emptyy, firstM);
-                                                b.getPosition(row1,col1)->setEmpty(true);
+                                                b.getPosition(row1,col1)->set(new Empty(), -1, true, true);
                                                 b.printBoard();
                                                 if( b.getPosition(row2, col2)->GetPiece()->getType() == "King"){
                                                         if(b.getPosition(row1,col1)->GetColor() == 0){
