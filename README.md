@@ -36,3 +36,10 @@
 ![](images/OMT%20Strategy%20Pattern.jpg)
  *Factory Method Pattern*: The functionality of the abstract factory pattern can be portrayed by its ability to create objects without having to specify the exact class ofthe object that will be created. This allows us to explicitly declare interfaces for each distinct product of the Piece family without having them to specifically be dependent on the buiness logic of the interface.
 ![](images/OMT%20Factory%20Method.jpg)
+
+## Program Running
+![](images/welcome.png)
+![](images/gae.png)
+![](images/game2.png)
+![](images/game3.png)
+![](images/outro.png)
