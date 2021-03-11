@@ -9,7 +9,7 @@ using namespace std;
 class Rook : public Piece {
 	virtual string getType() { return "Rook"; }
         virtual bool isValid(Position* start, Position* end, Board b) {
-        		/*
+        	
 			int colDifference = start->GetColumn() - end->GetColumn();
                         int rowDifference = start->GetRow() - end->GetRow();
 
@@ -55,7 +55,7 @@ class Rook : public Piece {
                                 return false;
                                 }
                         }
-*/
+
                         return true;
 
 	}

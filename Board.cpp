@@ -105,15 +105,7 @@ string  Board::printP(Position curr) {
 		}
 	}		
 	else {
-		if (curr.GetColor() == 1) {		
 			return " ";
-		}
-		else if (curr.GetColor() == 0) {
-			return ":";
-		}
-		else {
-			return " ";
-		}
 	}
 }
 
@@ -162,14 +154,6 @@ void Board::setInitialBoard() {
                                 throwawayBoard[j][i].set(new Empty(), -1, true, true);
                 	}
 		}
-/*
-		for (int i = 0; i < 8; i++){
-      	  	            throwawayBoard[i][0].set(new Empty(), -1, true, true);
-                }
-		for (int i = 0; i < 8; i++){
-                            throwawayBoard[i][7].set(new Empty(), -1, true, true);
-                }
-*/
                 for (int i = 0; i < 8; i++){
                         for (int j = 0; j < 8; j++){
 			//	int colAscii = 65 + i;

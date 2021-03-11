@@ -8,6 +8,8 @@
 #include <typeinfo>
 #include "PieceFactory.h"
 #include "Board.h"
+#include <stdio.h>
+#include <ctype.h>
 
 using namespace std;
 class Move : public Operation {
@@ -16,23 +18,50 @@ class Move : public Operation {
                 void operation(Board b){
                         string pos1;
                         string pos2;
-				cout << "TURN: ";
-                		if (b.getTurn() == 0) {
-                        		cout << "WHITE" << endl;
-                		}
-                		else {
-                        		cout << "BLACK" << endl;
-                		}
-                       		cout << "Which piece would you like to move?: ";
+                       		cout << "Which piece would you like to move?: (LETTER/ROW) ";
                        		cin >> pos1;
-                        	cout << "Where would you like to move it?: ";
+				bool yes = validInput(pos1);
+				while (yes == false) {
+					cout << "Invalid Input. Please Try Again." << endl;
+					cout << "Which piece would you like to move?: (LETTER/ROW) ";
+                                	cin >> pos1;
+					yes = validInput(pos1);
+				}	
+                        	cout << "Where would you like to move it?: (LETTER/ROW) ";
                         	cin >> pos2;
+				bool yes2 = validInput(pos2);
+				 while (yes2 == false) {
+                                        cout << "Invalid Input. Please Try Again." << endl;
+                                        cout << "Where would you like to move it?: (LETTER/ROW) ";
+					cin >> pos2;
+                                        yes2 = validInput(pos2);
+                                }
 				position1 = pos1;
 				position2 = pos2;
 
 				move(pos1, pos2, b);
 		}
 
+		bool validInput(string input) {
+				
+			if(input.size() != 2) {
+				return false;
+			}
+
+			if (( input.at(1) == '1' || input.at(1) == '2' || input.at(1) == '3' ||
+                             input.at(1) == '6' || input.at(1) == '5' || input.at(1) == '4' ||
+                             input.at(1) == '7' || input.at(1) == '0' ) && ( input.at(0) == 'a' || input.at(0) == 'A' || input.at(0) == 'b' ||
+                             input.at(0) == 'B' || input.at(0) == 'c' || input.at(0) == 'C' ||
+                             input.at(0) == 'd' || input.at(0) == 'D' || input.at(0) == 'e' || input.at(0) == 'E' ||
+                             input.at(0) == 'f' || input.at(0) == 'F' || input.at(0) == 'G' ||
+                             input.at(0) == 'g' || input.at(0) == 'h' ||input.at(0) == 'H')) {
+				return true; 
+			}
+			else {
+				return false;
+			}
+			    
+		}		
 
 		int ColumnToNums(char column){
                         if(column == 'a' || column == 'A'){
@@ -81,19 +110,6 @@ class Move : public Operation {
                                 col2 = ColumnToNums(pos2.at(0));
                                 row2 = pos2.at(1) - 48;
 
-				cout << "Col1: " << col1 << endl;
-                                cout << "test: " << b.getPosition(row1,col1)->GetPiece()->getType() << endl;
-				cout << "Row1: " << row1 << endl;
-				 cout << "Color1: " << b.getPosition(row1,col1)->GetColor() << endl;
-
-                                cout << "Col2: " << col2 << endl;
-        			cout << "test: " << b.getPosition(row2,col2)->GetPiece()->getType() << endl;
-	                        cout << "Row2: " << row2 << endl;
-	
-
-				cout << "Turn: " << b.getTurn() << endl;
-				cout << "Color2: " << b.getPosition(row2,col2)->GetColor() << endl;
-
                                 if (col1 < -1 || col1 > 8 || row1 < -1 || row1 > 8 || col2 < -1 || col2 > 8 || row2 < -1 || row2 > 8){
                                         cout << "Out of bounds, try again." << endl;
                                 	cout << "Try again." << endl;
@@ -103,7 +119,7 @@ class Move : public Operation {
                                                         cin >> pos2;
 				}
                                 else if(b.getPosition(row1,col1)->GetPiece()->getType() == "King"){
-                                        PieceFactory* factory = new KingFactory(getPosition(row1,col1), getPosition(row2,col2), b);
+                                        PieceFactory* factory = new KingFactory(b.getPosition(row1,col1), b.getPosition(row2,col2), b);
                                         bool valid = factory->status();
 					if(valid == false){
                                                 cout << "Try again." << endl;
@@ -215,7 +231,7 @@ class Move : public Operation {
 				}
 
 				else if(b.getPosition(row1,col1)->GetPiece()->getType() == "Knight"){
-                                        PieceFactory* factory = new KnightFactory(getPosition(row1,col1), getPosition(row2,col2), b);
+                                        PieceFactory* factory = new KnightFactory(b.getPosition(row1,col1), b.getPosition(row2,col2), b);
                                         bool valid = factory->status();
                                         if(valid == false){
                                                 cout << "Try again." << endl;
@@ -243,22 +259,6 @@ class Move : public Operation {
 				}
 
 				else if(b.getPosition(row1,col1)->GetPiece()->getType() == "Pawn"){
-					cout << "PAWN REACHED!" << endl;
-
-					cout << "Col1: " << col1 << endl;
-                                cout << "test: " << b.getPosition(row1,col1)->GetPiece()->getType() << endl;
-                                cout << "Row1: " << row1 << endl;
-                                 cout << "Color1: " << b.getPosition(row1,col1)->GetColor() << endl;
-
-                                cout << "Col2: " << col2 << endl;
-                                cout << "test: " << b.getPosition(row2,col2)->GetPiece()->getType() << endl;
-                                cout << "Row2: " << row2 << endl;
-				
-
-				cout << "get column" << b.getPosition(row1,col1)->GetColumn() << endl;
-			        cout << "get row" << b.getPosition(row1,col1)->GetRow() << endl;
-
-
                                         PieceFactory* factory = new PawnFactory(b.getPosition(row1,col1), b.getPosition(row2,col2), b);
                                         bool valid = factory->status();
                                         if(valid == false){
@@ -271,13 +271,8 @@ class Move : public Operation {
                                         else{
                                                 stop = true;
                                                 MoveLog(pos1, pos2);
-
-						if (b.getPosition(row1,col1)->GetFirst() == true) { 
-							b.getPosition(row1,col1)->SetFirst(false); 
-						}
-
                                                 b.getPosition(row2,col2)->set(new Empty(), -1, true, true);
-                                             	b.getPosition(row2,col2)->set(b.getPosition(row1,col1)->GetPiece(), b.getPosition(row1,col1)->GetColor(), emptyy, firstM);
+                                             	b.getPosition(row2,col2)->set(b.getPosition(row1,col1)->GetPiece(), b.getPosition(row1,col1)->GetColor(), emptyy, false);
 						b.getPosition(row1,col1)->set(new Empty(), -1, true, true);
                                                 b.printBoard();
 						if( b.getPosition(row2, col2)->GetPiece()->getType() == "King"){
@@ -293,6 +288,7 @@ class Move : public Operation {
 			}
 			Menu m;
 			b.changeTurn();
+			m.clearScreen();
                         m.gameMenu(b);
 		}
 };

@@ -17,15 +17,6 @@ class Pawn : public Piece {
                         int colDifference = start->GetColumn() - end->GetColumn();
                         int rowDifference = start->GetRow() - end->GetRow();
 				
-			cout << endl;
-			cout << "PAWN TEST: " << start->GetColor()<< ", " << end->GetColor() << endl;
-			cout << "StartCol: " << start->GetColumn() << endl;
-			cout << "EndCol: " << end->GetColumn() << endl;
-			cout << "StartRow: " << start->GetRow() << endl;
-                        cout << "EndROw: " << end->GetRow() << endl;
-			cout << "colDiff: " << colDifference << endl;
-			cout << "rowDiff: " << rowDifference << endl;
-
                         //WRONG COLOR
                         if (b.getTurn() != start->GetColor()) {
                                 cout << "ERROR: Wrong color!" << endl;
@@ -53,13 +44,12 @@ class Pawn : public Piece {
                         }
 
                         //WITHIN MOVE RANGE AND NOT ZERO
-                        if (start->GetFirst() == true && colDifference > 1) {
-                                if (start->GetColumn() == end->GetColumn() &&
-                                    start->GetRow() + 2 == end->GetRow()) {
+                        if (start->GetFirst() == true && (colDifference > 1 || colDifference < -1)) {
+                                if (start->GetRow() == end->GetRow() &&
+                                    (start->GetColumn() + 2 == end->GetColumn() || start->GetColumn() - 2 == end->GetColumn())) {
                                         return true;
                                 }
                                 else {
-					cout << "first";
                                         cout << "ERROR: Out of Pawn's ability!" << endl;
                                         return false;
                                 }
@@ -69,11 +59,12 @@ class Pawn : public Piece {
                                 if ( (colDifference == 1 || colDifference == -1) &&
                                     (rowDifference == 1 || rowDifference == -1) &&
                                      start->GetColor() != end->GetColor() &&
-                                     end->isEmpty() == false )
+                                     end->isEmpty() == true )
                                 {
-                                        return true;
+					cout << "ERROR: Out of Pawn's ability!" << endl;
+                                        return false;
                                 }
-
+					
                                 //REG
                                 if (colDifference > 1 || colDifference < -1 ||
                                     rowDifference > 1 || rowDifference < -1 ) {

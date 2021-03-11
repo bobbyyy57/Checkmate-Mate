@@ -105,10 +105,7 @@ class Board {
 			MovesLog.push_back(start);
 			MovesLog.push_back(end);
 		}
-/*		void copyBoard() {
-			memcpy(throwawayBoard, initialBoard, sizeof(Position) * 8 * 8);
-		}
-*/};
+};
 
 
 

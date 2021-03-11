@@ -12,7 +12,7 @@ class King : public Piece {
 		 
 		int colDifference = start->GetColumn() - end->GetColumn();
                 int rowDifference = start->GetRow() - end->GetRow();
-	/*
+		
 		//WRONG COLOR
 		if (b.getTurn() != start->GetColor()) {
              		cout << "ERROR: Wrong color!" << endl;
@@ -26,7 +26,7 @@ class King : public Piece {
                 }
 	
 		//SAME SPOT
-		if (colDifference == 0 || rowDifference == 0 ) {
+		if (colDifference == 0 && rowDifference == 0 ) {
                      	cout << "ERROR: Same position!" << endl;
                       	return false;
                	}
@@ -48,10 +48,11 @@ class King : public Piece {
 		//WITHIN RANGE
 		if ((colDifference > 1 || colDifference < -1) ||
 		    (rowDifference > 1 || rowDifference < -1)) {
+			cout << "ERROR: Out of King's Capability!" << endl;
 			return false; 
 		}
-		
-	*/	return true;
+	
+		return true;
 			
 	}
 
