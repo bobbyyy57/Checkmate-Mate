@@ -14,7 +14,6 @@ class Queen : public Piece {
 				
                 	int colDifference = start->GetColumn() - end->GetColumn();
                  	int rowDifference = start->GetRow() - end->GetRow();
-			bool flag = false;
 			int QueenR = start->GetRow();
 			int QueenC = start->GetColumn();
 			int finishR = end->GetRow();
@@ -29,7 +28,7 @@ class Queen : public Piece {
                         cout << "colDiff: " << colDifference << endl;
                         cout << "rowDiff: " << rowDifference << endl;
 
- 			if(b.getTurn() == start->GetColor()){
+ 			if(b.getTurn() != start->GetColor()){
                                 std::cout << "ERROR: Wrong color!" << std::endl;
                                 return false;
                         }
@@ -64,22 +63,6 @@ class Queen : public Piece {
                         }
 
 			//path not clear
-			//VERTICAL
-			for(int i = QueenR + 1; i < finishR; ++i) {
-                                if (b.getPosition(i, QueenC)->isEmpty() == false) {
-                                std::cout << "ERROR: Path is not clear!" << std::endl;
-                                return false;
-                                }
-                        }
-
-			//HORIZONTAL
-                        for(int i = QueenC + 1; i < finishC; ++i) {
-                                if (b.getPosition(QueenR, i)->isEmpty() == false) {
-                                std::cout << "ERROR: Path is not clear!" << std::endl;
-                                return false;
-                                }
-                        }
-
 			//DIAGONAL
 			if(abs(QueenR - finishR) == abs(QueenC - finishC)){
 				int increment_r = (finishR - QueenR) / (abs(finishR - QueenR));
@@ -91,20 +74,37 @@ class Queen : public Piece {
 					}
 				}
 			}
-			else{
-				return false;
-			}
-		
-			if(flag == false){return true;}
+			  // Moving up and right
+	//		if ( (finishingPos.iRow > startingPos.iRow) && (finishingPos.iColumn > startingPos.iColumn) ){
+            //			for (int i = 1; i < abs(finishingPos.iRow - startingPos.iRow); i++){
+          //    				 if (true == isReachable( startingPos.iRow + i, startingPos.iColumn + i, getOpponentColor() ) ){
+						//Some piece can block the way
+	//					 bBlocked = true;
+            // 				 }
+          // 			 }
+         //		}
 
-                        return true;
-			}
+         // Moving up and left
+                
+			
+			//VERTICAL
+			for(int i = QueenR + 1; i < finishR; ++i) {
+                                if (b.getPosition(i, QueenC)->isEmpty() == false) {
+                                std::cout << "ERROR: Path is not clear!" << std::endl;
+                                return false;
+                                }
+                        }
 
+			//HORIZONTAL
+			 for(int i = QueenC + 1; i < finishC; ++i) {
+                                if (b.getPosition(QueenR, i)->isEmpty() == false) {
+                                std::cout << "ERROR: Path is not clear!" << std::endl;
+                                return false;
+                                }
+                        }
+
+			return true;
+		}
 };
-
-
-
-
-
-#endif
-
+			
+#endif			
