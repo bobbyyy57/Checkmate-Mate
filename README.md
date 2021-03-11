@@ -17,6 +17,7 @@
  * *Input*:
    * user's moves
    * 'Q' = 'quit'
+   * 'P' = 'play'
    * 'U' = 'undo'
    * 'S' = 'save'
    * 'X' = 'surrender'
