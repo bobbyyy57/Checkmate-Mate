@@ -32,7 +32,12 @@ struct Position {
 		void setColumn(char col) { column = ColumnToNum(col); }
 		void setRow(int x) { row = x; }
 		void SetFirst(bool x) { firstMove = x; }
-		void setEmpty(bool x) { empty = x; }
+		void setEmpty() {
+			empty = true; 
+			firstMove = true;
+		//	type = new Empty();
+			color = -1;
+		}
 		void set(Piece* curr, int PieceColor, bool mtee, bool first) {
 			type = curr;
 			color = PieceColor;
@@ -83,8 +88,8 @@ class Board {
    protected:
 	Position throwawayBoard[8][8];
 	int turn = 0;
-	vector<string> MovesLog;
    public:
+	vector<string> MovesLog;
 	void printBoard();
 	void setInitialBoard();
 	Position* getPosition(int x,int y) {

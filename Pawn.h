@@ -53,13 +53,13 @@ class Pawn : public Piece {
                         }
 
                         //WITHIN MOVE RANGE AND NOT ZERO
-                        if (start->GetFirst() == true && colDifference > 1) {
-                                if (start->GetColumn() == end->GetColumn() &&
-                                    start->GetRow() + 2 == end->GetRow()) {
+                        if (start->GetFirst() == true && (colDifference > 1 || colDifference < -1)) {
+                                if (start->GetRow() == end->GetRow() &&
+                                    (start->GetColumn() + 2 == end->GetColumn() || start->GetColumn() - 2 == end->GetColumn())) {
                                         return true;
                                 }
                                 else {
-					cout << "first";
+					cout << "oompa";
                                         cout << "ERROR: Out of Pawn's ability!" << endl;
                                         return false;
                                 }

@@ -9,6 +9,8 @@
 #include "Surrender.h"
 #include "Operation.h"
 #include "Board.h"
+//#include "Save.h"
+//#include "Undo.h"
 
 using namespace std;
 
@@ -115,7 +117,7 @@ void Menu::gameMenu(Board b) {
 
 	cout << "TURN: ";
 		if(b.getTurn() == 0) {
-			cout << "WHITE:" << endl;
+			cout << "WHITE" << endl;
 		}
 		else{
 			cout << "BLACK" << endl;
@@ -123,7 +125,6 @@ void Menu::gameMenu(Board b) {
 	string input;
 	cout << "Choose Option: ";
 	cin >> input;
- 	while(input != "Q" || input != "q") {
 	
  		if (input == "M" || input == "m") { 
 			click = new Move();
@@ -131,30 +132,24 @@ void Menu::gameMenu(Board b) {
  	 	}
 //	  	else if (input == "U" || input == "u") { 
 //	  		click = new Undo();
-//	  		click->operation();
+//	  		click->operation(b);
 //	  	}
 		else if (input == "X" || input == "x") { 
 			click = new Surrender();
     			click->operation(b);
  	 	}
- //	 	else if (input == "S" || input == "s") { 
- //	 		click = new Save();
- //	 		click->operation();
- //	 	}
- 		else {
-	    		cout << "Invalid Option. Please Try Again." << endl;
-   	  		cout << "Choose Option: ";
-        		cin >> input;	
-		  }
- 	}
-	if (input == "Q" || input == "q") {	
-		click = new Quit("game");
-		click->operation(b);
-	}
-	else {	
-		clearScreen();
-		cout << "ERROR: Invalid Option. Please Try Again." << endl;			
-		gameMenu(b);
-	}
+// 	 	else if (input == "S" || input == "s") { 
+// 	 		click = new Save();
+// 			click->operation(b);
+// 	 	}
+		else if (input == "Q" || input == "q") { 
+                        click = new Quit("game");
+                        click->operation(b);
+                }
+		else {	
+			clearScreen();
+			cout << "ERROR: Invalid Option. Please Try Again." << endl;			
+			gameMenu(b);
+		}
 
 }
