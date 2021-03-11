@@ -15,13 +15,11 @@
  
 **Input/Output**:
  * *Input*:
-   * the amount of players (one or two) which decides if the player will be playing against a computer or not
    * user's moves
    * 'q' = 'quit'
    * 'r' = 'redo'
    * 's' = 'save'
  * *Output*:
-   * depending on amount of players, game will start with either two-players or against computer 
    * the pieces moving from one spot (node) to another by either a user of the computer.
    * quits the game
    * redos player's move
