@@ -20,7 +20,7 @@
    * 'r' = 'redo'
    * 's' = 'save'
  * *Output*:
-   * the pieces moving from one spot (node) to another by either a user of the computer.
+   * the pieces moving from one spot (node) to another by either a user.
    * quits the game
    * redos player's move
    * saves game and will allow player(s) to return to game
