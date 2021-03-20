@@ -36,11 +36,10 @@
  *Strategy Design Pattern*: The functionality of the strategy design pattern shines by allowing us to define a family of algorithms, putting each of them into a separate class while make their objects interchangeable at run time. This is very beneficial as we are able to use pure virtual functions to define algorithms while we allow each indivdual button to implement their algorithm.
 ![](images/OMT%20Strategy%20Pattern.jpg)
  *Factory Method Pattern*: The functionality of the abstract factory pattern can be portrayed by its ability to create objects without having to specify the exact class ofthe object that will be created. This allows us to explicitly declare interfaces for each distinct product of the Piece family without having them to specifically be dependent on the buiness logic of the interface.
-![](images/OMT%20Factory%20Method.jpg)
+![OMT Factory Method-2](https://user-images.githubusercontent.com/72523111/111853025-73ac9080-88d6-11eb-9bcc-ca1c22941274.jpg)
 
 ## Installing Chess
 *Copy, Paste*: To allow you to enjoy chess with your friends at your easiest convenience just copy and paste the content of our files to your IDE of choice. Make sure you can run C++11 and compile. After this you should get an executable by the title of 'a.out'. Run the executable and enjoy chess. 
-
 
 
 ## Using the Program
